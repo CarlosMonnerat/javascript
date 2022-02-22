@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,18 +22,22 @@
     
     <script>
                 //Como selecionar By QuerySelector
-        var d = window.document.querySelector('div#msg') 
-        d.style.background = 'blue' // destaca a linha com a cor escolhida
-        /*Se ao invez de uma 'ID' for uma 'Class' a '#' deve ser substituída por '.' */
+        var d = window.document.querySelector('div#msg')        // Se ao invez de uma 'ID' for uma 'Class' a '#' deve ser substituída por '.' 
+        d.style.background = 'blue'                             
 
-                //Como selecionar By Tag
-        /*var p1 = window.document.getElementsByTagName('p')[1] 
-        window.document.write('Está escrito assim: ' +p1.innerText) */
+    
+    /*            Como selecionar By TagName
+        var p = window.document.getElementsByTagName('p')[0]                       (Como existem 2 tags '<p>' é necessário indicar com '[]' lembrando que a 1ª é zero)
+        window.document.write('Está escrito assim: ' +p.innerText)
+    
 
-                //Como selecionar By Id
-        /*var d = window.document.getElementById('msg')
+        
+                Como selecionar By Id
+        var d = window.document.getElementById('msg')
         document.write('Na ID está escrito: '+msg.innerText) 
-        //d.innerText = 'Estou aguardando...' //Muda o texto */
+        d.innerText = 'Estou aguardando...'                     //Muda o texto 
+    
+    */
         
     
     </script>

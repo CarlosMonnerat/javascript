@@ -17,16 +17,29 @@
 <body>
     <h1>Exercício #3! </h1>
     <p>Soma de dois números e média".</p>
+
     <script>
-        var n1 = Number (window.prompt ("Digite um numero: ")) // "Number" Converte p/ numero
+        var n1 = Number (window.prompt ("Digite um numero: "))         // Por padrão "prompt é uma string, por isso colocamos "Number" antes para converte-lo p/ numero
         var n2 = Number (window.prompt ("Digite outro número: ")) 
         var soma = n1 + n2
        window.alert(`A soma entre ${n1} e ${n2} é ${soma}` )
 
+/*                  OUTRAS FORMAS DE CONVERTER String -> Number :
+                        Number.parseInt(n)          (Number do tipo inteiro)
+                        Number.parseFloat(n)        (Number do tipo float)
+
+*/
+/*                   CONVERTER Number -> String :
+                        String(n)          
+                        (n).toString()        
+
+*/
+
+//    Template String:
        var nome = 'Gustavo'
        var idade = '17'
        var nota = '5.5'
-       window.alert(`O aluno ${nome} com ${idade} anos, tirou a nota ${nota}`)
+       window.alert(`O aluno ${nome} com ${idade} anos, tirou a nota ${nota}`)  // Deve se utilizar crase
 
        
 
