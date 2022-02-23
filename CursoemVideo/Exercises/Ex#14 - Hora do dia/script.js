@@ -3,12 +3,14 @@ function carregar(){
     var img = window.document.getElementById('imagem') 
     var data = new Date()
     var hora = data.getHours()
-    //var hora = 0 //Linha de Testes
+    //var hora = 0 (Linha de Testes)
     var min = data.getMinutes()
-    msg.innerHTML = `Agora são ${hora}:${min} h.  `
+
+    msg.innerHTML = `Agora são ${hora}:${min} horas.  `
+
     if(hora>=5 && hora < 12){
         msg.innerHTML += 'Bom Dia!'
-        document.body.style.background = '#e2cd9f' //Altera a cor utilizando o cód. selecionado no PS
+        document.body.style.background = '#e2cd9f'                      //Altera a cor de acordo com o cód. indicado
         img.src = 'fotomanha.png'
     }
     else if (hora >= 12 && hora <= 18){
