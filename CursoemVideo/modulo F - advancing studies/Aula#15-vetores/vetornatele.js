@@ -1,6 +1,6 @@
 let val = [8,1,7,4,2,9]
 
-for(pos=0; pos<val.length; pos++){
+for(pos=0; pos < val.length; pos++){
     console.log(`A posição ${pos} tem o valor ${val[pos]}`)
 }
 
