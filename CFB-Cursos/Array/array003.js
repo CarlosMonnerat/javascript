@@ -1,3 +1,5 @@
+//                      Métodos     unshift(),    .pop(),     .shift(),   e   .splice() 
+
 var mochila = [];
 
 mochila.push("poção");                                  // add um elemento ao final do array

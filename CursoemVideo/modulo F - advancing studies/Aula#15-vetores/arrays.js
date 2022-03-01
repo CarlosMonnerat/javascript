@@ -18,4 +18,3 @@ console.log ('imprimindo o vetor com o comando FOR:')
 for(let pos=0; pos < num.length; pos++) {
     console.log (num[pos])
 }
-

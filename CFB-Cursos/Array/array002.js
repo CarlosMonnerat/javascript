@@ -1,3 +1,6 @@
+//                              Método .push()
+
+
 var itens = ["poção", "chave", "cura", "capa", "espada", "anel"];
 var mochila = [];
 
