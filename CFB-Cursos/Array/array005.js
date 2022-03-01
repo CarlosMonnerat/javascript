@@ -1,3 +1,5 @@
+//                           Método     .sort(),     .reverse(),     .join()
+
 var num = [5,8,4,9,7,6,3,0,2,1];
 var numeros;
 
