@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mudando a posição de um Elemento</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        
+        function mudapos(obj){
+            obj.style.position="absolute";
+            obj.style.left=Math.random()*500+"px";
+            obj.style.top=Math.random()*500+"px";
+
+        }
+    </script>
+</head>
+<body>
+    <div id="dv" onmouseover="mudapos(this)"></div> <br>
+    <button onmouseover="mudapos(this)">Clique Aqui</button>
+    
+</body>
+</html>
