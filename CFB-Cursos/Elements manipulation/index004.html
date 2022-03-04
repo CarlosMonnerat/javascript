@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulando Data e Hora</title>
+</head>
+<body>
+    <script>
+        var dt=new Date();
+
+        var diasem=dt.getDay();                 //Obtem o dia da semana (0=Domingo 1=Segunda ... 6=Sábado)
+        var dia=dt.getDate();                   //Obtem o dia do mês
+        var mes=dt.getMonth();
+        var ano=dt.getFullYear();
+
+        var meses=new Array("Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Setembro","Outubro","Novembro","Dezembro");
+        var semana=new Array("Domingo","Segunda","Terça","Quarta","Quinta","Sexta","Sábado");
+
+
+        var hora=dt.getHours();
+        var min=dt.getMinutes();
+        var seg=dt.getSeconds();
+
+
+        document.write(diasem +"<br>");
+        document.write(dia +"<br>");
+        document.write(mes +"<br>");            // 0=Janeiro, 1=Fevereiro ... 11=Dezembro
+        document.write(ano +"<br>");
+
+        document.write(semana[diasem] +", " +dia +" de " +meses[mes] +" de " + ano  +"<br>");
+        document.write(hora +":"+min +":"+seg);
+
+        
+        
+
+    </script>
+</body>
+</html>
