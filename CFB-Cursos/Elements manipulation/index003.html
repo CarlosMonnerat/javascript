@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulando Formulários</title>
+    <style>
+        label{
+            display: block;
+        }
+        input{
+            display: block;
+        }
+        input[type=submit], label{
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form name="curso1" id="curso1" action="#" method="post">
+        <label>Nome</label>
+        <input type="text" name="fNome" id="teste" value="Primeiro - 1">
+        <label>Senha</label>
+        <input type="password" name="fSenha" value="123">
+        <input type="submit" name="btEnviar" value="Enviar">
+    </form>
+
+    <form name="curso2" id="curso2" action="#" method="post">
+        <label>Nome</label>
+        <input type="text" name="fNome" id="teste" value="Segundo - 2">
+        <label>Senha</label>
+        <input type="password" name="fSenha" value="123">
+        <input type="submit" name="btEnviar" value="Enviar">
+    </form>
+    <hr>
+    
+    <script>
+        var fm=document.forms.length                               //'forms' retorna o formulário e 'length' a quantidade de formularios
+        document.write(fm +"<br>");
+
+        var fm2=document.forms[1].id;
+    /* OU:      document.forms.item(1).id;
+                document.forms.namedItem("curso2").id;
+    */
+        document.write(fm2);
+
+//Para imprimir todo o formulário, basta usarmos 'innerHTML'
+        var fm3=document.forms[0].innerHTML
+        document.write(fm3);
+
+//                                  Manipulanto os elementos de um formulário
+        
+    var fm4=document.forms["curso1"].elements[0].value;
+    document.write("<br>"+fm4);
+
+    //Outra forma:
+    var f1=document.forms[0];
+    var el=f1.elements;
+
+    el[0].style.backgroundColor="#ddd";
+    el[1].value="CFB Cursos"
+    </script>
+</body>
+</html>
