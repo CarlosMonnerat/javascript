@@ -8,18 +8,20 @@
 </head>
 <body>
     <script>
-        //Avaliando a informação dada pelo usuário
+        //Avaliando a informação dada pelo usuário e tratando o erro manualmente
 
         var num; // (Ex. Máximo 10)
 
         try{
             num = prompt("Digite um valor: ");
             if(num > 10){
-                throw new Error("Valor Inválido");                              // 'throw' gera uma exceção, e 'Error' chama um objeto do tipo erro
+                throw new Error("Valor Inválido, o valor deve ser menor ou igual a 10. <br>");   // 'throw' gera uma exceção e joga a info para 'e'.'Error' chama um objeto do tipo erro
             }
             document.write("Valor: "+num); 
-        }catch(e){                                                             // Ao dectar o erro o "try é interrompido e cai para o "catch" onde a exceção é passada para 'e'
-            document.write("ERRO: "+e.message);
+        }catch(e){                                                                             // Ao dectar o erro o "try" é interrompido e cai para o "catch".
+            document.write("Erro: "+e.message);                                                // '.message' informa qual foi o erro encontrado
+        }finally{
+            document.write("<br>Fim do Tratamento.");                                          //Comando sempre é executado independente se há erro ou não
         }
     </script>
 </body>
