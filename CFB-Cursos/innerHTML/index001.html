@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>innerHTML e getElementById</title>
+</head>
+<body>
+
+    <p id="texto">CFB Cursos</p>
+    <input type="text" id="cxtexto" value="Curso de JavaScript">
+    <div id="exemplo">Texto da DIV</div>
+
+    <script>
+        var cxt = document.getElementById("cxtexto").value; 
+        alert(cxt);
+
+// Para Tags como 'p' o comando '.value' não funciona, por isso usamos o comendo 'innerHTML'
+        
+        var txt = document.getElementById("texto").innerHTML;
+        txt= "Aula 24 - innerHTML";
+        alert(txt);
+
+// Elementos dentro de uma DIV
+
+        var ex = document.getElementById("exemplo").innerHTML = "Novo texto da Div.";
+
+    </script>
+    
+</body>
+</html>
