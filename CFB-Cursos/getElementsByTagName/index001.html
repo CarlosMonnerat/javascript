@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getElementsByTagName</title>
+</head>
+<body>
+    <p>CFB Cursos <br></p> 
+    <p>Curso de JavaScript <br></p> 
+    <p>Aula 25 <br></p> 
+    <p>www.youtube.com/cfbcursos <br></p> 
+    <p>cfbcursos.com.br <br></p> 
+
+    <hr>
+
+    <script>
+        var tagsP = document.getElementsByTagName("p");                // Vai pegar todas as tags 'p' e armazenar em um vetor.
+        document.write(tagsP[3].innerHTML);                           //Imprime o elemento de posição informada entre '[]'
+
+
+//Para Imprimirmos todos os elementos devemos utilizar o comando 'FOR'
+        for(var i=0; i<tagsP.length; i++){
+            document.write(tagsP[i].innerHTML);
+        }
+
+    </script>
+    
+</body>
+</html>
