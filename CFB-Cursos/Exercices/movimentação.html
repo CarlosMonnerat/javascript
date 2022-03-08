@@ -18,7 +18,7 @@
         }
     </style>
 </head>
-<body>
+<body onload="iniciar()">
     <h1>Clique no Objeto para move-lo e tecle 'Enter' para travar</h1>
     <div id="dv1"></div>
 </body>
@@ -63,8 +63,6 @@
         document.addEventListener("keydown",move);
         obj.style.backgroundColor="#f00";
     }
-
-    iniciar();
     
 </script>
 
