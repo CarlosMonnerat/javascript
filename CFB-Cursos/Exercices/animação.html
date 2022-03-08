@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>requestAnimationFrame</title>
+    <style>
+        #jogador{
+            position: absolute;
+            top: 0;
+            left: 0px;
+            background-color: red;
+            border: 1px solid black;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+        .bt1{
+            position: absolute;
+            top: 150px;
+            left: 2px;
+            width: 100px;
+            height: 30px;
+            font-size:medium;
+            font-weight: bolder;
+
+        }
+        .bt2{
+            position: absolute;
+            top: 150px;
+            left: 106px;
+            width: 100px;
+            height: 30px;
+            font-size:medium;
+            font-weight: bolder;
+
+        }
+    </style>
+</head>
+<body onload="inicia()">
+    <div id="jogador"></div>
+    <input type="button" value="Iniciar" class="bt1" onclick="mover()">
+    <input type="button" value="Parar" class="bt2" onclick="parar()">
+    
+</body>
+<script>
+    
+    var jog; vel; dx; dy; px; py; anima;
+    var estado;
+
+    function inicia(){
+        vel=2;
+        dx=1;
+        dy=0;
+        px=0;
+        py=0;
+        estado=1;                                           // 1= movendo    0= parada
+        jog=document.getElementById("jogador");
+        jog.addEventListener("click",moverParar);
+        game();
+    }
+    
+    function game(){
+        px+=dx*vel;
+    //  py+=dy*vel;
+        jog.style.left=px+ "px";
+    //  jog.style.top=py+ "px";
+        if(px>1450){
+            dx=-1;
+        }
+        if(px<0){
+            dx=1;
+        }
+        anima=requestAnimationFrame(game);
+    }
+
+    function moverParar(){
+        if(estado){
+            estado=0;
+            jog.style.backgroundColor="#000";
+            cancelAnimationFrame(anima);
+        }else{
+            estado=1;
+            jog.style.backgroundColor="#f00";
+            anima=requestAnimationFrame(game);
+        }
+    }
+
+    function mover(){
+        if(!estado){                                                            //(SE NOt estado. Ou seja, se estado==0 ou False)
+            estado=1;
+            jog.style.backgroundColor="#f00";
+            anima=requestAnimationFrame(game);
+        }
+    }
+    
+    function parar(){
+            estado=0;
+            jog.style.backgroundColor="#00f";
+            cancelAnimationFrame(anima);
+    }
+
+</script>
+</html>
