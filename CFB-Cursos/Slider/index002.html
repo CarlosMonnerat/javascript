@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider com uso de Botões</title>
+    <style>
+        #dvslider{
+            width: 1000px;
+            height: 300px;
+            border: 1px solid black;
+            display: flex;           /*Faz a distribuição dos elementos dento da div */
+            justify-content: space-between;
+            align-items: center;
+            
+        }
+        .btSlider{
+            background-color: rgba(0,0,0,0.4);
+            height: 30%;
+            color: white;
+            cursor: pointer;            /* A seta do mouse vira uma mãozinha quando passa por cima */
+            border: none;
+            outline: none; /* faz sumir a borda msm quando clicado */
+            margin: 10px;
+            
+        }
+        #borda{
+            width: 100%;
+            height: 5px;
+            margin-top: 25%;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        #barra{
+            width: 0%;
+            height: 100%;
+            background-color: white;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div id="dvslider">
+        <button class="btSlider" onclick="troca(-1)"> < </button>
+        <div id="borda">
+            <div id="barra"></div>
+        </div>
+        <button class="btSlider" onclick="troca(1)"> > </button>
+    </div>
+</body>
+<script>
+    var imgs=[];
+    var slider;
+    var imgAtual;
+    var maxImg;
+    var tmp;
+    var tempoTroca;
+    var vtempo;
+    var vbarra;
+
+    function preCarregar(){                     //Pré carrega as imgs na memória
+        var s=0;
+        for(var i=0;i<5;i++){
+            imgs[i]=new Image();
+            imgs[i].src="image/s"+s+".jpg";
+            s++;
+        }
+    }
+
+    function carregarImg(img){
+        slider.style.backgroundImage="url('"+imgs[img].src+"')";
+
+    }
+
+    function inicia(){
+        preCarregar();
+        imgAtual=0;
+        maxImg=imgs.length;
+        slider=document.getElementById("dvslider");
+        vbarra=document.getElementById("barra");
+        carregarImg(imgAtual);
+        tempoTroca=0;
+        anima();
+
+    }
+
+    function troca(dir){
+        tempoTroca=0;
+        imgAtual+=dir;
+        if(imgAtual>maxImg){
+            imgAtual=0;
+        }else if(imgAtual<0){
+            imgAtual=maxImg;
+        }
+        carregarImg(imgAtual);
+    }
+
+    function anima(){
+        tempoTroca++;
+        if(tempoTroca >= 500){
+            tempoTroca=0;
+            troca(1);
+        }
+        vtempo=tempoTroca/5;
+        vbarra.style.width=vtempo+"%";
+        window.requestAnimationFrame(anima);
+
+        
+
+    }
+
+    window.addEventListener("load",inicia);
+
+</script>
+</html>
