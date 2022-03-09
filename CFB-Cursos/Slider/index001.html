@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider Automático</title>
+    <style>
+        #dvslider{
+            width: 1000px;
+            height: 300px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="dvslider"></div>
+</body>
+<script>
+    var imgs=[];
+    var slider;
+    var imgAtual;
+    var maxImg;
+    var tmp;
+
+    function preCarregar(){                     //Pré carrega as imgs na memória
+        var s=0;
+        for(var i=0;i<5;i++){
+            imgs[i]=new Image();
+            imgs[i].src="image/s"+s+".jpg";
+            s++;
+        }
+    }
+
+    function carregarImg(img){
+        slider.style.backgroundImage="url('"+imgs[img].src+"')";
+
+    }
+
+    function inicia(){
+        preCarregar();
+        imgAtual=0;
+        maxImg=imgs.length;
+        slider=document.getElementById("dvslider");
+        carregarImg(imgAtual);
+        tmp=setInterval(troca,3000);
+
+    }
+
+    function troca(){
+        imgAtual++;
+        if(imgAtual>maxImg){
+            imgAtual=0;
+        }
+        carregarImg(imgAtual);
+    }
+
+    window.addEventListener("load",inicia);
+</script>
+</html>
