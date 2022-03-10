@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toString</title>
+</head>
+<body>
+    <h1>Converção de bases com toString</h1>
+    
+</body>
+<script>
+    var texto="CFB Cursos - \"Curso de JavaScript\""; // O uso das barras indica para o navegador imprimir tbm as aspas
+    var num=15;
+
+    var res=num.toString(); //Apenas converte para string
+    var bin=num.toString(2); //converte para binário
+    var oct=num.toString(8); //converte para octadecimal
+    var hex=num.toString(16); //converte para ehexadecimal
+
+    document.write("Decimal: "+res+"<br>");
+    document.write("Binário: "+bin+"<br>");
+    document.write("Octadecimal: "+oct+"<br>");
+    document.write("hexadecimal: "+hex+"<br><br>");
+
+    document.write(texto);
+
+</script>
+</html>
