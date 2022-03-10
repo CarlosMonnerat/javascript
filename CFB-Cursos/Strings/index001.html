@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match</title>
+</head>
+<body>
+    <h1>Match: Faz uma busca dentro da String por um texto específico</h1>
+    <p id="txt">CFB Cursos - Curso de JavaScript - Aula 46 do curso de javascript</p>
+</body>
+<script>
+    var texto=document.getElementById("txt").innerHTML;
+
+    var res=texto.match(/JavaScript/ig); //Modificadores: Consultar Tabela
+
+    document.write("Foram Encontradas: "+res +"<br>"+"Total :" +res.length);
+</script>
+</html>
