@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang=pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setAttribute</title>
+    <style>
+        #carro{
+            width: 1000px;
+            height: 400px;
+            border: 1px solid black;
+            margin: 10px;
+        }
+        .c0{
+            background-image: url("image/carro0.jpg");
+        }
+        .c1{
+            background-image: url("image/carro1.jpg");
+        }
+        .c2{
+            background-image: url("image/carro2.jpg");
+        }
+    </style>
+</head>
+<body>
+    <button onclick="trocaCarro(0)">Carro 1</button>
+    <button onclick="trocaCarro(1)">Carro 2</button>
+    <button onclick="trocaCarro(2)">Carro 3</button>
+    <button onclick="removeCarro()">Remover</button>
+    <button onclick="verifica()">Verificar</button>
+    <div id="carro"></div>
+    
+</body>
+<script>
+
+    // document.getElementById("carro").setAttribute("class","c0"); == <div id="carro" class="c0"></div>
+    //                                          ("Atriburo", "valor")
+
+    function trocaCarro(c){
+        var obj=document.getElementById("carro");
+        if(c==0){
+            obj.setAttribute("class","c0");
+        }else if(c==1){
+            obj.setAttribute("class","c1");
+        }else if(c==2){
+            obj.setAttribute("class","c2");
+
+        }
+    }
+
+    function removeCarro(){
+        var obj=document.getElementById("carro");
+        obj.removeAttribute("class");
+
+    }
+
+    function verifica(){
+        var obj=document.getElementById("carro");
+        if(obj.hasAttribute("class")){          //Verifica se um atributo está na class. Se sim retorna 'true', senão retorna 'false'
+            alert("O atributo class está na tag");
+        }else{
+            alert("Sem atributo class");
+        }                          
+        
+    }
+
+</script> 
+</html>
