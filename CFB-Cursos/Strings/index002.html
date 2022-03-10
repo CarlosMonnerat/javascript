@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search - replace - charAt - charCodeAt</title>
+</head>
+<body>
+    <h1>Match: Faz uma busca dentro da String por um texto específico</h1>
+    <p id="txt">CFB Cursos - Curso de JavaScript - Aula 46 do curso de javascript</p>
+</body>
+<script>
+    var texto=document.getElementById("txt").innerHTML;
+
+/*  
+    var res=texto.search(/curso/i);                             Retorna a posição apenas do primeiro elemento buscado
+
+    var res=texto.replace(/curso/i, "aula");                    Substitui o elemento 'curso'(apenas o primeiro) pelo elemento 'aula'. 
+                                                                    Para substituir todos deve-se utilizar o modificador 'g'
+
+    var res=texto.charAt(4);                                    Retorna o caracter que está na posição indicada.
+
+    var res=texto.charCodeAt(11);                               Retorna o código relacionado ao caracter da posição indicada.
+
+*/
+        
+        var res=texto.charCodeAt(11);
+        document.write("Resultado: "+res);
+
+</script>
+</html>
