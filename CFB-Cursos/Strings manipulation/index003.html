@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concat</title>
+</head>
+<body>
+    <h1>Manipulando Strings</h1>
+    <p id="txt">CFB Cursos - Curso de JavaScript</p>
+</body>
+<script>
+    var texto=document.getElementById("txt").innerHTML;
+    var txt2=" - Aula 46 do curso de javascript";
+
+    var res=texto.concat(txt2);                 //Concatena a variável 'texto' e a variável 'txt2'
+   
+    /*                  Tbm é possível concatenar a string diretamente. exemplo:
+                            var res=texto.concat(" - Aula 46 do curso de javascript"); 
+    */
+    document.write(res);
+</script>
+</html>
