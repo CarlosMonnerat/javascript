@@ -46,12 +46,18 @@ h1,p{
     font-size: larger;
     font-weight: bold;
 }
-#jaUsado{
+#textoinicial{
     position: absolute;
     left: 620px;
     top: 220px;
     font-size: large;
     
+}
+#letrasdig{
+    position: absolute;
+    left: 620px;
+    top: 220px;
+
 }
 .dvdisplay{
     display: flex;

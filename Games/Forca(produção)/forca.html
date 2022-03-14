@@ -14,10 +14,11 @@
         <p>Digite uma letra e clique em "jogar"</p>
         <img src="image/forca.png" alt="forca" class="forcaimg">
         <input type="text" id="caixa" class="caixa" maxlength="1">
-        <button class="btjogar" onclick="iniciar()">Jogar</button>
-        <button class="btnova" onclick="defLetras()">Nova Palavra</button>
+        <button class="btjogar" onclick="jogar()">Jogar</button>
+        <button class="btnova" onclick="NovaPalavra()">Nova Palavra</button>
 
-        <div id="jaUsado">Vamos Jogar!</div>
+        <div id="textoinicial"></div>
+        <div id="letrasdig"></div>
 
         <div id="dvpalavra" class="dvdisplay">
             <input type="text" id="letra0" class="letra" maxlength="1">
