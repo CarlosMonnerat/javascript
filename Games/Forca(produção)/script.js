@@ -11,7 +11,6 @@ var pos=Math.round(Math.random()*qtde); //'Math.round' Arredonda o número e 'Ma
 var palavra=biblioteca[pos];
 var tam=palavra.length;
 var salvapalavra;
-//var cxLetras=[];
 var acertos=0;
 var erros=0;
 
@@ -35,7 +34,7 @@ function defLetras(d){
         obj=document.getElementById("letra"+i).value=""; 
         obj=document.getElementById("letra"+i).style.display="none"; //A princípio definimos todas as letras com o display 'None' para que não apareça nenhuma
     }
-    for(var i=0; i<d; i++){ //Então usamos o parametro 'd' para mostrarmos apenas as letras necessárias
+    for(var i=0; i<d; i++){ //Então usamos o parametro 'd' para mostrar apenas as letras necessárias
         obj=document.getElementById("letra"+i).style.display="inline-block";
     }
 
@@ -77,9 +76,6 @@ function jogar(){
             alert("PARABÉNS, VOCÊ GANHOU!!!");
             NovaPalavra();
         }
-
-        
-
 
     }
     
