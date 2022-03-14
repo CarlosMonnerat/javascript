@@ -9,12 +9,6 @@ h1,p{
     font-size: 30px;
     
 }
-.forcaimg{
-    position: absolute;
-    left: 300px;
-    top: 100px;
-    height: 500px;
-}
 .caixa{
     position: absolute;
     left: 620px;
@@ -73,4 +67,51 @@ h1,p{
     font-size: larger;
     font-weight: bold;
     padding: 5px;
+}
+.forcaimg{
+    position: absolute;
+    left: 300px;
+    top: 100px;
+    height: 500px;
+}
+#cabeçaimg{
+    position: absolute;
+    left: 470px;
+    top: 210px;
+    width: 100px;
+}
+#corpoimg{
+    position: absolute;
+    left: 488px;
+    top: 272px;
+    width: 100px;
+    height: 100px;
+}
+#braçoEimg{
+    position: absolute;
+    left: 432px;
+    top: 278px;
+    width: 100px;
+    height: 100px;
+}
+#braçoDimg{
+    position: absolute;
+    left: 535px;
+    top: 277px;
+    width: 100px;
+    height: 100px;
+}
+#pernaEimg{
+    position: absolute;
+    left: 438px;
+    top: 362px;
+    width: 100px;
+    height: 100px;
+}
+#pernaDimg{
+    position: absolute;
+    left: 533px;
+    top: 360px;
+    width: 100px;
+    height: 110px;
 }
