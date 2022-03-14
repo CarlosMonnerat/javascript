@@ -14,7 +14,7 @@ var salvapalavra;
 //var cxLetras=[];
 var acertos=0;
 var erros=0;
-var errosMax=7;
+
 var desenhos=[];
     desenhos[1]=document.getElementById("cabeçaimg");
     desenhos[2]=document.getElementById("corpoimg");
@@ -65,14 +65,12 @@ function jogar(){
         if(!acertou){
            document.getElementById("letrasdig").innerHTML+=letra.toUpperCase()+",";
             erros++;
-            desenhos[erros].style.display="block";
             if(erros>6){
                 jogando=false;
                 alert("GAME OVER! \n A palavra era: "+salvapalavra+"\n TENTE NOVAMENTE!");
                 NovaPalavra();
-                
             }
-            
+            desenhos[erros].style.display="block";
         }
         if(acertos==tam){
             jogando=false;
