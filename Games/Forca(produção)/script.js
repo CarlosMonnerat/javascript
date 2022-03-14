@@ -10,8 +10,9 @@ var qtde=biblioteca.length-1;
 var pos=Math.round(Math.random()*qtde); //'Math.round' Arredonda o número e 'Math.random' Gera um número aleatório entre 0 e "*qtde"
 var palavra=biblioteca[pos];
 var tam=palavra.length;
+var salvapalavra;
 //var cxLetras=[];
-var acertos;
+var acertos=0;
 var erros=0;
 var errosMax=7;
 //var desenhos=[];
@@ -19,21 +20,6 @@ var acertou=false;
 var jogando=false;
 
 
-function iniciar(){
-    jogando=true;
-    cxJog.focus();                      //Mantém o cursor na caixa do jogador
-    acertos=0;
-    erros=0;
-    defLetras(tam);
-    
-    
-    //alert("Palavra: "+palavra+"\n"+"Qtde de Letras: "+tam+"\n"+ "Letra digitada: "+cxJog.value)
-    
-}
-
-function teste(){
-    alert("funcionou");
-}
 
 function defLetras(d){
     var obj;
@@ -50,17 +36,16 @@ function defLetras(d){
 function jogar(){
     if(cxJog.value==""){
         alert("Digite uma Letra!")
-    }
-    
-    if(jogando=true){
+        cxJog.focus();
+    }else if(jogando=true){
         var obj;
         var letraTmp; //Vai receber a posição de cada letra
         var pesq;
         var letra=cxJog.value;
         cxJog.value="";
         cxJog.focus();
-        acertou=false;
         pesq=palavra.match(letra); //Verifica se a letra digitada existe dentro da palavra
+        acertou=false;
         while(pesq!=null){ //Se for diferente de 'NUll' significa que a letra foi encontrada
             letraTmp=palavra.search(letra); //Pesquisa por todas as ocorrencias dentro da palavra.
             obj=document.getElementById("letra"+letraTmp).value=letra; //Armazena a letra digitada nas suas devidas posições 
@@ -70,10 +55,19 @@ function jogar(){
             acertou=true;
         }
         if(!acertou){
-            //document.getElementById("textoinicial").innerHTML+="Letras Digitadas: <br>";
             document.getElementById("letrasdig").innerHTML+=letra.toUpperCase()+",";
             erros++;
-        
+            if(erros>3){
+                jogando=false;
+                alert("GAME OVER! \n A palavra era: "+salvapalavra+"\n TENTE NOVAMENTE!");
+                NovaPalavra();
+                
+            }
+        }
+        if(acertos==tam){
+            jogando=false;
+            alert("PARABÉNS, VOCÊ GANHOU!!!");
+            NovaPalavra();
         }
 
         
@@ -85,9 +79,14 @@ function jogar(){
 
 }
 function NovaPalavra(){
-    res.innerHTML="Letras Digitadas:"+"<br>"+cxJog.value;
     pos=Math.round(Math.random()*qtde);
     palavra=biblioteca[pos];
     tam=palavra.length;
+    salvapalavra=palavra;
+    cxJog.value="";
+    cxJog.focus();
+    acertos=0;
+    erros=0;
+    document.getElementById("letrasdig").innerHTML="";
     defLetras(tam);
 }
