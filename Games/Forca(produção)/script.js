@@ -21,6 +21,7 @@ var desenhos=[];
     desenhos[4]=document.getElementById("braçoDimg");
     desenhos[5]=document.getElementById("pernaEimg");
     desenhos[6]=document.getElementById("pernaDimg");
+    desenhos[7]=document.getElementById("cabeçaMimg");
     
 
 var acertou=false;
@@ -63,14 +64,16 @@ function jogar(){
         }
         if(!acertou){
            document.getElementById("letrasdig").innerHTML+=letra.toUpperCase()+",";
-            erros++;
-            if(erros>6){
+           erros++;
+           desenhos[erros].style.display="block";
+            if(erros==7){
                 jogando=false;
                 alert("GAME OVER! \n A palavra era: "+salvapalavra+"\n TENTE NOVAMENTE!");
                 NovaPalavra();
             }
-            desenhos[erros].style.display="block";
+           
         }
+        
         if(acertos==tam){
             jogando=false;
             alert("PARABÉNS, VOCÊ GANHOU!!! \n Palavra: "+salvapalavra);
@@ -93,7 +96,7 @@ function NovaPalavra(){
     erros=0;
     document.getElementById("letrasdig").innerHTML="";
     defLetras(tam);
-    for(var i=1;i<7;i++){
+    for(var i=1;i<8;i++){
     desenhos[i].style.display="none";
     }
     

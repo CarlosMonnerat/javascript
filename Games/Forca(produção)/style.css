@@ -115,6 +115,12 @@ p{
     top: 210px;
     width: 100px;
 }
+#cabeçaMimg{
+    position: absolute;
+    left: 470px;
+    top: 210px;
+    width: 100px;
+}
 #corpoimg{
     position: absolute;
     left: 488px;
