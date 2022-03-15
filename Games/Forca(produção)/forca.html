@@ -9,10 +9,14 @@
     
 </head>
 <body onload="NovaPalavra()">
-    <div id="painel">
+    
+    <header>
         <h1>Jogo da forca</h1>
         <p>Digite uma letra e clique em "jogar"</p>
-
+    </header>
+   
+    <section>
+       
         <input type="text" id="caixa" class="caixa" maxlength="1">
         <button class="btjogar" onclick="jogar()">Jogar</button>
         <button class="btnova" onclick="NovaPalavra()">Nova Palavra</button>
@@ -52,7 +56,7 @@
             <img src="image/pernaE.png" alt="pernaE" id="pernaEimg">
             <img src="image/pernaD.png" alt="pernaD" id="pernaDimg">
         </div>
-    </div>
+    </section>
     
 </body>
 <script src="script.js"></script>
