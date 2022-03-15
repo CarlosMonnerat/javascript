@@ -73,7 +73,7 @@ function jogar(){
         }
         if(acertos==tam){
             jogando=false;
-            alert("PARABÉNS, VOCÊ GANHOU!!!");
+            alert("PARABÉNS, VOCÊ GANHOU!!! \n Palavra: "+salvapalavra);
             NovaPalavra();
         }
 
