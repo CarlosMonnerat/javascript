@@ -7,22 +7,23 @@
     <title>Jogo da Velha</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onload="inicia()">
     <div id="menu">
         <div id="sorteio"></div>
         <button onclick="">Iniciar</button>
     </div>
     
     <div id="painel">
-        <div id="p1" class="posiçao" onclick=""></div>
-        <div id="p2" class="posiçao" onclick=""></div>
-        <div id="p3" class="posiçao" onclick=""></div>
-        <div id="p4" class="posiçao" onclick=""></div>
-        <div id="p5" class="posiçao" onclick=""></div>
-        <div id="p6" class="posiçao" onclick=""></div>
-        <div id="p7" class="posiçao" onclick=""></div>
-        <div id="p8" class="posiçao" onclick=""></div>
-        <div id="p9" class="posiçao" onclick=""></div>
+        <div id="p1" class="posiçao" onclick="jogar(1)"></div>
+        <div id="p2" class="posiçao" onclick="jogar(2)"></div>
+        <div id="p3" class="posiçao" onclick="jogar(3)"></div>
+        <div id="p4" class="posiçao" onclick="jogar(4)"></div>
+        <div id="p5" class="posiçao" onclick="jogar(5)"></div>
+        <div id="p6" class="posiçao" onclick="jogar(6)"></div>
+        <div id="p7" class="posiçao" onclick="jogar(7)"></div>
+        <div id="p8" class="posiçao" onclick="jogar(8)"></div>
+        <div id="p9" class="posiçao" onclick="jogar(9)"></div>
     </div>
 </body>
+<script src="script.js"></script>
 </html>
