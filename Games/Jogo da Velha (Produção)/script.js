@@ -82,7 +82,41 @@ function jogar(p){
             break;
         }
         atualizaTabuleiro();
+        if(quemJoga==1){
+            
+            verifica=verificaVitoria(); //'var verifica' recebe o valor retornado pela função 'verificaVitoria()'
+            if(verifica!=""){
+                alert(verifica+" VENCEU");
+                jogando=false;
+            }
+            cpuJoga();
+        }
     }
+}
+
+function cpuJoga(){
+    if(jogando){
+        var l,c; //linha, coluna
+        if(nivel==1){
+            do{
+                l=Math.round(Math.random()*2);      //'random' gera um número aleatório e 'round' arredonda
+                c=Math.round(Math.random()*2);
+            }while(jogo[l][c]!="");
+            jogo[l][c]="O";
+        }else if(nivel==2){
+            //Rotina do Nivel 2
+        }
+        
+        atualizaTabuleiro();
+        quemJoga=0;
+
+        verifica=verificaVitoria(); //'var verifica' recebe o valor retornado pela função 'verificaVitoria()'
+        if(verifica!=""){
+            alert(verifica+" VENCEU");
+            jogando=false;
+        }
+    }
+
 }
 
 function atualizaTabuleiro(){
@@ -101,6 +135,33 @@ function atualizaTabuleiro(){
 
         }
     }
+}
+
+function verificaVitoria(){
+    var l,c;
+    //Verifica as linhas
+    for(l=0;l<3;l++){
+        if( (jogo[l][0]==jogo[l][1])&&(jogo[l][1]==jogo[l][2])){
+            return jogo[l][0];
+
+        }
+    }
+    //Verifica as colunas
+    for(c=0;c<3;c++){
+        if( (jogo[0][c]==jogo[1][c])&&(jogo[1][c]==jogo[2][c])){
+            return jogo[0][c];
+
+        }
+    }
+    //Verifica as diagonais
+    if( (jogo[0][0]==jogo[1][1]&&jogo[1][1]==jogo[2][2])){
+            return jogo[1][1];
+    }
+    if( (jogo[0][2]==jogo[1][1]&&jogo[1][1]==jogo[2][0])){
+            return jogo[1][1];
+    }
+    return "";
+
 }
 
 
