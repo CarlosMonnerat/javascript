@@ -20,6 +20,18 @@ function inicia(){
         [document.getElementById("p7"),document.getElementById("p8"),document.getElementById("p9")] ];
 
     atualizaTabuleiro();
+        if(quemComeça==1){
+            quemComeça=0;
+            quemJoga=quemComeça;
+            document.getElementById("sorteio").innerHTML="Quem Começa: Você";
+
+        }else{
+            quemComeça=1;
+            quemJoga=quemComeça;
+            document.getElementById("sorteio").innerHTML="Quem Começa: CPU";
+            cpuJoga();
+        }
+
 }
 
 

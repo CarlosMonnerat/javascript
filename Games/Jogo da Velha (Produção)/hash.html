@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body onload="inicia()">
+    <h1>Jogo da Velha</h1>
     <div id="menu">
-        <div id="sorteio"></div>
-        <button onclick="inicia()">Iniciar</button>
+        <div id="sorteio">Quem Joga: </div>
     </div>
+    <button id="botao" onclick="inicia()">Novo Jogo</button>
     
     <div id="painel">
         <div id="p1" class="posiçao" onclick="jogar(1)"></div>
