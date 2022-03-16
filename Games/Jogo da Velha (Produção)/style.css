@@ -20,6 +20,9 @@
     height: 50px;
     cursor: pointer; /*A seta do mouse vira uma mãozinha */
     display: flex; /*permite controlar o alinhamento dos caracteres dentro das divs */
+    justify-content: center; /*Centraliza na horizontal*/
+    align-items: center; /*Centraliza na Vertical*/
+    font-size: 40px;
     
 }
 #p1{
