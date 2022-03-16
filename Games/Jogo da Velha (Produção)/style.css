@@ -1,0 +1,68 @@
+@charset "UTF-8";
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+#painel{
+    width: 160px;
+    height: 160px;
+    display: flex; /* Alinha todos os elementos do painel*/
+    flex-wrap: wrap; /* faz com que ao chegar no limite da largura, o que não couber passa para baixo*/
+    align-content: flex-start;
+    border: 1px solid red;
+    margin: 10px;
+    padding: 10px;
+}
+
+.posiçao{
+    width: 50px;
+    height: 50px;
+    cursor: pointer; /*A seta do mouse vira uma mãozinha */
+    display: flex; /*permite controlar o alinhamento dos caracteres dentro das divs */
+    
+}
+#p1{
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+#p2{
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+}
+#p3{
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+}
+#p4{
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+#p5{
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+}
+#p6{
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+}
+#p7{
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    
+}
+#p8{
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+}
+#p9{
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    
+}
