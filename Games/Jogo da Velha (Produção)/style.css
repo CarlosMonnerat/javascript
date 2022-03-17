@@ -3,6 +3,12 @@
     margin: 0px;
     padding: 0px;
 }
+body{
+    background-color: rgba(137, 142, 148, 0.795);
+    background-image: url(fundo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 h1{
     position: absolute;
     top: 30px;
