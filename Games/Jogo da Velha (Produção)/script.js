@@ -6,11 +6,13 @@ var jogando=true;
 var nivel=3;
 var jogadaCpu=1;
 var quemComeça=1;
+var jogada=0; //Irá contar quantos lances foram jogados
 
 function inicia(){
     document.getElementById("resultado").innerHTML="";
     jogando=true;
     jogadaCpu=1;
+    jogada=0;
     jogo=[
         ["","",""],
         ["","",""],
@@ -24,12 +26,12 @@ function inicia(){
         if(quemComeça==1){
             quemComeça=0;
             quemJoga=quemComeça;
-            document.getElementById("sorteio").innerHTML="Quem Começa: Você";
+            document.getElementById("sorteio").innerHTML="VOCÊ COMEÇA";
 
         }else{
             quemComeça=1;
             quemJoga=quemComeça;
-            document.getElementById("sorteio").innerHTML="Quem Começa: CPU";
+            document.getElementById("sorteio").innerHTML="CPU COMEÇA";
             cpuJoga();
         }
 
@@ -37,6 +39,7 @@ function inicia(){
 
 function verificaVitoria(){
     var l,c;
+
     //Verifica as linhas
     for(l=0;l<3;l++){
         if( (jogo[l][0]==jogo[l][1])&&(jogo[l][1]==jogo[l][2])){
@@ -58,8 +61,8 @@ function verificaVitoria(){
     if( (jogo[0][2]==jogo[1][1]&&jogo[1][1]==jogo[2][0])){
             return jogo[1][1];
     }
+    
     return "";
-
 }
 
 
@@ -129,6 +132,7 @@ function jogar(p){
                 document.getElementById("resultado").innerHTML=verifica+" VENCEU";
                 jogando=false;
             }
+            jogada++;
             cpuJoga();
         }
     }
@@ -181,6 +185,7 @@ function cpuJoga(){
             }
             
         }
+        jogada++;
         quemJoga=0;
 
         
@@ -237,13 +242,24 @@ function ataque(){
                                     }else if((jogo[1][2]=="O")&&(jogo[2][2]=="O")&&(jogo[0][2]=="")){
                                         jogo[0][2]="O";
                                     }else{
-                                        do{
-                                            l=Math.round(Math.random()*2);      //'random' gera um número aleatório e 'round' arredonda
-                                            c=Math.round(Math.random()*2);
-                                        }while(jogo[l][c]!="");
-                                    }    jogo[l][c]="O";
-                                    
-                                    
+                                        if(jogada<8){
+                                            do{
+                                                l=Math.round(Math.random()*2);      //'random' gera um número aleatório e 'round' arredonda
+                                                c=Math.round(Math.random()*2);
+                                            }while(jogo[l][c]!="");
+                                            jogo[l][c]="O";
+                                        }else{
+                                            for(var l=0;l<3;l++){
+                                                for(var c=0;c<3;c++){
+                                                    if(jogo[l][c]==""){
+                                                        jogo[l][c]="O";
+                                                    }else{
+                                                        document.getElementById("resultado").innerHTML="Empatou";
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }    
                                 }
                             }
                         }
@@ -350,35 +366,36 @@ function atqDef(){
                                                                 }else if((jogo[1][2]=="X")&&(jogo[2][2]=="X")&&(jogo[0][2]=="")){
                                                                  jogo[0][2]="O";
                                                                 }else{
-                                                                    do{
-                                                                        l=Math.round(Math.random()*2);      //'random' gera um número aleatório e 'round' arredonda
-                                                                        c=Math.round(Math.random()*2);
-                                                                    }while(jogo[l][c]!="");
-                                                                    jogo[l][c]="O";
+                                                                    if(jogada<8){
+                                                                        do{
+                                                                            l=Math.round(Math.random()*2);      //'random' gera um número aleatório e 'round' arredonda
+                                                                            c=Math.round(Math.random()*2);
+                                                                        }while(jogo[l][c]!="");
+                                                                        jogo[l][c]="O";
+                                                                    }else{
+                                                                        for(var l=0;l<3;l++){
+                                                                            for(var c=0;c<3;c++){
+                                                                                if(jogo[l][c]==""){
+                                                                                    jogo[l][c]="O";
+                                                                                }else{
+                                                                                    document.getElementById("resultado").innerHTML="Empatou";
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
                                                                 }  
-                                                            
-                                    
-                                    
                                                             }
                                                         }
                                                     }
                                                 }
                                             }
-
-
-
-
+                                    
                                     }
-                                    
-                                    
                                 }
                             }
                         }
                     }
                 }
-
-    
-
 }
 
 

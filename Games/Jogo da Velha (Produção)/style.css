@@ -5,15 +5,17 @@
 }
 h1{
     position: absolute;
-    top: 10px;
-    left: 620px;
+    top: 30px;
+    left: 540px;
     font-family: 'Courier New', Courier, monospace;
-    text-decoration: underline;
+    font-size: 60px;
+    
 }
 #menu{
     position: absolute;
     top: 200px;
-    left: 680px ;
+    left: 700px ;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 #botao{
     position: absolute;
@@ -21,6 +23,14 @@ h1{
     left: 710px;
     padding: 5px;
     border-radius: 10px;
+}
+#resultado{
+    position: absolute;
+    top: 130px;
+    left: 650px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 50px;
+    color: brown;
 }
 
 #painel{
