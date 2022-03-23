@@ -19,8 +19,8 @@ var dirJy;
 
 //Posições iniciais
 var posBolaX0=475, posBolaY0=240;
-var posJogY0=180;
-var posCpuY0=180;
+var posJogX0=0, posJogY0=180;
+var posCpuX0=930, posCpuY0=180;
 
 //Tamanhos
 var campoX=0, campoY=0;
@@ -61,9 +61,17 @@ function iniciaJogo(){
         cancelAnimationFrame(frames); //Se não cancelar ficará uma chamada em cima da outra
         jogo=true;
         dirJy=0;
+        bolaY=0;
+        if((Math.random()*10)<5){
+            bolaX=-1;
+        }else{
+            bolaX=1;
+        }
         PosbolaX=posBolaX0;
         PosbolaY=posBolaY0;
+        PosjogX=posJogX0;
         PosjogY=posJogY0;
+        PoscpuX=posCpuX0
         PoscpuY=posCpuY0;
         Game();
     }
@@ -72,15 +80,9 @@ function iniciaJogo(){
 function Game(){
     if(jogo){
         controlajog();
+        controlaBola();
     }
     frames=requestAnimationFrame(Game);
-}
-
-function controlajog(){
-    if(jogo){
-        PosjogY+=velJog*dirJy;
-        jogador.style.top=PosjogY+"px";
-    }
 }
 
 function teclaDw(){
@@ -99,6 +101,38 @@ function teclaUp(){
     }else if(tecla==40){// Baixo
         dirJy=0;
     }
+}
+
+function controlajog(){
+    if(jogo){
+        PosjogY+=velJog*dirJy;
+        if(PosjogY+barraH >= campoH || PosjogY<=0){
+            PosjogY+=(velJog*dirJy)*-1;
+        }
+        jogador.style.top=PosjogY+"px";
+    }
+}
+
+function controlaBola(){
+    PosbolaX+=velBola*bolaX;
+    PosbolaY+=velBola*bolaY;
+// Colisão com o Jogador
+    if( (PosbolaX <=PosjogX+barraW) &&  ((PosbolaY+bolaH>=PosjogY) && (PosbolaY<=PosjogY+barraH))   ){
+        bolaY=(((PosbolaY+(bolaH/2))-(PosjogY+(barraH/2)))/16);
+        bolaX*=-1;
+    }
+// Colisão com a CPU
+    if(
+        (PosbolaX >=PoscpuX-barraW) &&
+        ((PosbolaY+bolaH>=PoscpuY) && (PosbolaY<=PoscpuY+barraH))
+    ){
+        bolaY=(((PosbolaY+(bolaH/2))-(PosjogY+(barraH/2)))/16);
+        bolaX*=-1;
+    }
+
+    bola.style.left=PosbolaX+"px";
+    bola.style.top=PosbolaY+"px";
+    
 }
 
 
