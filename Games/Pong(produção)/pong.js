@@ -58,6 +58,7 @@ function inicializa(){ //Inicia as variáveis e add os eventos
 
 function iniciaJogo(){
     if(!jogo){
+        velBola=velCpu=velJog=8;
         cancelAnimationFrame(frames); //Se não cancelar ficará uma chamada em cima da outra
         jogo=true;
         dirJy=0;
@@ -129,6 +130,43 @@ function controlaBola(){
         bolaY=(((PosbolaY+(bolaH/2))-(PosjogY+(barraH/2)))/16);
         bolaX*=-1;
     }
+
+//Colisão com os Limites Superior e Inferior
+    if((PosbolaY>=480)||(PosbolaY<=0)){
+        bolaY*=-1;
+    }
+//Colisão com os limites Laterias
+  //DIREITA
+    if(PosbolaX>=(campoW-bolaW)){
+        velBola=0;
+        PosbolaX=posBolaX0;
+        PosbolaY=posBolaY0;
+        PosjogX=posJogX0;
+        PosjogY=posJogY0;
+        PoscpuX=posCpuX0;
+        PoscpuY=posCpuY0;
+        pontos++;
+        txtPontos.value=pontos;
+        jogador.style.top=PosjogY+"px";
+        cpu.style.top=PoscpuY+"px";
+        jogo=false;
+  //ESQUERDA
+    }else if(PosbolaX<=0){
+        velBola=0;
+        PosbolaX=posBolaX0;
+        PosbolaY=posBolaY0;
+        PosjogX=posJogX0;
+        PosjogY=posJogY0;
+        PoscpuX=posCpuX0;
+        PoscpuY=posCpuY0;
+        pontos--;
+        txtPontos.value=pontos;
+        jogador.style.top=PosjogY+"px";
+        cpu.style.top=PoscpuY+"px";
+        jogo=false;
+
+    }
+    
 
     bola.style.left=PosbolaX+"px";
     bola.style.top=PosbolaY+"px";
