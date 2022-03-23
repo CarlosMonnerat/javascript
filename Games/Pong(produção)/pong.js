@@ -82,6 +82,7 @@ function Game(){
     if(jogo){
         controlajog();
         controlaBola();
+        controlaCpu();
     }
     frames=requestAnimationFrame(Game);
 }
@@ -166,10 +167,11 @@ function controlaBola(){
         jogo=false;
 
     }
-    
-
     bola.style.left=PosbolaX+"px";
     bola.style.top=PosbolaY+"px";
+}
+
+function controlaCpu(){
     
 }
 
