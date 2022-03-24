@@ -120,7 +120,7 @@ function controlaBola(){
     PosbolaY+=velBola*bolaY;
 // Colisão com o Jogador
     if( (PosbolaX <=PosjogX+barraW) &&  ((PosbolaY+bolaH>=PosjogY) && (PosbolaY<=PosjogY+barraH))   ){
-        bolaY=(((PosbolaY+(bolaH/2))-(PosjogY+(barraH/2)))/16);
+        bolaY=(((PosbolaY+(bolaH/2))-(PosjogY+(barraH/2)))/32);
         bolaX*=-1;
     }
 // Colisão com a CPU
@@ -128,7 +128,7 @@ function controlaBola(){
         (PosbolaX >=PoscpuX-barraW) &&
         ((PosbolaY+bolaH>=PoscpuY) && (PosbolaY<=PoscpuY+barraH))
     ){
-        bolaY=(((PosbolaY+(bolaH/2))-(PosjogY+(barraH/2)))/16);
+        bolaY=(((PosbolaY+(bolaH/2))-(PosjogY+(barraH/2)))/32);
         bolaX*=-1;
     }
 
@@ -172,7 +172,30 @@ function controlaBola(){
 }
 
 function controlaCpu(){
-    
+    if(jogo){
+        if( (PosbolaX>(campoW/2))&&(bolaX>0)){
+            //Movimentar a CPU
+            if( (PosbolaY+(bolaH/2))>((PoscpuY+(barraH/2))+velCpu)  ){ //'+velCpu' é só para dar um pequeno atraso e não pegar exatamente no centro
+                //Mover para Baixo
+                if( (PoscpuY+barraH)<=campoH ){
+                    PoscpuY+=velCpu;
+                }
+            }else if( (PosbolaY+(bolaH/2))<(PoscpuY+(barraH/2))-velCpu ){
+                //Mover para Cima
+                if( PoscpuY>=0  ){
+                    PoscpuY-=velCpu;
+                }
+            }
+        }else{
+            //Posicionar CPU no Centro
+            if( (PoscpuY+(barraH/2))<(campoH/2) ){
+                PoscpuY+=velCpu;
+            }else if( (PoscpuY+(barraH/2))>(campoH/2) ){
+                PoscpuY-=velCpu;
+            }
+        }
+        cpu.style.top=PoscpuY+"px";
+    }
 }
 
 
