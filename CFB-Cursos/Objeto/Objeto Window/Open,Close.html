@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objeto Window - Open e Close</title>
+</head>
+<body>
+    <h3>CFB Cursos</h3>
+    <button onclick="AbreJ()">Abrir Nova Janela</button>
+    <button onclick="AbreI()">Abrir no Iframe</button>
+    <button onclick="FechaJ()">Fechar Janela</button>
+    <iframe name="CFB" src=""></iframe>
+    
+</body>
+<script>
+//                               windon.open();  (Abre uma nova janela especificada)
+    var janela;
+    function AbreJ(){
+    janela=window.open("Open,CloseP2.html","_blank","width=300,height=300 top=300,left=300"); //"-self" abre na msm aba
+    }
+    function FechaJ(){
+    janela.window.close();
+    }
+
+// Abrindo uma janela dentro de um Iframe:
+    function AbreI(){
+    var janela=window.open("Open,CloseP2.html","CFB"); 
+    }
+
+</script>
+</html>

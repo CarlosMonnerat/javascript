@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>innerWidth, innerHeight, screenX e screenY</title>
+    <style>
+        #painel{
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 15px;
+            width: 180px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="info()">Tamanho</button>
+    <div id="painel"></div>
+</body>
+<script>
+    var l,a,px,py;
+    var painel;
+
+    function inicia(){
+        painel=document.getElementById("painel");
+        
+    }
+
+    function info(){
+        l=window.innerWidth;    //Retorna a largura interna da janela. 'outWidth' retorna a largura externa
+        a=window.innerHeight;   //Retorna a altura da janela.
+        px=window.screenX;      //Retorna a posição X da janela.
+        py=window.screenY;      //Retorna a posição Y da janela.
+        painel.innerHTML="Largura: "+l+" - Altura: "+a+"<br>X: "+px+" - Y: "+py;
+    }
+
+    window.addEventListener("load",inicia);
+</script>
+</html>
