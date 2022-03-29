@@ -4,9 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>scrollBy, frames, length, parent</title>
+    <title>scrollBy</title>
 </head>
 <body>
-    
+    <style>
+        #painel{
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 15px;
+            width: 2000px;
+            height: 2000px;
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="rolar()">Rolar</button>
+    <div id="painel"></div>
 </body>
+</body>
+<script>
+    function rolar(){
+        window.scrollBy(1000,500); //Rola a Janela para as posições x e y indicadas
+    }
+</script>
 </html>

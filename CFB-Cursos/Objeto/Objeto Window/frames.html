@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frames, length, parent</title>
+</head>
+<body onload="inicia()">
+    <iframe src=""></iframe>
+    <iframe src=""></iframe>
+    <iframe src=""></iframe>
+
+    <div id="painel"></div>
+</body>
+<script>
+    function inicia(){
+        var qtde=window.length;
+        var painel=document.getElementById("painel").innerHTML=qtde;
+        for(var i=0;i<qtde;i++){
+            window.frames[i].location="http://cfbcursos.com.br";
+        }
+    }
+</script>
+</html>
