@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>objeto History - Pag 2</title>
+</head>
+<body onload="inicia()">
+    <h1>Página 2 - Aula 67</h1>
+    <p id="info"></p>
+
+    <a href="History.html">Home</a>
+    <a href="p2.html">Página 2</a>
+    <a href="p3.html">Página 3</a><hr>
+    <button id="btnBack">Voltar</button>
+    <button id="btnForward">Avançar</button>
+    <button id="btnback2">Voltar 2</button>
+</body>
+<script>
+    var painel, btnB, btnF, btnG; 
+
+    function inicia(){
+        painel=document.getElementById("info");
+        btnB=document.getElementById("btnBack");
+        btnF=document.getElementById("btnForward");
+        btnG=document.getElementById("btnback2");
+
+        btnB.addEventListener("click",histB);
+        btnF.addEventListener("click",histF);
+        btnG.addEventListener("click", histG);
+
+        painel.innerHTML=history.length; //Retorna o tamanho do histórico da janelas
+
+    }
+
+    function histB(){
+        window.history.back(); //Retorna para pag já acessadas (registrada no histórico)
+    }
+    function histF(){
+        window.history.forward(); //Avança para pag já acessadas (registrada no histórico)
+    }
+    function histG(){
+        window.history.go(-2); //Retorna '2' pag acessadas (Negativo Volta, Positivo Avança)
+        
+    }
+</script>
+</html>
