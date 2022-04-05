@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objeto Location - Aula 69</title>
+</head>
+<body>
+    <h1>Home - Aula 69 - Objeto Location</h1>
+
+    <button onclick="p2()">Página 2</button>
+    <button onclick="reload()">Recarregar</button>
+</body>
+<script>
+
+    function reload(){
+        location.reload();
+    }
+
+    function p2(){
+        location.assign("p2.html"); //Direciona automaticamente a pág direto para a URL indicada
+//      location.assign("http://www.youtube.com/cfbcursos"); (Similar ao 'assign', porém este remove a URL do Histórico)
+    }
+</script>
+</html>
