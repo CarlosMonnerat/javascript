@@ -4,10 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Storage - LocalStorage</title>
+    <title>LocalStorage - Exercício</title>
+    <style>
+        #fconf{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            border: 1px solid black;
+            background-color: gray;
+            padding: 20px;
+            border-radius: 10px;
+            display: none;
+        }
+    </style>
+
 </head>
-<body>
-    <form name="dados"></form>
+<body onload="inicia()">
+    <h1>LocalStorage - Curso de JavaScript - Exercício</h1>
+    <p id="painel"></p>
+    <button onclick="mostraConf()">Configurações</button>
+
+    <form name="fconf" id="fconf">
         <label>Nome:</label><br>
             <input type="text" name="fnome" id="fnome" size="20"><br><br>
         <label>Cor de Fundo</label><br>
@@ -19,32 +36,34 @@
         <label>Cor do Texto</label><br>
             <input type="radio" name="fcorT" onclick="defineCor(2,'#000')">Preto<br>
             <input type="radio" name="fcorT" onclick="defineCor(2,'#fff')">Branco<br><br>
-        <input type="button" value="Gravar" onclick="gravar()">
+            <input type="button" value="Gravar" onclick="gravar()">
+    </form>
+        
+    
 </body>
 <script>
     var vcorf, vcort, vnome;
+    var form;
 
-// O Browser do usuário pode não suportar o tipo 'Storage', por tanto é interessante verificar com um 'if'
-    if(typeof(Storage)!="undefined"){
-        localStorage.setItem("canal","CFB Cursos"); // Armazena localmente ("chave","valor")
-//      localStorage.removeItem("canal")            //Remove a informação armazenada (Basta informar a chave)
-
-        var vcanal=localStorage.getItem("canal"); // Ou apenas 'var vcanal=localStorage.canal'
-    //    document.write(vcanal);
-        document.write("<hr>");
-
+    function inicia(){
+        if(localStorage.nome){ //Se 'nome' existe no armazenamento...
+            vcorf=localStorage.corf;
+            vcort=localStorage.cort;
+            vnome=localStorage.nome;
+            defineCor(1,vcorf);
+            defineCor(2,vcort);
+            document.getElementById("painel").innerHTML="Bem vindo "+vnome+"<hr>";
+        }
+    }
 
 // CONTANDO NÚMERO DE ACESSOS DO USUÁRIO:
-        if(localStorage.visitas){ //Se 'visitas' = true
+    if(localStorage.visitas){ //Se 'visitas' = true
             localStorage.visitas=Number(localStorage.visitas)+1;
         }else{
             localStorage.setItem("visitas",1); //Ou apenas 'localStorage.visitas=1;'
         }
-
-        document.write("Visitas: "+localStorage.visitas);
-    }else{
-        document.write("Sem suporte para Web Storage!");
-    }
+    document.write("<hr> Visitas: "+localStorage.visitas);
+    
 
 // FUNÇÕES PARA ARMAZENAR AS PREFERÊNCIAS DO USUÁRIO
     function defineCor(op,cor){
@@ -63,7 +82,14 @@
         localStorage.corf=vcorf;
         localStorage.cort=vcort;
         localStorage.nome=vnome;
+        form.style.display="none";
     }
 
+//FUNÇÃO PARA MOSTRAR AS CONFIGURAÇÕES
+    function mostraConf(){
+        form=document.getElementById("fconf");
+        form.style.display="block";
+    } 
+    
 </script>
 </html>
