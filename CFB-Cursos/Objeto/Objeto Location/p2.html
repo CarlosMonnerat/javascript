@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objeto Location - Pág 2</title>
+    <style>
+        body{
+            background-color: red;
+            color: white;
+        }
+        a{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Página 2 - Aula 68</h1>
+    <a href="location.html">Voltar</a>
+</body>
+<script>
+    var aux=location.hash;              //Recebe os parametros passado na página 1
+    var dados=aux.split("#");           //Divide uma string (delimitadas por vírgula) e retorna uma variável do tipo Array
+
+    var h=location.hostname;            //Recebe o endereço do Host do usuário
+    var h2=location.href;               //Recebe o endereço da URL
+    var o=location.origin;              //Recebe o protocolo, Hostname e o nº da porta
+    var p=location.pathname;            //recebe a URL após o protocolo e o Hostname
+    var pr=location.protocol            //Recebe o protocolo da URL
+
+//   var aux2=location.search;   (Similar ao 'hash', porém no lugar de '#' separa por '?')
+//   var dados=aux.split("?");           
+
+
+    var V1=dados[1];
+    var V2=dados[2];
+
+
+    document.write("<hr>"+dados);       //Os parametros serão impressos na tela em forma de Array
+    document.write("<hr>");
+    document.write(V1);
+    document.write("<br>");
+    document.write(V2);
+
+    document.write("<hr>");
+    document.write(h);                  //*Não aparece nada pois a pág não está online
+
+    document.write("<hr>");
+    document.write(h2);                 //Imprime a URL da pág
+
+    document.write("<hr>");
+    document.write(o);                  // Para que imprima o 'Hostname' e o 'nº da porta' é necessário que a pág esteja online
+
+    document.write("<hr>");
+    document.write(p);  
+
+    document.write("<hr>");
+    document.write(pr);
+</script>
+</html>
