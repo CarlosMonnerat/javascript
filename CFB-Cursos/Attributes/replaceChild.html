@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>replaceChild</title>
+</head>
+<body>
+    <div id="cfbcursos">
+        <p>Curso de javaScript</p>
+        <p>Curso de HTML/HTML5</p>
+        <p>Curso de CSS3</p>
+        <p>Curso de PHP/MySQL</p>
+        <p>Curso de C++</p>
+        <p>Curso de Photoshop</p>
+        <p>Curso de UnityC#</p>
+        <p>Curso de Flash</p>
+    </div>
+</body>
+<script>
+    var listaCursos=document.getElementById("cfbcursos");
+    var novoP=document.createElement("h1");
+    var antigoP=listaCursos.childNodes[5];
+    var txtH=document.createTextNode("breaking 2022"); 
+    novoP.appendChild(txtH);
+    listaCursos.replaceChild(novoP,antigoP); //substitui um elemento 'p' por um elemento 'h'
+    
+</script>
+</html>
