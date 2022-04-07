@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>insertBefore - childNodes</title>
+</head>
+<body>
+    <input type="text" id="fnovo"><button id="btnAdd">Adicionar</button><button id="btnContar">Contar</button><br><br>
+    <ul id="listaElementos">
+
+    </ul>
+</body>
+<script>
+    document.getElementById("btnContar").addEventListener("click",function(){
+        var lista=document.getElementById("listaElementos");
+        var num=lista.childNodes.length;                //Propriedade que conta o número de elementos da lista. (Apenad 'lista.childNodes' retorna um vetor)
+        alert("Número de elementos: "+(num-1));
+    });
+    document.getElementById("btnAdd").addEventListener("click",function(){
+        var lista=document.getElementById("listaElementos");
+        var texto=document.getElementById("fnovo");
+        var li=document.createElement("li");
+        li.textContent=texto.value;
+        lista.insertBefore(li,lista.childNodes[0]); // insere o novo elemento 'li' antes do elemento do vetor 'lista.childNodes'
+        texto.value="";
+        texto.focus();
+    });
+
+
+</script>
+</html>
