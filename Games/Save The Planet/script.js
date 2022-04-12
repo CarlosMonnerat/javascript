@@ -7,9 +7,9 @@ var telaWidth, telaHeigth;
 
 
 
-//Configurações iniciais do Jogo
+//CONFIGURAÇÕES INICIAIS DO jOGO
 function inicia(){
-    jogo=false;
+    jogo=true;
     //Inicializações de Tela
         telaHeigth=window.innerHeight;
         telaWidth=window.innerWidth;
@@ -21,12 +21,10 @@ function inicia(){
         velJ=10;
         Jog.style.left=PosXJ+"px";
         Jog.style.top=PosYJ+"px";
-
-    
-
+    gameLoop();
 }
 
-//Comandos das Teclas Pressionadas
+//COMANDOS DAS TECLAS PRESSIONADAS
 function teclaDown(){
     var tecla=event.keyCode;
     if(tecla==37){ //Esquerda
@@ -40,7 +38,7 @@ function teclaDown(){
         dirYJ=1;
     }
     if(tecla==32){ //Espaço/Tiro
-        //  TIRO
+        atira(PosXJ+17,PosYJ-20);
     }
 }
 function teclaUp(){
@@ -51,20 +49,36 @@ function teclaUp(){
     if((tecla==38)||(tecla==40)){ // Cima/Baixo 
         dirYJ=0;
     }
-    if(tecla==32){ //Espaço/Tiro
-        //  TIRO
-    }
 }
 function controlaJog(){
     PosXJ+=dirXJ*velJ;
     PosYJ+=dirYJ*velJ;
+    Jog.style.left=PosXJ+"px";
+    Jog.style.top=PosYJ+"px";
+
 
 }
 function gameLoop(){
     if(jogo){
-        //FUNÇÕES DE CONTROLE
+        //Funções de controle
+        controlaJog();
     }
     frames=requestAnimationFrame(gameLoop);
 }
 document.addEventListener("keydown",teclaDown);
 document.addEventListener("keyup",teclaUp);
+
+
+//COMANDOS DOS TIROS
+function atira(x,y){
+    var tiro=document.createElement("div");
+    var att1=document.createAttribute("class");
+    var att2=document.createAttribute("style");
+    //var attn=document.createAttribute("src"); (seria para apontar a imagem do tiro)
+    att1.value="tiroJog";
+    att2.value="left:"+x+"px; top:"+y+"px";
+    tiro.setAttributeNode(att1);
+    tiro.setAttributeNode(att2);
+    document.body.appendChild(tiro);
+
+}
