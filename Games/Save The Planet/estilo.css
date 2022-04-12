@@ -1,0 +1,25 @@
+body{
+    background-color: black;
+    background-image: url("Imagens/background.png");
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+#painel{
+    color: white;
+}
+.naveJog{
+    width: 40px;
+    height: 40px;
+    background-image: url("Gifts/nave_jog.gif");
+    position: absolute;
+}
+.telaMsg{
+    position: absolute;
+    margin-left: -25%;
+    top: 50px;
+    left: 50%;
+    width: 720px;
+    height: 621px;
+    display: none;
+
+}
