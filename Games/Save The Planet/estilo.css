@@ -41,3 +41,9 @@ body{
     position: absolute;
 
 }
+.bomba{
+    width: 24px;
+    height: 40px;
+    background-image: url("Gifts/bomba.gif");
+    position: absolute;
+}
