@@ -1,5 +1,5 @@
 //Variáveis
-var Jog, velJ;
+var Jog, velJ, velT;
 var PosXJ, PosYJ, dirXJ, dirYJ;
 var jogo;
 var frames;
@@ -18,7 +18,8 @@ function inicia(){
         dirXJ=dirYJ=0;
         PosXJ=telaWidth/2;
         PosYJ=telaHeigth/2;
-        velJ=10;
+        velJ=8;
+        velT=10;
         Jog.style.left=PosXJ+"px";
         Jog.style.top=PosYJ+"px";
     gameLoop();
@@ -62,6 +63,7 @@ function gameLoop(){
     if(jogo){
         //Funções de controle
         controlaJog();
+        controleTiros();
     }
     frames=requestAnimationFrame(gameLoop);
 }
@@ -81,4 +83,20 @@ function atira(x,y){
     tiro.setAttributeNode(att2);
     document.body.appendChild(tiro);
 
+}
+function controleTiros(){
+    var tiros=document.getElementsByClassName("tiroJog"); //Armazena todos os tiros criados com a classe 'tiroJog'
+    var tam=tiros.length;
+    for(var i=0; i<tam; i++){
+        if(tiros[i]){
+            var posTiro=tiros[i].offsetTop; //Pega a posição Y de cada tiro
+            posTiro-=velT; //Faz com que o tiro suba em direção ao topo da tela.
+            tiros[i].style.top=posTiro+"px";
+            if(posTiro<0){
+                tiros[i].remove();
+            }
+
+        }
+
+    }
 }
