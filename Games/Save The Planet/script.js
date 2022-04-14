@@ -177,6 +177,11 @@ function colisãoTiroBomba(tiro){
 
 //EFEITO DAS EXPLOSÕES
 function criaExplosao(tipo,x,y){ //Tipo=1 - Ar , Tipo=2 - Chão
+    if(document.getElementById("explosao"+(iexp-3))){
+        document.getElementById("explosao"+(iexp-3)).remove();
+
+    }
+
     var explosao=document.createElement("div");
     var img=document.createElement("img");
     var som=document.createElement("audio");
@@ -200,7 +205,7 @@ function criaExplosao(tipo,x,y){ //Tipo=1 - Ar , Tipo=2 - Chão
         att2.value="top:"+(telaHeigth-57)+"px; left:"+(x-17)+"px";
         att4.value="Gifts/explosao_chao.gif?"+new Date(); 
     }
-    att5.value="Audios/exp1.mp3";
+    att5.value="Audios/exp1.mp3?"+new Date();
     att6.value="som"+isom;
     //Add os valores aos Elementos
         explosao.setAttributeNode(att1);
@@ -214,6 +219,7 @@ function criaExplosao(tipo,x,y){ //Tipo=1 - Ar , Tipo=2 - Chão
         document.body.appendChild(explosao);
     //Play no Som
         //document.getElementById("som"+isom).play();
+
     //Contadores (Índice de explosão)
         iexp++;
         isom++;
