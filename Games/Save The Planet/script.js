@@ -1,4 +1,4 @@
-//Variáveis
+//VARIÁVEIS
 var Jog, velJ, velT, velB;
 var PosXJ, PosYJ, dirXJ, dirYJ;
 var jogo;
