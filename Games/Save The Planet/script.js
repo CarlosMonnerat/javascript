@@ -4,8 +4,9 @@ var PosXJ, PosYJ, dirXJ, dirYJ;
 var jogo;
 var frames;
 var telaWidth, telaHeigth;
-var contB, painelContB, tempoB;
+var bombas, contB, painelContB, tempoB;
 var vidaPlaneta;
+var iexp, isom;
 
 
 //CONFIGURAÇÕES INICIAIS DO jOGO
@@ -30,6 +31,9 @@ function inicia(){
         tempoB=setInterval(addBomba,1700); //Cria um intervalo entre a criação de cada bomba
     //Controles do Planeta
         vidaPlaneta=100;
+    //Controles de Explosões
+        iexp=0;
+        isom=0;
 
     //Chama Funções
     gameLoop();
@@ -75,7 +79,8 @@ function gameLoop(){
         //Funções de controle
         controlaJog();
         controleTiros();
-        controlaBombas()
+        controlaBombas();
+        
     }
     frames=requestAnimationFrame(gameLoop);
 }
@@ -104,6 +109,7 @@ function controleTiros(){
             var posTiro=tiros[i].offsetTop; //Pega a posição Y de cada tiro
             posTiro-=velT; //Faz com que o tiro suba em direção ao topo da tela.
             tiros[i].style.top=posTiro+"px";
+            colisãoTiroBomba(tiros[i]);
             if(posTiro<0){
                 tiros[i].remove();
             }
@@ -128,7 +134,7 @@ function addBomba(){
     }
 }
 function controlaBombas(){
-    var bombas=document.getElementsByClassName("bomba"); //Armazena todas as bombas criadas com a classe 'bomba'
+    bombas=document.getElementsByClassName("bomba"); //Armazena todas as bombas criadas com a classe 'bomba'
     var tam=bombas.length;
     for(var i=0; i<tam; i++){
         if(bombas[i]){
@@ -137,9 +143,78 @@ function controlaBombas(){
             bombas[i].style.top=posBomba+"px";
             if(posBomba>telaHeigth){
                 vidaPlaneta-=10;
+                criaExplosao(2,bombas[i].offsetLeft,null);
                 bombas[i].remove();
             }
-
         }
     }
+}
+
+//COLISÃO BOMBA COM OS TIROS
+function colisãoTiroBomba(tiro){
+    var tam=bombas.length;
+    for(var i=0; i<tam; i++){
+        if(bombas[i]){
+            if( 
+                ( 
+                    (tiro.offsetTop<=(bombas[i].offsetTop+40))&&        //Cima do tiro com baixo da bomba
+                    ((tiro.offsetTop+6)>=(bombas[i].offsetTop))         //Baixo do tiro com cima da bomba
+                                            
+                )
+                &&
+                ( 
+                    (tiro.offsetLeft<=(bombas[i].offsetLeft+24))&&      //Esquerda do tiro com direita da bomba 
+                    ((tiro.offsetLeft+6)>=(bombas[i].offsetLeft))       //Direita do tiro com esquerda da bomba
+                )
+            ){
+                criaExplosao(1,bombas[i].offsetLeft,bombas[i].offsetTop);
+                bombas[i].remove();
+                tiro.remove();
+            }
+        }
+    }
+}
+
+//EFEITO DAS EXPLOSÕES
+function criaExplosao(tipo,x,y){ //Tipo=1 - Ar , Tipo=2 - Chão
+    var explosao=document.createElement("div");
+    var img=document.createElement("img");
+    var som=document.createElement("audio");
+    //Atributos para a Div
+        var att1=document.createAttribute("class");
+        var att2=document.createAttribute("style");
+        var att3=document.createAttribute("id");
+    //Atributos para a Img
+        var att4=document.createAttribute("src");
+    //Atributos para o Audio
+        var att5=document.createAttribute("src");
+        var att6=document.createAttribute("id");
+    //Valores
+    att3.value="explosao"+iexp; //'iexp' é um contador para que cada explosão seja diferente uma da outra
+    if(tipo==1){
+        att1.value="explosaoAr";
+        att2.value="top:"+y+"px; left:"+x+"px";
+        att4.value="Gifts/explosao_ar.gif?"+new Date(); //em vez de um contador, usamos a hora para que cada Gift seja chamado como um diferente
+    }else{
+        att1.value="explosaoChao";
+        att2.value="top:"+(telaHeigth-57)+"px; left:"+(x-17)+"px";
+        att4.value="Gifts/explosao_chao.gif?"+new Date(); 
+    }
+    att5.value="Audios/exp1.mp3";
+    att6.value="som"+isom;
+    //Add os valores aos Elementos
+        explosao.setAttributeNode(att1);
+        explosao.setAttributeNode(att2);
+        explosao.setAttributeNode(att3);
+        img.setAttributeNode(att4);
+        som.setAttributeNode(att5);
+    //Inseri os Elementos no Jogo
+        explosao.appendChild(img);
+        explosao.appendChild(som);
+        document.body.appendChild(explosao);
+    //Play no Som
+        //document.getElementById("som"+isom).play();
+    //Contadores (Índice de explosão)
+        iexp++;
+        isom++;
 }

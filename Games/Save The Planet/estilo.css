@@ -34,8 +34,8 @@ body{
     background-color: rgb(75, 158, 186);
 }
 .tiroJog{
-    width: 4px;
-    height: 15px;
+    width: 6px;
+    height: 25px;
     background-color: rgba(101, 160, 227, 0.953);
     border-radius: 6px;
     position: absolute;
@@ -45,5 +45,15 @@ body{
     width: 24px;
     height: 40px;
     background-image: url("Gifts/bomba.gif");
+    position: absolute;
+}
+.explosaoAr{
+    width: 70px;
+    height: 70px;
+    position: absolute;
+}
+.explosaoChao{
+    width: 55px;
+    height: 57px;
     position: absolute;
 }
