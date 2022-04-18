@@ -6,12 +6,12 @@ var frames;
 var telaWidth, telaHeigth, telaMsg;
 var bombas, contB, painelContB, tempoB;
 var vidaPlaneta, barraPlaneta;
-var iexp, isom;
+var iexp, isom, itiro;
 
 
 //CONFIGURAÇÕES INICIAIS DO jOGO
 function inicia(){
-    jogo=true;
+    jogo=false;
     //Inicializações de Tela
         telaHeigth=window.innerHeight;
         telaWidth=window.innerWidth;
@@ -24,11 +24,10 @@ function inicia(){
         velT=10;
         Jog.style.left=PosXJ+"px";
         Jog.style.top=PosYJ+"px";
+        Jog.style.display="none";
     //Controle das Bombas
-        clearInterval(tempoB); //Zera o intervalo de criação das bombas
-        contB=10;
+        contB=150;
         velB=3;
-        tempoB=setInterval(addBomba,1700); //Cria um intervalo entre a criação de cada bomba
     //Controles do Planeta
         vidaPlaneta=300;
         barraPlaneta=document.getElementById("barraPlaneta");
@@ -36,11 +35,13 @@ function inicia(){
     //Controles de Explosões
         iexp=0;
         isom=0;
+        itiro=0;
     //Controle de Tela
         telaMsg=document.getElementById("telaMsg");
+        telaMsg.style.backgroundImage="url('Imagens/into_stp.jpg')";
+        telaMsg.style.display='block';
+        document.getElementById("btnJogar").addEventListener("click",reinicia);
 
-    //Chama Funções
-    gameLoop();
     
 }
 
@@ -75,8 +76,6 @@ function controlaJog(){
     PosYJ+=dirYJ*velJ;
     Jog.style.left=PosXJ+"px";
     Jog.style.top=PosYJ+"px";
-
-
 }
 function gameLoop(){
     if(jogo){
@@ -94,15 +93,33 @@ document.addEventListener("keyup",teclaUp);
 
 //COMANDOS DOS TIROS
 function atira(x,y){
+    //Elementos
     var tiro=document.createElement("div");
+    var som=document.createElement("audio");
+    //Atributos do tiro
     var att1=document.createAttribute("class");
     var att2=document.createAttribute("style");
-    //var attn=document.createAttribute("src"); (seria para apontar a imagem do tiro)
+    //Atributos do Som do tiro
+    var att3=document.createAttribute("src");
+    var att4=document.createAttribute("id");
+    //Valores
     att1.value="tiroJog";
     att2.value="left:"+x+"px; top:"+y+"px";
+    att3.value="Audios/tiro.wav?"+new Date();
+    att4.value="som"+itiro;
+    //Atribuindo os valores os elementos
     tiro.setAttributeNode(att1);
     tiro.setAttributeNode(att2);
+    som.setAttributeNode(att3);
+    som.setAttributeNode(att4);
+    //Inseri os Elementos no Jogo
+    tiro.appendChild(som);
     document.body.appendChild(tiro);
+    //Play no som
+    document.getElementById("som"+itiro).play();
+    //incrementa o indice
+    itiro++;
+
 
 }
 function controleTiros(){
@@ -246,4 +263,33 @@ function gerenciaBarra(){
         telaMsg.style.backgroundImage="url('Imagens/gameover.jpg')";
         telaMsg.style.display="block";
     }
+    
+}
+
+//BOTÃO 'JOGAR'
+function reinicia(){
+    //Apaga as bombas que já estiverem na tela
+        bombas=document.getElementsByClassName("bomba");
+        var tam=bombas.length;
+        for(var i=0; i<tam; i++){
+            if(bombas[i]){
+                bombas[i].remove();
+            }
+        }
+    telaMsg.style.display="none";
+    //cancela atividades anteriores
+        clearInterval(tempoB); //Zera o intervalo de criação das bombas
+        cancelAnimationFrame(frames);
+    //Configurações iniciais
+        Jog.style.display="block";
+        vidaPlaneta=300;
+        PosXJ=telaWidth/2;
+        PosYJ=telaHeigth/2;
+        Jog.style.top=PosYJ+"px";
+        Jog.style.left=PosXJ+"px";
+        contB=150;
+        jogo=true;
+        tempoB=setInterval(addBomba,1700); //Cria um intervalo entre a criação de cada bomba
+    //Chama Funções
+        gameLoop();
 }
