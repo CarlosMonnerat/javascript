@@ -155,6 +155,7 @@ function colisãoTiroBomba(tiro){
     var tam=bombas.length;
     for(var i=0; i<tam; i++){
         if(bombas[i]){
+            //TESTES DE COLISÃO
             if( 
                 ( 
                     (tiro.offsetTop<=(bombas[i].offsetTop+40))&&        //Cima do tiro com baixo da bomba
@@ -178,7 +179,7 @@ function colisãoTiroBomba(tiro){
 //EFEITO DAS EXPLOSÕES
 function criaExplosao(tipo,x,y){ //Tipo=1 - Ar , Tipo=2 - Chão
     if(document.getElementById("explosao"+(iexp-3))){
-        document.getElementById("explosao"+(iexp-3)).remove();
+        document.getElementById("explosao"+(iexp-3)).remove(); //A cada 3 explosões uma é removida
 
     }
 
@@ -213,13 +214,13 @@ function criaExplosao(tipo,x,y){ //Tipo=1 - Ar , Tipo=2 - Chão
         explosao.setAttributeNode(att3);
         img.setAttributeNode(att4);
         som.setAttributeNode(att5);
+        som.setAttributeNode(att6);
     //Inseri os Elementos no Jogo
         explosao.appendChild(img);
         explosao.appendChild(som);
         document.body.appendChild(explosao);
     //Play no Som
-        //document.getElementById("som"+isom).play();
-
+        document.getElementById("som"+isom).play();
     //Contadores (Índice de explosão)
         iexp++;
         isom++;
