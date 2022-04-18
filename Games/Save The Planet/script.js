@@ -255,13 +255,19 @@ function gerenciaBarra(){
         jogo=false;
         clearInterval(tempoB); //Zera o intervalo de criação das bombas
         telaMsg.style.backgroundImage="url('Imagens/youwin.jpg')";
+        Jog.style.display="none";
         telaMsg.style.display="block";
+        
+        
     }
     if(vidaPlaneta<=0){
         jogo=false;
         clearInterval(tempoB); //Zera o intervalo de criação das bombas
         telaMsg.style.backgroundImage="url('Imagens/gameover.jpg')";
+        Jog.style.display="none";
         telaMsg.style.display="block";
+        
+        
     }
     
 }
