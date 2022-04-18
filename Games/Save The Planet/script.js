@@ -3,9 +3,9 @@ var Jog, velJ, velT, velB;
 var PosXJ, PosYJ, dirXJ, dirYJ;
 var jogo;
 var frames;
-var telaWidth, telaHeigth;
+var telaWidth, telaHeigth, telaMsg;
 var bombas, contB, painelContB, tempoB;
-var vidaPlaneta;
+var vidaPlaneta, barraPlaneta;
 var iexp, isom;
 
 
@@ -26,14 +26,18 @@ function inicia(){
         Jog.style.top=PosYJ+"px";
     //Controle das Bombas
         clearInterval(tempoB); //Zera o intervalo de criação das bombas
-        contBombas=150;
+        contB=10;
         velB=3;
         tempoB=setInterval(addBomba,1700); //Cria um intervalo entre a criação de cada bomba
     //Controles do Planeta
-        vidaPlaneta=100;
+        vidaPlaneta=300;
+        barraPlaneta=document.getElementById("barraPlaneta");
+        barraPlaneta.style.width=vidaPlaneta+"px";
     //Controles de Explosões
         iexp=0;
         isom=0;
+    //Controle de Tela
+        telaMsg=document.getElementById("telaMsg");
 
     //Chama Funções
     gameLoop();
@@ -80,8 +84,8 @@ function gameLoop(){
         controlaJog();
         controleTiros();
         controlaBombas();
-        
     }
+    gerenciaBarra();
     frames=requestAnimationFrame(gameLoop);
 }
 document.addEventListener("keydown",teclaDown);
@@ -142,7 +146,7 @@ function controlaBombas(){
             posBomba+=velB;  //Faz com que a bomba caia em direção ao final da tela.
             bombas[i].style.top=posBomba+"px";
             if(posBomba>telaHeigth){
-                vidaPlaneta-=10;
+                vidaPlaneta-=3;
                 criaExplosao(2,bombas[i].offsetLeft,null);
                 bombas[i].remove();
             }
@@ -150,7 +154,7 @@ function controlaBombas(){
     }
 }
 
-//COLISÃO BOMBA COM OS TIROS
+//COLISÃO DOS TIROS COM AS BOMBAS
 function colisãoTiroBomba(tiro){
     var tam=bombas.length;
     for(var i=0; i<tam; i++){
@@ -224,5 +228,22 @@ function criaExplosao(tipo,x,y){ //Tipo=1 - Ar , Tipo=2 - Chão
     //Remove as explosões (A cada 3 explosões uma é removida)
     if(document.getElementById("explosao"+(iexp-3))){
         document.getElementById("explosao"+(iexp-3)).remove();
+    }
+}
+
+//GERENCIA BARRA DE LIFE DO PLANETA
+function gerenciaBarra(){
+    barraPlaneta.style.width=vidaPlaneta+"px";
+    if(contB<=0){
+        jogo=false;
+        clearInterval(tempoB); //Zera o intervalo de criação das bombas
+        telaMsg.style.backgroundImage="url('Imagens/youwin.jpg')";
+        telaMsg.style.display="block";
+    }
+    if(vidaPlaneta<=0){
+        jogo=false;
+        clearInterval(tempoB); //Zera o intervalo de criação das bombas
+        telaMsg.style.backgroundImage="url('Imagens/gameover.jpg')";
+        telaMsg.style.display="block";
     }
 }
