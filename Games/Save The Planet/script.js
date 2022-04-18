@@ -178,14 +178,11 @@ function colisãoTiroBomba(tiro){
 
 //EFEITO DAS EXPLOSÕES
 function criaExplosao(tipo,x,y){ //Tipo=1 - Ar , Tipo=2 - Chão
-    if(document.getElementById("explosao"+(iexp-3))){
-        document.getElementById("explosao"+(iexp-3)).remove(); //A cada 3 explosões uma é removida
-
-    }
-
-    var explosao=document.createElement("div");
-    var img=document.createElement("img");
-    var som=document.createElement("audio");
+    
+    //Elementos da Explosão
+        var explosao=document.createElement("div");
+        var img=document.createElement("img");
+        var som=document.createElement("audio");
     //Atributos para a Div
         var att1=document.createAttribute("class");
         var att2=document.createAttribute("style");
@@ -196,7 +193,6 @@ function criaExplosao(tipo,x,y){ //Tipo=1 - Ar , Tipo=2 - Chão
         var att5=document.createAttribute("src");
         var att6=document.createAttribute("id");
     //Valores
-    att3.value="explosao"+iexp; //'iexp' é um contador para que cada explosão seja diferente uma da outra
     if(tipo==1){
         att1.value="explosaoAr";
         att2.value="top:"+y+"px; left:"+x+"px";
@@ -206,6 +202,7 @@ function criaExplosao(tipo,x,y){ //Tipo=1 - Ar , Tipo=2 - Chão
         att2.value="top:"+(telaHeigth-57)+"px; left:"+(x-17)+"px";
         att4.value="Gifts/explosao_chao.gif?"+new Date(); 
     }
+    att3.value="explosao"+iexp; //'iexp' é um contador para que cada explosão seja diferente uma da outra
     att5.value="Audios/exp1.mp3?"+new Date();
     att6.value="som"+isom;
     //Add os valores aos Elementos
@@ -224,4 +221,8 @@ function criaExplosao(tipo,x,y){ //Tipo=1 - Ar , Tipo=2 - Chão
     //Contadores (Índice de explosão)
         iexp++;
         isom++;
+    //Remove as explosões (A cada 3 explosões uma é removida)
+    if(document.getElementById("explosao"+(iexp-3))){
+        document.getElementById("explosao"+(iexp-3)).remove();
+    }
 }
