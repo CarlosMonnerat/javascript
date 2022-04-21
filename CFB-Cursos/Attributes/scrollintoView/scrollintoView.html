@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scrollIntoView</title>
+    <style>
+        body{
+            padding: 0px;
+        }
+        .carro{
+            width: 371px;
+            height: 750px;
+            display: block;
+            margin-bottom: 50px;
+        }
+        .menu_item{
+            height: 100%;
+            cursor: pointer;
+        }
+        #menu{
+            border: solid 3px black;
+            border-radius: 10px;
+            padding: 10px;
+            width: 500px;
+            height: 100px;
+            position: fixed;
+            top: 10px;
+            left: 400px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body onload="inicia()">
+    <div id="menu">
+        <img id="btnc1" data-nome="c1" class="menu_item" src="c1.png">
+        <img id="btnc2" data-nome="c2" class="menu_item" src="c2.png">
+        <img id="btnc3" data-nome="c3" class="menu_item" src="c3.png">
+        <img id="btnc4" data-nome="c4" class="menu_item" src="c4.png">
+    </div>
+    <img id="c1" class="carro" src="c1.png">
+    <img id="c2" class="carro" src="c2.png">
+    <img id="c3" class="carro" src="c3.png">
+    <img id="c4" class="carro" src="c4.png">
+</body>
+<script>
+    function inicia(){
+        document.getElementById("btnc1").addEventListener("click",rolar);
+        document.getElementById("btnc2").addEventListener("click",rolar);
+        document.getElementById("btnc3").addEventListener("click",rolar);
+        document.getElementById("btnc4").addEventListener("click",rolar);
+
+    }
+
+    function rolar(){
+        var obj=event.target.dataset.nome;
+        document.getElementById(obj).scrollIntoView();
+    }
+</script>
+</html>
