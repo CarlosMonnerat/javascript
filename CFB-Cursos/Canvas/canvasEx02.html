@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas - Aula 02</title>
+    <style>
+        #desenho1{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="desenho1" width="500" height="500">
+        <h3>Seu browser não possui suporte ao canvas</h3>    <!--A Msg só aparecerá caso o navegador não tenha suporte ao canvas-->
+    </canvas>
+    
+</body>
+<script>
+    var px=50
+    var py=50
+    var canvas=document.getElementById("desenho1")
+    var ctx=canvas.getContext('2d') //Contexto (Modo de trabalho do Canvas)
+
+    ctx.fillStyle="#00f" //define o preenchimento
+    ctx.rect(px,py,200,200) //apenas o 'rect' desenha o retângulos, porém não preenche 
+    //Tbm podemos definir a área por meio de variáveis
+    ctx.fill() //Prenche tudo com a msm cor definida no último 'fillStyle'
+
+    ctx.clearRect(150,150,50,50) //Apaga uma área do canvas
+    
+
+    
+
+</script>
+</html>
