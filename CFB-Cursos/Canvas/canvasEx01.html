@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas - Aula 01</title>
+    <style>
+        #desenho1{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="desenho1" width="500" height="500">
+        <h1>CFB Cursos</h1>
+        <h3>Seu browser não possui suporte ao canvas</h3>    <!--A Msg só aparecerá caso o navegador não tenha suporte ao canvas-->
+    </canvas>
+    
+</body>
+<script>
+    var canvas=document.getElementById("desenho1")
+    var ctx=canvas.getContext('2d') //Contexto (Modo de trabalho do Canvas)
+
+    ctx.fillStyle="#00f" //define o preenchimento
+    ctx.fillRect(0,0,100,100) //Função que permite desenhar retângulos preenchidos
+
+    ctx.fillStyle="rgba(255,0,0,0.5)" 
+    ctx.fillRect(50,50,100,100)
+
+
+</script>
+</html>
