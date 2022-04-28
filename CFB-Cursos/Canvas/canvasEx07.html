@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas - Aula 07</title>
+</head>
+<body onload="desenha()">
+    <canvas id="desenho1" width="500" height="500" style="border:1px solid #000">
+        <h3>Seu browser não possui suporte ao canvas</h3>    <!--A Msg só aparecerá caso o navegador não tenha suporte ao canvas-->
+    </canvas>
+    
+</body>
+<script>
+// ARCOS E CÍRCULOS:
+    let canvas=document.getElementById("desenho1")
+    let ctx=canvas.getContext('2d') //Contexto (Modo de trabalho do Canvas)
+
+ function desenha(){
+    ctx.arc(100,100,50,(Math.PI/180)*0,(Math.PI/180)*100,true) // Função que permite desenhar arcos e círculos 
+                                        //(posX, posY, raio, angIni[radianos], angFinal[Radianos], sentido['true=Horário','false=Antihorário'])
+                                        //Conversão p/ graus: (Pi/180)*ang_graus
+    ctx.fillStyle='#f00'
+    ctx.fill()
+
+    ctx.beginPath() //Indica que um novo desenho será iniciado
+
+    ctx.arc(100,100,50,(Math.PI/180)*0,(Math.PI/180)*120,false)
+    ctx.fillStyle='#000'
+    ctx.fill()
+
+// COMANDO  'beginPath()'
+    ctx.fillStyle="gray";
+    ctx.beginPath();
+    ctx.moveTo(300,200);
+    ctx.lineTo(200,400);
+    ctx.lineTo(400,400);
+    ctx.fill();
+
+    ctx.fillStyle="blue";
+    ctx.beginPath(); // <-------Caso o 'beginPath()' seja removido será como se o triangulo acima e o circulo fossem um único desenho
+    ctx.arc(300,100,50,0,2*3.14);
+    ctx.fill();
+}
+
+
+    
+
+
+
+
+
+/*                                                 
+                                                        COMANDOS ANTERIORES
+PREENCHIMENTO:
+    ctx.fillStyle="#00f"                    //define o preenchimento
+    ctx.fillRect(0,0,100,100)               //Função que permite desenhar retângulos preenchidos (PosiçãoX, PosiçãoY, Tamanho)
+    ctx.rect(px,py,200,200)                 //apenas o 'rect' desenha o retângulos, porém não preenche (Tbm podemos definir a área por meio de variáveis)
+    ctx.fill()                              //Prenche tudo com a msm cor definida no último 'fillStyle'
+    ctx.clearRect(150,150,50,50)            //Apaga uma área do canvas
+
+DESENHANDO LINHAS:
+    ctx.moveTo(0,0)                         //move o "lápis" para a posição indicada
+    ctx.lineTo(250,250)                     //Indica até onde a linha será desenhada
+    ctx.lineTo(400,250)                     //começa como ponto de referência o final da linha anterior
+    ctx.stroke()                            //Executa a ação de desenhar a linha
+    
+DESENHANDO ARCOS E CÍRCULOS:
+    ctx.arc() // Função que permite desenhar arcos e círculos (posX, posY, raio, angIni[radianos], angFinal[radianos], sentido('true=Horário','false=Antihorário'))
+                                                        Conversão: (Pi/180)*ang_graus
+    ctx.beginPath() //Indica que um novo desenho será iniciado
+
+
+MOVIMENTANDO ELEMENTOS:
+    let px=0
+    let anima
+
+    function desenha() {
+        ctx.clearRect(0,0,500,500)
+        ctx.fillStyle="#f00"
+        ctx.fillRect(px,0,50,50)
+    
+        px++
+        anima=requestAnimationFrame(desenha)
+    }
+
+*/
+    
+
+</script>
+</html>
