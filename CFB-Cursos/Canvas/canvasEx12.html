@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas - Aula 12</title>
+</head>
+<body>
+    <img src="Imagens/ImgsAula_10/cores.jpg" id="cores"><br><br>
+    <canvas id="desenho1" width="500" height=500" style="border:1px solid #000">
+        <h3>Seu browser não possui suporte ao canvas</h3>    <!--A Msg só aparecerá caso o navegador não tenha suporte ao canvas-->
+    </canvas>
+    
+</body>
+<script>
+// MOVENDO IMAGENS PELO TECLADO:
+
+    let canvas=document.getElementById("desenho1")
+    let ctx=canvas.getContext('2d')
+
+    let cores=new Image()
+    cores.src="Imagens/ImgsAula_10/cores.jpg"
+
+    let XRec=0                      //X de recorte
+    let YRec=0                      //Y de recorte
+    let LargSprite=0                //Largura de recorte
+    let AltSprite=0                 //Altura de recorte
+    let totalSprites=3
+    let blocos=0                    //Bloco1=0, Bloco2=1, Bloco3=2...
+    let posX=0
+    let posY=0
+    let vel=10
+
+    
+    cores.addEventListener('load',()=>{
+     let LargImg=cores.width         //Identifica a largura da Imagem e armazena na variavel
+     let AltImg=cores.height         //Identifica a Altura da Imagem e armazena na variavel
+
+     LargSprite=LargImg/totalSprites
+     AltSprite=AltImg/totalSprites                
+        
+    ctx.drawImage(cores,XRec,YRec,LargSprite,AltSprite,posX,posY,LargSprite,AltSprite) //(Imagem, XRec, YRec, LargRec, AltRec, PosX, PosY, Largura, Altura)
+    })
+    
+    let anima=setInterval(()=>{
+        ctx.clearRect(0,0,500,500)
+        XRec=LargSprite*blocos
+        blocos++
+        if(blocos>2){
+            blocos=0
+        }
+        ctx.drawImage(cores,XRec,YRec,LargSprite,AltSprite,posX,posY,LargSprite,AltSprite) 
+    },1000)
+
+// Adicionando os comandos das Teclas
+    window.addEventListener('keydown',(event)=>{
+        if(event.keyCode==37){ //Esquerda
+            posX-=vel
+        }else if(event.keyCode==39){ //Direita
+            posX+=vel
+        }
+        if(event.keyCode==38){ //Cima
+            posY-=vel
+        }else if(event.keyCode==40){ //Baixo
+            posY+=vel
+        }
+    })
+
+    
+    
+
+    
+
+
+/*                                                 
+                                                        COMANDOS ANTERIORES
+PREENCHIMENTO:
+    ctx.fillStyle="#00f"                    //define o preenchimento
+    ctx.fillRect(0,0,100,100)               //Função que permite desenhar retângulos preenchidos (PosiçãoX, PosiçãoY, Tamanho)
+    ctx.rect(px,py,200,200)                 //apenas o 'rect' desenha o retângulos, porém não preenche (Tbm podemos definir a área por meio de variáveis)
+    ctx.fill()                              //Prenche tudo com a msm cor definida no último 'fillStyle'
+    ctx.clearRect(150,150,50,50)            //Apaga uma área do canvas
+
+DESENHANDO LINHAS:
+    ctx.moveTo(0,0)                         //move o "lápis" para a posição indicada
+    ctx.lineTo(250,250)                     //Indica até onde a linha será desenhada
+    ctx.lineTo(400,250)                     //começa como ponto de referência o final da linha anterior
+    ctx.stroke()                            //Executa a ação de desenhar a linha
+    
+DESENHANDO ARCOS E CÍRCULOS:
+    ctx.arc()                               // Função que permite desenhar arcos e círculos 
+                (posX, posY, raio, angIni[radianos], angFinal[radianos], sentido('true=Horário','false=Antihorário'))
+                                [Conversão: (Pi/180)*ang_graus]
+
+    ctx.beginPath()                         //Indica que um novo desenho será iniciado
+    ctx.closePath()                         //Indica que o desenho foi finalizado
+
+FUNÇÃO ArcTO:
+    ctx.arcTo(250,250,500,0,100)            //Parametros: PontoIn(Xo,Yo), PontoFi(X,Y), Raio
+    
+MOVIMENTANDO ELEMENTOS:
+    let px=0
+    let anima
+
+    function desenha() {
+        ctx.clearRect(0,0,500,500)
+        ctx.fillStyle="#f00"
+        ctx.fillRect(px,0,50,50)
+    
+        px++
+        anima=requestAnimationFrame(desenha)
+    }
+
+INSERINDO IMAGENS NO CANVAS:
+    let nave=new Image()                                    //Instancia uma nova imagem
+    nave.src="Imagens/ImgsAula_10/nave.jpg"                 //Informa o endereço da imavem
+    nave.onload=()=>{                                       //Carrega a imagem no load pós a imagem é a última a ser carregada na página
+        ctx.drawImage(nave,400,10,100,100)                  //Imprime a imagem na tela
+                                                              Parâmetros:(Imagem, PosX, PosY, Largura, Altura)
+    }
+
+        [Área de Recorte da imagem] - Segue a msm lógica porém com os parâmetros de corte:
+    let cores=new Image()
+    cores.src="Imagens/ImgsAula_10/cores.jpg"
+    cores.addEventListener('load',()=>{                     //Também podemos usar o 'addEventListener' para carregar a imagem no load
+        ctx.drawImage(Imagem, Xo(Recorte), yo(Recorte), Larg(Recorte), Alt(Recorte), PosX, PosY, Largura, Altura) 
+
+    })
+
+*/
+    
+
+</script>
+</html>
