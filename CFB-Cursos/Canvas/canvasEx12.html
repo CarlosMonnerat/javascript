@@ -30,7 +30,8 @@
     let blocos=0                    //Bloco1=0, Bloco2=1, Bloco3=2...
     let posX=0
     let posY=0
-    let vel=10
+    let vel=5
+    let cima=false, baixo=false, esquerda=false, direita=false
 
     
     cores.addEventListener('load',()=>{
@@ -42,7 +43,8 @@
         
     ctx.drawImage(cores,XRec,YRec,LargSprite,AltSprite,posX,posY,LargSprite,AltSprite) //(Imagem, XRec, YRec, LargRec, AltRec, PosX, PosY, Largura, Altura)
     })
-    
+
+//Troca os Sprites no sentido horizontal   
     let anima=setInterval(()=>{
         ctx.clearRect(0,0,500,500)
         XRec=LargSprite*blocos
@@ -53,22 +55,59 @@
         ctx.drawImage(cores,XRec,YRec,LargSprite,AltSprite,posX,posY,LargSprite,AltSprite) 
     },1000)
 
-// Adicionando os comandos das Teclas
+// Deixando a Movimentação mais fluida
+    const desenha=()=>{
+        ctx.clearRect(0,0,500,500)
+        ctx.drawImage(cores,XRec,YRec,LargSprite,AltSprite,posX,posY,LargSprite,AltSprite) 
+    }
+
+    // Adicionando os comandos das Teclas
     window.addEventListener('keydown',(event)=>{
         if(event.keyCode==37){ //Esquerda
-            posX-=vel
+            esquerda=true
         }else if(event.keyCode==39){ //Direita
-            posX+=vel
+            direita=true
         }
         if(event.keyCode==38){ //Cima
-            posY-=vel
+            cima=true
         }else if(event.keyCode==40){ //Baixo
-            posY+=vel
+            baixo=true
         }
+
+    })
+    window.addEventListener('keyup',(event)=>{
+        if(event.keyCode==37){ //Esquerda
+            esquerda=false
+        }else if(event.keyCode==39){ //Direita
+            direita=false
+        }
+        if(event.keyCode==38){ //Cima
+            cima=false
+        }else if(event.keyCode==40){ //Baixo
+            baixo=false
+        }
+
     })
 
+    const game=()=>{
+        if(cima){
+            posY-=vel
+        }
+        if(baixo){
+            posY+=vel
+        }
+        if(esquerda){
+            posX-=vel
+        }
+        if(direita){
+            posX+=vel
+        }
+
+        desenha()
+        requestAnimationFrame(game)
+    }
     
-    
+    requestAnimationFrame(game)
 
     
 
