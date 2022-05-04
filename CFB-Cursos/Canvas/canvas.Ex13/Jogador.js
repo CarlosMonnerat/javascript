@@ -16,7 +16,7 @@ class Jogador{
     
     gerenciar(){
         if(this.teclado.esquerda){
-            if(this.x > 0)  //Limita a Lateral esquerda do Canvas
+            if(this.x > 0)                                  //Limita a Lateral esquerda do Canvas
                 this.x-=this.vel
         }
         if(this.teclado.direita){
@@ -24,11 +24,11 @@ class Jogador{
                 this.x+=this.vel
         }
         if(this.teclado.cima){
-            if(this.y > 0)  //Limita a parte superior do Canvas
+            if(this.y > 0)                                  //Limita a parte superior do Canvas
                 this.y-=this.vel
         }
         if(this.teclado.baixo){
-            if(this.y < this.ctx.canvas.height-this.anave)
+            if(this.y < this.ctx.canvas.height-this.anave)  //Limita a parte inferior do Canvas
                 this.y+=this.vel
         }
     }
