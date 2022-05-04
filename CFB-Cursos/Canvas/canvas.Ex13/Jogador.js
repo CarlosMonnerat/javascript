@@ -6,9 +6,9 @@ class Jogador{
         this.y=0
         this.vel=3
         this.nave=new Image()
-        this.name.src="nave.jpg"
+        this.nave.src="nave.jpg"
         this.nave.addEventListener('load',()=>{
-            desenhar()
+            this.desenhar()
         })
     }
     
@@ -28,8 +28,8 @@ class Jogador{
     }
 
     desenhar(){
-        gerenciar()
-        this.ctx.drawImage(this.nave,this.x,this.y)
+        this.gerenciar()
+        this.ctx.drawImage(this.nave,this.x,this.y,100,100)
 
     }
 }
