@@ -1,6 +1,7 @@
 class Bola{
-    constructor(ctx){
+    constructor(ctx,jogador){
         this.ctx=ctx
+        this.jogador=jogador
         this.move=false
         this.dirX=0
         this.dirY=0
@@ -23,6 +24,7 @@ class Bola{
         if(this.move){
             this.x+=(this.dirX*this.vel)
             this.y+=(this.dirY*this.vel)
+        //LIMITANDO AS LATARAIS
             if(this.x >= this.ctx.canvas.width-this.larg){      //Limita a lateral Direita
                 this.dirX=-1
             }
@@ -34,6 +36,13 @@ class Bola{
             }
             if(this.y <= 0){                                    //Limita a parte Superior
                 this.dirY=1
+            }
+        //COLISÃO COM A BARRA
+            if(
+                (this.x <= this.jogador.x + this.jogador.larg && this.x + this.larg >= this.jogador.x)&&
+                (this.y + this.alt >= this.jogador.y && this.y <= this.jogador.y + this.jogador.alt)
+            ){
+                this.dirX*=-1
             }
         }
     }

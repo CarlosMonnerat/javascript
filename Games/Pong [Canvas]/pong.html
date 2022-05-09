@@ -30,7 +30,7 @@
         direita:false
     }
     const jogador=new Pad(ctx,teclado)
-    const bola=new Bola(ctx)
+    const bola=new Bola(ctx,jogador)
 
     window.addEventListener('keydown',(event)=>{
         if(event.keyCode==37){ //Esquerda
