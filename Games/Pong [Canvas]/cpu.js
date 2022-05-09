@@ -13,6 +13,7 @@ class Cpu{
     }
     
     gerenciar(){
+        //MOVIMENTAÇÃO
        if(this.bola.dirX >0 && this.bola.x > this.ctx.canvas.width/2){  //Se Bola vai p/ direita & já passou da medade do campo
            //Ir ao encontro da bola
            if(this.bola.y + (this.bola.alt/2) > this.y + (this.alt/2)){         //Se o centro da Bola está abaixo do centro da CPU
@@ -39,6 +40,15 @@ class Cpu{
                 this.x+=this.vel
             }
        }
+       //COLISÃO COM A BOLA
+       if(
+            (this.x <= this.bola.x + this.bola.larg && this.x + this.larg >= this.bola.x)&&
+            (this.y + this.alt >= this.bola.y && this.y <= this.bola.y + this.bola.alt)
+        ){
+            this.bola.dirX*=-1
+            this.bola.dirY=((this.y+(this.alt/2))-(this.bola.y+(this.bola.alt/2)))/16
+        }
+
     }
 
     desenhar(){

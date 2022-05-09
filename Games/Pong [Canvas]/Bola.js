@@ -5,7 +5,7 @@ class Bola{
         this.move=false
         this.dirX=0
         this.dirY=0
-        this.vel=5
+        this.vel=10
         this.larg=20
         this.alt=20
         this.x=(this.ctx.canvas.width/2)-(this.larg/2)
@@ -22,9 +22,10 @@ class Bola{
     
     gerenciar(){
         if(this.move){
+        //MOVIMENTAÇÃO
             this.x+=(this.dirX*this.vel)
             this.y+=(this.dirY*this.vel)
-        //LIMITANDO AS LATARAIS
+        //LIMITANDO AS LATERAIS
             if(this.x >= this.ctx.canvas.width-this.larg){      //Limita a lateral Direita
                 this.dirX=-1
             }
@@ -37,12 +38,13 @@ class Bola{
             if(this.y <= 0){                                    //Limita a parte Superior
                 this.dirY=1
             }
-        //COLISÃO COM A BARRA
+        //COLISÃO COM A BARRA DO PLAYER
             if(
                 (this.x <= this.jogador.x + this.jogador.larg && this.x + this.larg >= this.jogador.x)&&
                 (this.y + this.alt >= this.jogador.y && this.y <= this.jogador.y + this.jogador.alt)
             ){
                 this.dirX*=-1
+                this.dirY=((this.y+(this.alt/2))-(this.jogador.y+(this.jogador.alt/2)))/16
             }
         }
     }
