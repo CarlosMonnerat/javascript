@@ -5,7 +5,7 @@ class Bola{
         this.move=false
         this.dirX=0
         this.dirY=0
-        this.vel=10
+        this.vel=5
         this.larg=20
         this.alt=20
         this.x=(this.ctx.canvas.width/2)-(this.larg/2)
@@ -32,11 +32,11 @@ class Bola{
             if(this.x <= 0){                                    //Limita a lateral Esquerda
                 this.dirX=1
             }
-            if(this.y >= this.ctx.canvas.height-this.alt){      //Limita a parte Inferior
-                this.dirY=-1
+            if((this.y + this.alt) >= this.ctx.canvas.height){      //Limita a parte Inferior
+                this.dirY*=-1
             }
             if(this.y <= 0){                                    //Limita a parte Superior
-                this.dirY=1
+                this.dirY*=-1
             }
         //COLISÃO COM A BARRA DO PLAYER
             if(
