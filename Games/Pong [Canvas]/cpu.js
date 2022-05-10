@@ -47,7 +47,7 @@ class Cpu{
             (this.y + this.alt >= this.bola.y && this.y <= this.bola.y + this.bola.alt)
         ){
             this.bola.dirX*=-1
-            this.bola.dirY=((this.bola.y+(this.bola.alt/2)-(this.y+(this.alt/2))))/16
+            this.bola.dirY*=((this.bola.y+(this.bola.alt/2)-(this.y+(this.alt/2))))/16
             this.pc=Math.random()*this.alt
         }
 
