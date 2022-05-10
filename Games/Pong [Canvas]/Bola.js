@@ -17,7 +17,7 @@ class Bola{
     iniciar(){
         this.move=true
         this.dirX=-1
-        this.dirY=(Math.random()*10 > 5 ? -1 : 1)
+       // this.dirY=(Math.random()*10 > 5 ? -1 : 1)
     }
     
     gerenciar(){
@@ -25,12 +25,14 @@ class Bola{
         //MOVIMENTAÇÃO
             this.x+=(this.dirX*this.vel)
             this.y+=(this.dirY*this.vel)
-        //LIMITANDO AS LATERAIS
+        //LIMITANDO AS BORDAS
             if(this.x >= this.ctx.canvas.width-this.larg){      //Limita a lateral Direita
                 this.dirX=-1
+                pj1++
             }
             if(this.x <= 0){                                    //Limita a lateral Esquerda
                 this.dirX=1
+                pj2++
             }
             if((this.y + this.alt) >= this.ctx.canvas.height){      //Limita a parte Inferior
                 this.dirY*=-1

@@ -8,9 +8,10 @@
     <script src="player.js"></script>
     <script src="Bola.js"></script>
     <script src="cpu.js"></script>
+    <script src="score.js"></script>
 </head>
 <body>
-    <canvas id="desenho1" width="1000" height="500" style="border:1px solid #000">
+    <canvas id="desenho1" width="1000" height="500" style="background-color: rgb(82, 167, 247);" style="border:1px solid #000">
         <h3>Seu browser não possui suporte ao canvas</h3>    <!--A Msg só aparecerá caso o navegador não tenha suporte ao canvas-->
     </canvas>
     <br>
@@ -18,10 +19,11 @@
     
 </body>
 <script>
-// MOVENDO IMAGENS PELO TECLADO USANDO CLASSES:
-
+// Variáveis:
     let canvas=document.getElementById("desenho1")
     let ctx=canvas.getContext('2d')
+    let pj1=0
+    let pj2=0
 
 // Adicionando os comandos das Teclas
      const teclado={
@@ -30,9 +32,11 @@
         esquerda:false,
         direita:false
     }
+    //Instanciando os Objetos
     const jogador=new Pad(ctx,teclado)
     const bola=new Bola(ctx,jogador)
     const cpu=new Cpu(ctx,bola)
+    const placar=new Placar(ctx)
 
     window.addEventListener('keydown',(event)=>{
         if(event.keyCode==37){ //Esquerda
@@ -60,12 +64,13 @@
         }
 
     })
-
+//Looping do game
     const loop=()=>{
         ctx.clearRect(0,0,canvas.width,canvas.height)
         jogador.desenhar()
         bola.desenhar()
         cpu.desenhar()
+        placar.desenhar()
         requestAnimationFrame(loop)
     }
     
