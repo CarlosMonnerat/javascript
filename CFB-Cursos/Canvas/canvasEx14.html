@@ -32,24 +32,6 @@
     ctx.fillText(nome,300,350)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*                                                 
                                                         COMANDOS ANTERIORES
 PREENCHIMENTO:
@@ -106,7 +88,19 @@ INSERINDO IMAGENS NO CANVAS:
     })
 
 INSERINDO TEXTOS NO CANVAS:
+    ctx.font="30px arial" //Fonte
+    ctx.fillStyle="#008" //Cor
+    ctx.strokeText("CFB Cursos",300,200)            //Desenha apenas a borda das letras.   ("Texto",PosX,PosY,LargMáx)
+    ctx.fillText("CFB Cursos",300,250,100)          //Letras preenchidas com a cor definida.
 
+    //Usando variáveis:
+        let canal="CFB Cursos"
+        let nome="Carlos"
+
+        ctx.font="30px arial"
+        ctx.fillStyle="#000"
+        ctx.fillText(canal,300,300)
+        ctx.fillText(nome,300,350)
 
 
 
