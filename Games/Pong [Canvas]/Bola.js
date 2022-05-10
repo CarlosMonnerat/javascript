@@ -26,21 +26,21 @@ class Bola{
             this.x+=(this.dirX*this.vel)
             this.y+=(this.dirY*this.vel)
         //LIMITANDO AS BORDAS
-            if(this.x >= this.ctx.canvas.width-this.larg){      //Limita a lateral Direita
+            if(this.x >= this.ctx.canvas.width-this.larg){              //Limita a lateral Direita
                 this.dirX=-1
                 pj1++
                 this.resetarBola()
                 
             }
-            if(this.x <= 0){                                    //Limita a lateral Esquerda
+            if(this.x <= 0){                                            //Limita a lateral Esquerda
                 this.dirX=1
                 pj2++
                 this.resetarBola()
             }
-            if((this.y + this.alt) >= this.ctx.canvas.height){      //Limita a parte Inferior
+            if((this.y + this.alt) >= this.ctx.canvas.height){          //Limita a parte Inferior
                 this.dirY*=-1
             }
-            if(this.y <= 0){                                    //Limita a parte Superior
+            if(this.y <= 0){                                            //Limita a parte Superior
                 this.dirY*=-1
             }
         //COLISÃO COM A BARRA DO PLAYER
