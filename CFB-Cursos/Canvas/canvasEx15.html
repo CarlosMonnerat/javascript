@@ -4,32 +4,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Textos em Canvas - Aula 22</title>
+    <title>Aplicando Sombra - Aula 25</title>
 </head>
 <body>
-    <canvas id="desenho1" width="800" height="500" style="border: 1px solid black;">
-        <h3>Seu Browser não possui suporte ao canvas</h3>    <!--A Msg só aparecerá caso o navegador não tenha suporte ao canvas-->
+    <canvas id="desenho1" width="1000" height=500" style="border:1px solid #000">
+        <h3>Seu browser não possui suporte ao canvas</h3>    <!--A Msg só aparecerá caso o navegador não tenha suporte ao canvas-->
     </canvas>
-    <br>
+    
 </body>
-
 <script>
+
     let canvas=document.getElementById("desenho1")
     let ctx=canvas.getContext('2d')
+// APLICANDO SOMBRAS NOS ELEMENTOS:
 
-    ctx.font="30px arial" //Fonte
-    ctx.fillStyle="#008" //Cor
-    ctx.strokeText("CFB Cursos",300,200) //Desenha apenas a borda das letras.   ("Texto",PosX,PosY,LargMáx)
-    ctx.fillText("CFB Cursos",300,250,100)  //Letras preenchidas com a cor definida.
+    ctx.shadowColor="rgba(0,0,0,0.5)"   //Cor da sombra
+    ctx.shadowOffsetX=10                //Deslocamento da sombra em relação ao objeto
+    ctx.shadowOffsetY=10
+    ctx.shadowBlur=10                   //Opacidade da sombra
 
-    //Usando variáveis:
-    let canal="CFB Cursos"
-    let nome="Carlos"
+    ctx.fillStyle="#f00"
+    ctx.fillRect(100,100,200,200)       //(PosX, PosY, Largura, Altura)
 
-    ctx.font="30px arial"
-    ctx.fillStyle="#000"
-    ctx.fillText(canal,300,300)
-    ctx.fillText(nome,300,350)
+    //O Novo objeto terá a msm sombra do objeto anterior. Para isso não acontecer, basta configurar novamente a sombra:
+    ctx.shadowColor="rgba(0,0,0,0.5)" 
+    ctx.shadowOffsetX=-10  
+    ctx.shadowOffsetY=-10
+    ctx.shadowBlur=10 
+    ctx.fillStyle="#0f0"
+    ctx.fillRect(400,100,200,200)
+
+    //Ou podemos apenas mudar o rgba:
+    ctx.shadowColor="rgba(0,0,0,0)"
+    ctx.fillStyle="#00f"
+    ctx.fillRect(700,100,200,200)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*                                                 
@@ -102,10 +124,30 @@ INSERINDO TEXTOS NO CANVAS:
         ctx.fillText(canal,300,300)
         ctx.fillText(nome,300,350)
 
+APLICANDO SOMBRAS NOS ELEMENTOS:
+        ctx.shadowColor="rgba(0,0,0,0.5)"   //Cor da sombra
+        ctx.shadowOffsetX=10                //Deslocamento da sombra em relação ao objeto
+        ctx.shadowOffsetY=10
+        ctx.shadowBlur=10                   //Opacidade da sombra
+
+        ctx.fillStyle="#f00"
+        ctx.fillRect(100,100,200,200)       //(PosX, PosY, Largura, Altura)
+
+    //O Novo objeto terá a msm sombra do objeto anterior. Para isso não acontecer, basta configurar novamente a sombra:
+        ctx.shadowColor="rgba(0,0,0,0.5)" 
+        ctx.shadowOffsetX=-10  
+        ctx.shadowOffsetY=-10
+        ctx.shadowBlur=10 
+        ctx.fillStyle="#0f0"
+        ctx.fillRect(400,100,200,200)
+
+    //Ou podemos apenas mudar o rgba:
+        ctx.shadowColor="rgba(0,0,0,0)"
+        ctx.fillStyle="#00f"
+        ctx.fillRect(700,100,200,200)
 
 
 */
+
 </script>
-
-
 </html>
