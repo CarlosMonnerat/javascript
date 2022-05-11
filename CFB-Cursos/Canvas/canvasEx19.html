@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bezier Função bezierCurveTo - Aula 28</title>
+    <title>Função globalAlpha - Aula 29</title>
 </head>
 <body>
     <canvas id="desenho1" width="1000" height=600" style="border:1px solid #000">
@@ -16,38 +16,24 @@
 
     let canvas=document.getElementById("desenho1")
     let ctx=canvas.getContext('2d')
-// BEZIER FUNÇÃO 'bezierCurveTo':
-/*
-    ctx.beginPath()
-    ctx.lineTo(300,0)
+// FUNÇÃO 'globalAlpha':
+    
+    ctx.fillStyle="#00f"
+    ctx.fillRect(150,150,100,100)
 
-    ctx.bezierCurveTo(100,150,500,250,300,400) //Semelhante ao 'quadraticCurveTo' porém com 3 pts de coordenadas
+    ctx.globalAlpha="0.5"          //0 => totalmente invisível; 1=> Totalmente visível. Os objetos antes não são afetados
 
-    ctx.stroke()
-    ctx.closePath()
-*/
+    ctx.fillStyle="#f00"
+    ctx.fillRect(100,100,100,100)
+    ctx.fillRect(300,100,100,100)
+    
+    ctx.globalAlpha="1"
+    ctx.fillStyle="#0f0"
+    ctx.fillRect(500,100,100,100)
+    ctx.fillRect(700,100,100,100)
 
-//Desenhando um coração com o 'bezierCurveTo':
-
-    ctx.beginPath()
-    ctx.lineTo(400,150)
-
-    ctx.bezierCurveTo(500,0,800,200,400,500)    //Lado direito do coração
-    ctx.bezierCurveTo(0,200,300,0,400,150)      //Lado esquerdo do coração
-
-    ctx.stroke()
-    ctx.closePath()
 
    
-
-
-
-
-
-
-
-
-
 
 
 
@@ -146,15 +132,27 @@ APLICANDO SOMBRAS NOS ELEMENTOS:
         ctx.fillStyle="#00f"
         ctx.fillRect(700,100,200,200)
 
-CURVAS DE BEZIER, FUNÇÃO 'quadraticCurve':
-    ctx.beginPath()
+CURVAS DE BEZIER:
+    // Função 'quadraticCurve':
+        ctx.beginPath()
 
-    ctx.lineTo(200,100)
-    ctx.quadraticCurveTo(300,-50,400,100)  //(Ponto de fuga, coordenada final da curva)
-    ctx.quadraticCurveTo(500,250,600,100)
+        ctx.lineTo(200,100)
+        ctx.quadraticCurveTo(300,-50,400,100)  //(Ponto de fuga, coordenada final da curva)
+        ctx.quadraticCurveTo(500,250,600,100)
+
+        ctx.stroke()
+        ctx.closePath()
+
+    // Função 'bezierCurveTo':
+
+    ctx.beginPath()
+    ctx.lineTo(300,0)
+
+    ctx.bezierCurveTo(100,150,500,250,300,400) //Semelhante ao 'quadraticCurveTo' porém com 3 pts de coordenadas
 
     ctx.stroke()
     ctx.closePath()
+
 
 */
 
