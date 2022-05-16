@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradiente Padrão (Pattern) - Aula 32</title>
+</head>
+<body>
+    <canvas id="desenho1" width="1000" height=600" style="border:1px solid #000">
+        <h3>Seu browser não possui suporte ao canvas</h3>    <!--A Msg só aparecerá caso o navegador não tenha suporte ao canvas-->
+    </canvas>
+    
+</body>
+<script>
+
+    let canvas=document.getElementById("desenho1")
+    let ctx=canvas.getContext('2d')
+//GRADIENTE PADRÃO (PATTERN):
+
+let padrao1=new Image()
+let padrao2=new Image()
+
+padrao1.src="Imagens/ImgsAula_32/pattern1.jpg"
+padrao2.src="Imagens/ImgsAula_32/pattern2.jpg"
+
+padrao1.onload=()=>{
+    let ptrn=ctx.createPattern(padrao1,'repeat')
+    ctx.fillStyle=ptrn
+    ctx.fillRect(0,0,300,300)
+}
+
+padrao2.onload=function(){
+    let ptrn=ctx.createPattern(padrao2,'repeat')
+    ctx.fillStyle=ptrn
+    ctx.fillRect(350,0,300,300)
+}
+
+
+
+   
+
+
+
+
+
+
+/*                                                 
+                                                        COMANDOS ANTERIORES
+PREENCHIMENTO:
+    ctx.fillStyle="#00f"                    //define o preenchimento
+    ctx.fillRect(0,0,100,100)               //Função que permite desenhar retângulos preenchidos (PosiçãoX, PosiçãoY, Tamanho)
+    ctx.rect(px,py,200,200)                 //apenas o 'rect' desenha o retângulos, porém não preenche (Tbm podemos definir a área por meio de variáveis)
+    ctx.fill()                              //Prenche tudo com a msm cor definida no último 'fillStyle'
+    ctx.clearRect(150,150,50,50)            //Apaga uma área do canvas
+
+DESENHANDO LINHAS:
+    ctx.moveTo(0,0)                         //move o "lápis" para a posição indicada
+    ctx.lineTo(250,250)                     //Indica até onde a linha será desenhada
+    ctx.lineTo(400,250)                     //começa como ponto de referência o final da linha anterior
+    ctx.stroke()                            //Executa a ação de desenhar a linha
+    
+DESENHANDO ARCOS E CÍRCULOS:
+    ctx.arc()                               // Função que permite desenhar arcos e círculos 
+                (posX, posY, raio, angIni[radianos], angFinal[radianos], sentido('true=Horário','false=Antihorário'))
+                                [Conversão: (Pi/180)*ang_graus]
+
+    ctx.beginPath()                         //Indica que um novo desenho será iniciado
+    ctx.closePath()                         //Indica que o desenho foi finalizado
+
+FUNÇÃO ArcTO:
+    ctx.arcTo(250,250,500,0,100)            //Parametros: PontoIn(Xo,Yo), PontoFi(X,Y), Raio
+    
+MOVIMENTANDO ELEMENTOS:
+    let px=0
+    let anima
+
+    function desenha() {
+        ctx.clearRect(0,0,500,500)
+        ctx.fillStyle="#f00"
+        ctx.fillRect(px,0,50,50)
+    
+        px++
+        anima=requestAnimationFrame(desenha)
+    }
+
+INSERINDO IMAGENS NO CANVAS:
+    let nave=new Image()                                    //Instancia uma nova imagem
+    nave.src="Imagens/ImgsAula_10/nave.jpg"                 //Informa o endereço da imavem
+    nave.onload=()=>{                                       //Carrega a imagem no load pós a imagem é a última a ser carregada na página
+        ctx.drawImage(nave,400,10,100,100)                  //Imprime a imagem na tela
+                                                              Parâmetros:(Imagem, PosX, PosY, Largura, Altura)
+    }
+
+        [Área de Recorte da imagem] - Segue a msm lógica porém com os parâmetros de corte:
+    let cores=new Image()
+    cores.src="Imagens/ImgsAula_10/cores.jpg"
+    cores.addEventListener('load',()=>{                     //Também podemos usar o 'addEventListener' para carregar a imagem no load
+        ctx.drawImage(Imagem, Xo(Recorte), yo(Recorte), Larg(Recorte), Alt(Recorte), PosX, PosY, Largura, Altura) 
+
+    })
+
+INSERINDO TEXTOS NO CANVAS:
+    ctx.font="30px arial" //Fonte
+    ctx.fillStyle="#008" //Cor
+    ctx.strokeText("CFB Cursos",300,200)            //Desenha apenas a borda das letras.   ("Texto",PosX,PosY,LargMáx)
+    ctx.fillText("CFB Cursos",300,250,100)          //Letras preenchidas com a cor definida.
+
+    //Usando variáveis:
+        let canal="CFB Cursos"
+        let nome="Carlos"
+
+        ctx.font="30px arial"
+        ctx.fillStyle="#000"
+        ctx.fillText(canal,300,300)
+        ctx.fillText(nome,300,350)
+
+APLICANDO SOMBRAS NOS ELEMENTOS:
+        ctx.shadowColor="rgba(0,0,0,0.5)"   //Cor da sombra
+        ctx.shadowOffsetX=10                //Deslocamento da sombra em relação ao objeto
+        ctx.shadowOffsetY=10
+        ctx.shadowBlur=10                   //Opacidade da sombra
+
+        ctx.fillStyle="#f00"
+        ctx.fillRect(100,100,200,200)       //(PosX, PosY, Largura, Altura)
+
+    //O Novo objeto terá a msm sombra do objeto anterior. Para isso não acontecer, basta configurar novamente a sombra:
+        ctx.shadowColor="rgba(0,0,0,0.5)" 
+        ctx.shadowOffsetX=-10  
+        ctx.shadowOffsetY=-10
+        ctx.shadowBlur=10 
+        ctx.fillStyle="#0f0"
+        ctx.fillRect(400,100,200,200)
+
+    //Ou podemos apenas mudar o rgba:
+        ctx.shadowColor="rgba(0,0,0,0)"
+        ctx.fillStyle="#00f"
+        ctx.fillRect(700,100,200,200)
+
+CURVAS DE BEZIER:
+    // Função 'quadraticCurve':
+        ctx.beginPath()
+
+        ctx.lineTo(200,100)
+        ctx.quadraticCurveTo(300,-50,400,100)  //(Ponto de fuga, coordenada final da curva)
+        ctx.quadraticCurveTo(500,250,600,100)
+
+        ctx.stroke()
+        ctx.closePath()
+
+    // Função 'bezierCurveTo':
+
+    ctx.beginPath()
+    ctx.lineTo(300,0)
+
+    ctx.bezierCurveTo(100,150,500,250,300,400) //Semelhante ao 'quadraticCurveTo' porém com 3 pts de coordenadas
+
+    ctx.stroke()
+    ctx.closePath()
+
+
+FUNÇÃO 'globalAlpha':
+    
+    ctx.fillStyle="#00f"
+    ctx.fillRect(150,150,100,100)
+
+    ctx.globalAlpha="0.5"          //0 => totalmente invisível; 1=> Totalmente visível. Os objetos antes não são afetados
+
+    ctx.fillStyle="#f00"
+    ctx.fillRect(100,100,100,100)
+    ctx.fillRect(300,100,100,100)
+
+GRADIENTE LINEAR:
+
+    gradiente=ctx.createLinearGradient(0,0,300,300)             //x1,y1,x2,y2 (Onde começa e onde termina o gradiente)
+    gradiente.addColorStop(0,'#f00')                            //Cor no ponto inicial
+    gradiente.addColorStop(1,'#ff0')                            //Cor no ponto final
+    ctx.fillStyle=gradiente
+    ctx.fillRect(0,0,300,300)                                   //O gradiente NÃO acompanha o deslocamento do objeto
+
+GRADIENTE RADIAL:
+
+    gradiente=ctx.createRadialGradient(30,30,3,200,200,300)     //x1,y1,r1,x2,y2,r2 (Pt inicial, Raio 0, Pt final, Raio f)
+    gradiente.addColorStop(0,'#f00')                            //Cor no ponto inicial
+    gradiente.addColorStop(1,'#ff0')                            //Cor no ponto final
+    ctx.fillStyle=gradiente
+    ctx.fillRect(0,0,500,500)                                   //O gradiente NÃO acompanha o deslocamento do objeto
+
+
+
+
+*/
+
+</script>
+</html>
