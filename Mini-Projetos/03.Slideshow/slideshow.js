@@ -17,11 +17,11 @@ const images = [
     {'id':'14','url':'imagens/yuyuhakusho.jpg'}
 ]
 
-const container = document.getElementById('container-itens')
+const containerItems = document.getElementById('container-itens')
 
-const loadImages = (images, container) =>{       
-    images.forEach (image => {                  //Varre todas as imagens
-        container.innerHTML += 
+const loadImages = (images, containerItems) =>{       
+    images.forEach (image => {                              //Varre todas as imagens
+        containerItems.innerHTML += 
             `<div class='item'>
                 <img src='${image.url}'
              </div>
@@ -29,4 +29,20 @@ const loadImages = (images, container) =>{
     })
 }
 
-loadImages(images, container);
+
+
+const previous = ()=> {
+    let items = document.querySelectorAll('.item')
+    let lastItem = items[items.length-1]
+    containerItems.insertBefore(lastItem, items[0]);       //Pega o último item e o insere no começo
+}
+
+const next = ()=> {
+    let items = document.querySelectorAll('.item')
+    containerItems.appendChild(items[0]);                   //Pega o Primeiro item e o insere no final
+}
+
+
+loadImages(images, containerItems);
+document.getElementById('previous').addEventListener('click', previous)
+document.getElementById('next').addEventListener('click', next);
