@@ -1,6 +1,6 @@
 'use strict';                                       //Capta e avisa erros e má práticas (Modo Rigoroso)
 
-const sons = {                                      //JSON
+const sons = {                                      //JSON, 'chaves': 'objetos'
     'A': 'boom.wav',
     'S': 'clap.wav',
     'D': 'hihat.wav',
@@ -39,21 +39,22 @@ const tocarSom = (letra) => {
 
 const addEfeito = (letra) => document.getElementById(letra).classList.add('active')
 
-/* 
-    'const removerEfeito = (letra) => document.getElementById(letra).classList.remove('active')'
-            Removendo o efeito da forma acima, o JS remove o efeito antes msm de ser executado, por isso podemos remover da forma abaixo...
+/* Podemos remover o efeito da segunte forma:
+                        "   const removerEfeito = (letra) => document.getElementById(letra).classList.remove('active')  "
+    Porém assim o JS remove o efeito antes msm dele ser executado, por isso podemos remover como vemos abaixo...
 */
 
 const removerEfeito = (letra) => {
     const div = document.getElementById(letra)
     const removeActive = () => div.classList.remove('active')
-    div.addEventListener('transitionend', removeActive)                     //Add um evento que espera a transição acabar e só dps chama a função 'removeActive'
+    div.addEventListener('transitionend', removeActive)                                //Add um evento que espera a transição acabar e só dps chama a função 'removeActive'
 }
 
 
 const ativarDiv = (evento) => {
-    const letra = evento.target.id
-    const letraPermitida = sons.hasOwnProperty(letra)                       //Verifica se "letra" existe no Json "sons" ou não
+    const letra = evento.type == 'click' ? evento.target.id : evento.key.toUpperCase() //Verifica se o evento foi um 'click' ou 'keydown'
+
+    const letraPermitida = sons.hasOwnProperty(letra)                                  //Verifica se "letra" existe no Json "sons" ou não
     if(letraPermitida){
         addEfeito(letra);
         tocarSom(letra);
@@ -65,3 +66,5 @@ const ativarDiv = (evento) => {
 
 exibir(sons);
 document.getElementById('icontainer').addEventListener('click', ativarDiv);
+
+window.addEventListener('keydown', ativarDiv)
