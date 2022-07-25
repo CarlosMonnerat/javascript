@@ -1,7 +1,7 @@
 'use strict';                                       //Capta e avisa erros e má práticas (Modo Rigoroso)
 
-const sons = {                                      //JSON, 'chaves': 'objetos'
-    'A': 'boom.wav',
+const sons = {                                      //JSON
+    'A': 'boom.wav',                                    //'chaves': 'valores'
     'S': 'clap.wav',
     'D': 'hihat.wav',
     'F': 'kick.wav',
