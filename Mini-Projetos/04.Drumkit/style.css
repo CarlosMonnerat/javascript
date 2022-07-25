@@ -51,4 +51,11 @@ main{
     border: 3px solid white;
     user-select: none;
     cursor: pointer;
+    transition: transform .2s;
+}
+
+.active{                                /* Class criada no JS */
+    transform: scale(1.3);
+    border-color: #ffcc00;
+    box-shadow: 0 0 50px #ffcc00;
 }
