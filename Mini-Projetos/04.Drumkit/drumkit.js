@@ -36,8 +36,8 @@ const ativarDiv = (evento) => {                                                 
 
     const letraPermitida = sons.hasOwnProperty(letra)                                  //Verifica se "letra" existe no Json "sons" ou não
     if(letraPermitida){
-        addEfeito(letra);
         tocarSom(letra);
+        addEfeito(letra);
         removerEfeito(letra);
     }
 }
@@ -53,7 +53,7 @@ const addEfeito = (letra) => document.getElementById(letra).classList.add('activ
 const removerEfeito = (letra) => {
     const div = document.getElementById(letra)
     const removeActive = () => div.classList.remove('active')
-    div.addEventListener('transitionend', removeActive)                                //Add um evento que espera a transição acabar e só dps chama a função 'removeActive'
+    div.addEventListener('transitionend', removeActive)                               //Add um evento que espera a transição acabar e só dps chama a função 'removeActive'
 }
 
 /* Podemos remover o efeito da segunte forma:
@@ -63,5 +63,4 @@ const removerEfeito = (letra) => {
 
 exibir(sons);
 document.getElementById('icontainer').addEventListener('click', ativarDiv);
-
 window.addEventListener('keydown', ativarDiv)

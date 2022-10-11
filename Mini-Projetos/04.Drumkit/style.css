@@ -54,8 +54,8 @@ main{
     transition: transform .2s;
 }
 
-.active{                                /* Class criada no JS */
-    transform: scale(1.3);
+.active{    /* 'active ' é como o 'hover', porém é ativado com o evento de click! (Class criada no JS pq não é ativada ao se pressionar uma tecla)*/
+    transform: scale(1.3);              
     border-color: #ffcc00;
     box-shadow: 0 0 50px #ffcc00;
 }
