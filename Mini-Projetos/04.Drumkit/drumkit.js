@@ -19,7 +19,7 @@ const criarDiv = (texto) =>{
     div.id = texto                                                          //add um 'Id = "texto"'
     div.textContent = texto                                                 //Add um conteúdo dentro da Div
 
-    document.getElementById('icontainer').appendChild(div)
+    document.getElementById('icontainer').appendChild(div)                  //Add a Div ao DOM
 
 }
 
@@ -31,27 +31,7 @@ const exibir = (sons) => Object.keys(sons).forEach(criarDiv)                //Pa
     - Como a Função não tem um retorno e só tem uma linha, não é necessário usar '{}'
 */
 
-const tocarSom = (letra) => {
-    const audio = new Audio(`sounds/${sons[letra]}`)
-    audio.play();
-
-}
-
-const addEfeito = (letra) => document.getElementById(letra).classList.add('active')
-
-/* Podemos remover o efeito da segunte forma:
-                        "   const removerEfeito = (letra) => document.getElementById(letra).classList.remove('active')  "
-    Porém assim o JS remove o efeito antes msm dele ser executado, por isso podemos remover como vemos abaixo...
-*/
-
-const removerEfeito = (letra) => {
-    const div = document.getElementById(letra)
-    const removeActive = () => div.classList.remove('active')
-    div.addEventListener('transitionend', removeActive)                                //Add um evento que espera a transição acabar e só dps chama a função 'removeActive'
-}
-
-
-const ativarDiv = (evento) => {
+const ativarDiv = (evento) => {                                                        // 'evento' recebe todas as info de onde o evento foi disparado
     const letra = evento.type == 'click' ? evento.target.id : evento.key.toUpperCase() //Verifica se o evento foi um 'click' ou 'keydown'
 
     const letraPermitida = sons.hasOwnProperty(letra)                                  //Verifica se "letra" existe no Json "sons" ou não
@@ -62,7 +42,24 @@ const ativarDiv = (evento) => {
     }
 }
 
+const tocarSom = (letra) => {
+    const audio = new Audio(`sounds/${sons[letra]}`)
+    audio.play();
 
+}
+
+const addEfeito = (letra) => document.getElementById(letra).classList.add('active')
+
+const removerEfeito = (letra) => {
+    const div = document.getElementById(letra)
+    const removeActive = () => div.classList.remove('active')
+    div.addEventListener('transitionend', removeActive)                                //Add um evento que espera a transição acabar e só dps chama a função 'removeActive'
+}
+
+/* Podemos remover o efeito da segunte forma:
+                        "   const removerEfeito = (letra) => document.getElementById(letra).classList.remove('active')  "
+    Porém assim o JS remove o efeito antes msm dele ser executado, por isso podemos remover como feito acima...
+*/
 
 exibir(sons);
 document.getElementById('icontainer').addEventListener('click', ativarDiv);
