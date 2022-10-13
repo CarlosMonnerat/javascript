@@ -7,7 +7,7 @@
 body{
     background-image: url('./bg.jpg');
     color: whitesmoke;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;      /* Fonte do Google*/
     user-select: none;
 }
 
@@ -19,7 +19,7 @@ body{
     align-items: center;
     justify-content: space-evenly;
     text-align: center;
-    background-color: #00000080;
+    background-color: #00000080;              /* Ofusca a imagem de fundo */
 }
 
 .title {
