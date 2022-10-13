@@ -14,14 +14,8 @@ const atualizar = (tempo) => {
     segundos.textContent = `0${qtdSeg}`.slice(-2);                  //Slice corta um array da esquerda para a direita. "-2" indica que queremos 2digitos da direita pq esquerda
     minutos.textContent = `0${qtdMin}`.slice(-2);
     horas.textContent = `0${qtdHor}`.slice(-2);
-    if(qtdDia > 99){
-        dias.textContent = `0${qtdDia}`.slice(-3);
-    }else{
-        dias.textContent = `0${qtdDia}`.slice(-2);
-    }
-    
-    
-    
+    qtdDia > 99 ?  dias.textContent = `0${qtdDia}`.slice(-3) : dias.textContent = `0${qtdDia}`.slice(-2);
+
 }
 
 const contagemRegressiva = (tempo) => {
@@ -38,7 +32,7 @@ const contagemRegressiva = (tempo) => {
 }
 
 const tempoRestante = () => {
-    const dataEvento = new Date('2022-10-16 08:00:00');
+    const dataEvento = new Date('2022-10-30 08:00:00');
     const hoje = Date.now();
     return Math.floor((dataEvento - hoje)/1000);                            //Retorna em Milisegundo, por isso devemos dividir por mil para converter para segundos
 
