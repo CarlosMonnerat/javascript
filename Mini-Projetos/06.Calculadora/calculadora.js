@@ -10,10 +10,9 @@ let x;
 
 const operacaoPendente = () => operador !== undefined;
 
-
 const calcular = () =>{
     if(operacaoPendente()){
-        const y = parseFloat(display.textContent);
+        const y = parseFloat(display.textContent.replace(',','.')); //'replace' troca o primeiro argumento pelo segundo
         novoNumero = true;
         const resultado = eval(`${x}${operador}${y}`);
         atualizarDisplay(resultado);
@@ -31,7 +30,6 @@ const calcular = () =>{
     }
 }
 
-
 const atualizarDisplay = (texto) =>{
     if (novoNumero){
         display.textContent = texto;
@@ -42,19 +40,61 @@ const atualizarDisplay = (texto) =>{
     
 }
 
+const inserirNumero = (evento) => atualizarDisplay(evento.target.textContent);
+numeros.forEach(numero => numero.addEventListener('click',inserirNumero));
+
 const selecionarOperador = (evento) =>{
     if(!novoNumero){
-        calcular();
+        
         novoNumero = true;
         operador = evento.target.textContent;
-        x = parseFloat(display.textContent);
-        
-    }
-    
-    
+        x = parseFloat(display.textContent.replace(',','.'));
+    }    
 }
 
-const inserirNumero = (evento) => atualizarDisplay(evento.target.textContent);
-
-numeros.forEach(numero => numero.addEventListener('click',inserirNumero));
 operadores.forEach(operador => operador.addEventListener('click',selecionarOperador));
+
+//Botões Auxiliares
+const ativarIgual = () =>{
+    calcular();
+    operador = undefined;
+}
+document.getElementById('igual').addEventListener('click', ativarIgual);
+
+
+const limpaDisplay = () => display.textContent = '';
+document.getElementById('limparDisplay').addEventListener('click', limpaDisplay);
+
+
+const limpaCalculo = () =>{
+    limpaDisplay();
+    operador = undefined;
+    novoNumero = true;
+    x = undefined;
+}
+document.getElementById('limparCalculo').addEventListener('click', limpaCalculo);
+
+
+const removeUltimoNumero = () => display.textContent = display.textContent.slice(0, -1);
+document.getElementById('backspace').addEventListener('click', removeUltimoNumero);
+
+
+const inverteSinal = () => {
+    novoNumero = true;
+    atualizarDisplay(display.textContent * -1);
+}
+document.getElementById('inverter').addEventListener('click', inverteSinal);
+
+const existeDecimal = () => display.textContent.indexOf(',') !== -1; //'indexOf' procura uma string, se existir, retorna a posição, se não retorna '-1'
+const existeValor = () => display.textContent.length > 0;
+
+const inserirDecimal = () => {
+    if(!existeDecimal()){
+        if(existeValor()){
+            atualizarDisplay(',');
+        }else{
+            atualizarDisplay('0,');
+        }
+    }
+}
+document.getElementById('decimal').addEventListener('click', inserirDecimal);
