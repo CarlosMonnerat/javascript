@@ -11,8 +11,8 @@ let x;
 const operacaoPendente = () => operador !== undefined;
 
 const calcular = () =>{
-    if(operacaoPendente()){
-        const y = parseFloat(display.textContent.replace(',','.')); //'replace' troca o primeiro argumento pelo segundo
+    if(operacaoPendente()){ //'parseFloat' analisa um argumento (converte para string se necessário) e retorna um numero do tipo float
+        let y = parseFloat(display.textContent.replace(',','.')); //'replace' troca o primeiro argumento pelo segundo
         novoNumero = true;
         const resultado = eval(`${x}${operador}${y}`);
         atualizarDisplay(resultado);
@@ -32,7 +32,7 @@ const calcular = () =>{
 
 const atualizarDisplay = (texto) =>{
     if (novoNumero){
-        display.textContent = texto;
+        display.textContent = texto.toLocaleString('BR'); //'toLocaleString('BR')' busca a notação decimal usada no BR
         novoNumero = false;
     }else{
         display.textContent += texto;
