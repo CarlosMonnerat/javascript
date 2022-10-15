@@ -45,11 +45,11 @@ numeros.forEach(numero => numero.addEventListener('click',inserirNumero));
 
 const selecionarOperador = (evento) =>{
     if(!novoNumero){
-        
         novoNumero = true;
         operador = evento.target.textContent;
         x = parseFloat(display.textContent.replace(',','.'));
-    }    
+    }
+    display.textContent += operador;    
 }
 
 operadores.forEach(operador => operador.addEventListener('click',selecionarOperador));
