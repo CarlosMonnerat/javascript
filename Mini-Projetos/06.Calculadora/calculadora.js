@@ -85,7 +85,7 @@ const inverteSinal = () => {
 }
 document.getElementById('inverter').addEventListener('click', inverteSinal);
 
-const existeDecimal = () => display.textContent.indexOf(',') !== -1; //'indexOf' procura uma string, se existir, retorna a posição, se não retorna '-1'
+const existeDecimal = () => display.textContent.indexOf(',') !== -1; //'indexOf' procura uma string, caso existir, retorna a posição, se não existir retorna '-1'
 const existeValor = () => display.textContent.length > 0;
 
 const inserirDecimal = () => {
