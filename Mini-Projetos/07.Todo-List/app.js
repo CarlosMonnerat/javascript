@@ -19,9 +19,18 @@ const criarItem = (tarefa, status) => {                      /* Cria as tarefas 
     document.getElementById('todoList').appendChild(item);
 }
 
-const render = () => {                                       /* Lê o banco de dados e Atualiza a tela */
+const clear = () => {                                               /*Limpa as tarefas da tela */
+    const todoList = document.getElementById('todoList');   
+    while(todoList.firstChild){                                     /*Enquanto existir o primeiro filho, remove o último filho */
+        todoList.removeChild(todoList.lastChild);
+    }
+
+}
+
+const render = () => {                                          /* Lê o banco de dados e Atualiza a tela */
+    clear();                                                    /*Limpa a tela cada vez que o Render é chamado para não haver duplicações */
     banco.forEach(item => criarItem(item.tarefa, item.status)); /*Para cada item do banco, pega um item e joga para a função 'criarItem()' informando seus parametros*/
-    
+
 
 }
 
