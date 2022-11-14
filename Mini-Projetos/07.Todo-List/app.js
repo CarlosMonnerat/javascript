@@ -1,6 +1,6 @@
 'use strict';
 
-let banco = [                                                        /*Este Array funciona como um banco de dados que armazena as tarefas digitadas pelo usuário */
+let banco = [                                                                                   /*Este Array funciona como um banco de dados que armazena as tarefas digitadas pelo usuário */
     {'tarefa':'Estudar JS', 'status': ''},
     {'tarefa':'Ler um Livro', 'status': 'checked'},
     {'tarefa':'Malhar', 'status': 'checked'},
@@ -8,33 +8,34 @@ let banco = [                                                        /*Este Arra
 
 ]
 
-const criarItem = (tarefa, status) => {                                             /*Cria as tarefas dentro do DOM*/
+const criarItem = (tarefa, status, indice) => {                                                 /*Cria as tarefas dentro do DOM*/
     const item = document.createElement('label');
-    item.classList.add('todo__item');
+    item.classList.add('todo__item');   
     item.innerHTML = `
-        <input type="checkbox" ${status}>
+        <input type="checkbox" ${status} data-indice = ${indice}>
         <div> ${tarefa} </div>
-        <input type="button" value="x">
+        <input type="button" value="x" data-indice = ${indice}>
     `
+                                                                                                /* "data-(nome do indice)" - É uma propriedade/atribulo como o Id, mas que aceita números no nome) */
     document.getElementById('todoList').appendChild(item);
 }
 
-const clear = () => {                                                               /*Limpa as tarefas da tela */
+const clear = () => {                                                                           /*Limpa as tarefas da tela */
     const todoList = document.getElementById('todoList');   
-    while(todoList.firstChild){                                                     /*Enquanto existir o primeiro filho, remove o último filho */
+    while(todoList.firstChild){                                                                 /*Enquanto existir o primeiro filho, remove o último filho */
         todoList.removeChild(todoList.lastChild);
     }
 
 }
 
-const render = () => {                                                              /*Lê o banco de dados e Atualiza a tela */
-    clear();                                                                        /*Limpa a tela cada vez que o Render é chamado para não haver duplicações */
-    banco.forEach(item => criarItem(item.tarefa, item.status));                     /*Para cada item do banco, pega um item e joga para a função 'criarItem()' informando seus parametros*/
+const render = () => {                                                                          /*Lê o banco de dados e Atualiza a tela */
+    clear();                                                                                    /*Limpa a tela cada vez que o Render é chamado para não haver duplicações */
+    banco.forEach((item, indice) => criarItem(item.tarefa, item.status, indice));               /*Para cada item do banco, pega um item e o indice do array, e joga para a função 'criarItem()' informando seus parametros*/
 
 
 }
 
-const addTarefa = (evento) => {                                                     /*Recebe a tarefa digitada pelo usuário e add no Array (banco de dados) */
+const addTarefa = (evento) => {                                                                 /*Recebe a tarefa digitada pelo usuário e add no Array (banco de dados) */
     const tecla = evento.key;
     const texto = evento.target.value
     if(tecla == 'Enter'){
@@ -45,5 +46,20 @@ const addTarefa = (evento) => {                                                 
     
 }
 document.getElementById('newItem').addEventListener('keypress', addTarefa);
+
+
+const removerItem = (indice) => {                                                               /*Remove os Itens do banco de dados */
+    banco.splice(indice, 1);                                                                    /*splice recorta um array. (a partir, remove nº) no caso, ele próprio */
+    render();
+}
+
+const clickItem = (evento) => {                                                                 /*Verifica onde o usuário clicou e encaminha para a função determinada */
+    const elemento = evento.target;
+    if(elemento.type == 'button'){
+        const indice = elemento.dataset.indice;                                                 /*dataset captura o npumero do indice de mesmo nome usado na função criarItem  */
+        removerItem(indice);
+    }
+}
+document.getElementById('todoList').addEventListener('click', clickItem);
 
 render();
