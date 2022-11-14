@@ -8,7 +8,7 @@ let banco = [                                                        /*Este Arra
 
 ]
 
-const criarItem = (tarefa, status) => {                              /*Cria as tarefas dentro do DOM*/
+const criarItem = (tarefa, status) => {                                             /*Cria as tarefas dentro do DOM*/
     const item = document.createElement('label');
     item.classList.add('todo__item');
     item.innerHTML = `
@@ -19,27 +19,30 @@ const criarItem = (tarefa, status) => {                              /*Cria as t
     document.getElementById('todoList').appendChild(item);
 }
 
-const clear = () => {                                               /*Limpa as tarefas da tela */
+const clear = () => {                                                               /*Limpa as tarefas da tela */
     const todoList = document.getElementById('todoList');   
-    while(todoList.firstChild){                                     /*Enquanto existir o primeiro filho, remove o último filho */
+    while(todoList.firstChild){                                                     /*Enquanto existir o primeiro filho, remove o último filho */
         todoList.removeChild(todoList.lastChild);
     }
 
 }
 
-const render = () => {                                              /*Lê o banco de dados e Atualiza a tela */
-    clear();                                                        /*Limpa a tela cada vez que o Render é chamado para não haver duplicações */
-    banco.forEach(item => criarItem(item.tarefa, item.status));     /*Para cada item do banco, pega um item e joga para a função 'criarItem()' informando seus parametros*/
+const render = () => {                                                              /*Lê o banco de dados e Atualiza a tela */
+    clear();                                                                        /*Limpa a tela cada vez que o Render é chamado para não haver duplicações */
+    banco.forEach(item => criarItem(item.tarefa, item.status));                     /*Para cada item do banco, pega um item e joga para a função 'criarItem()' informando seus parametros*/
 
 
 }
 
-const addTarefa = (evento) => {                                                     /*Recebe a tarefa digitada pelo usuário e add no Array */
+const addTarefa = (evento) => {                                                     /*Recebe a tarefa digitada pelo usuário e add no Array (banco de dados) */
     const tecla = evento.key;
+    const texto = evento.target.value
     if(tecla == 'Enter'){
-        banco.push({'tarefa':'Desenhar', 'status': ''})
+        banco.push({'tarefa': texto, 'status': ''});
+        render();
+        evento.target.value = ''
     }
-    render();
+    
 }
 document.getElementById('newItem').addEventListener('keypress', addTarefa);
 
