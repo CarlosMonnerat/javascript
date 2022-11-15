@@ -53,11 +53,20 @@ const removerItem = (indice) => {                                               
     render();
 }
 
+const marcarItem = (indice) => {                                                                /*Marca ou desmarca o checkbox das tarefas no banco de dados */
+    banco[indice].status = banco[indice].status == '' ? 'checked' : '';
+    render();
+    console.log(banco);
+}
+
 const clickItem = (evento) => {                                                                 /*Verifica onde o usuário clicou e encaminha para a função determinada */
     const elemento = evento.target;
     if(elemento.type == 'button'){
         const indice = elemento.dataset.indice;                                                 /*dataset captura o npumero do indice de mesmo nome usado na função criarItem  */
         removerItem(indice);
+    }else if(elemento.type == 'checkbox'){
+        const indice = elemento.dataset.indice;
+        marcarItem (indice);
     }
 }
 document.getElementById('todoList').addEventListener('click', clickItem);
