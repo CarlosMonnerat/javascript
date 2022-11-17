@@ -1,6 +1,6 @@
 class Pessoa{
     constructor(parametro){ //Método que é automaticamente chamado quando um novo objeto desta classe é instanciado
-        this.nome = parametro 
+        this.nome = parametro //Se a variavel estiver dentro do constructor, deve-se utilizar "this." na frente
 
     }
 }
