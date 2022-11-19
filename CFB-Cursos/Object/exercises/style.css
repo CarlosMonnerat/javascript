@@ -1,0 +1,52 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    border: none;
+    box-sizing: border-box;
+    font-size: large;
+}
+
+.carros{
+    display: flex;
+    width: 100%;
+    border: 3px solid black;
+    padding: 5px;
+    border-radius: 5px;
+
+}
+
+.carro{
+    display: flex;
+    width: 200px;
+    border: 3px solid blue;
+    background-color: aqua;
+    padding: 5px;
+    border-radius: 5px;
+
+}
+
+.campoForm{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin-bottom: 10px;
+}
+
+.campoForm label{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.campoForm input{
+    background-color: rgba(192, 187, 187, 0.363);
+    border: 2px solid black;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.campoForm button{
+    background-color: gray;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+}
