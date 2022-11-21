@@ -10,6 +10,12 @@ const botao = document.querySelector("#btn_addcarro")
 
 let arrayCarros = []
 
+const removerCarro = (quem) =>{
+    arrayCarros = arrayCarros.filter((el)=>{
+        return el.nome != quem
+    })
+}
+
 militar.addEventListener("click", (event)=>{
     f_blindagem.value = "0"
     f_municao.value = "0"
@@ -27,10 +33,19 @@ const exibirCarros = () =>{
     carros.innerHTML = ""
     arrayCarros.forEach((car)=>{
         const div = document.createElement("div")
+        const btn = document.createElement("button")
+        btn.addEventListener("click", (event)=>{
+            const quemRemover = event.target.parentNode.dataset.nome
+            removerCarro(quemRemover);
+            exibirCarros();
+        })
         div.setAttribute("class", "carro")
+        div.setAttribute("data-nome", car.nome)
         div.innerHTML = `Nome: ${car.nome} <br> Portas: ${car.portas} <br> Cor: ${car.cor} <br>
         Blindagem: ${car.blindagem} <br> Munição: ${car.municao}`
+        btn.innerHTML = `Remover`
         carros.appendChild(div)
+        div.appendChild(btn)
     })
     
 }
