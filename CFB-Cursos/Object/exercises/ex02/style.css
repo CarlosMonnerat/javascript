@@ -1,0 +1,33 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    border: none;
+    box-sizing: border-box;
+    font-size: large;
+}
+
+.dflex{
+    display: flex;
+    justify-content: center;
+}
+
+.calc{
+
+}
+
+.div_nome{
+
+}
+
+.div_display{
+
+}
+
+.div_teclas{
+
+}
+
+.tecla{
+    
+
+}
