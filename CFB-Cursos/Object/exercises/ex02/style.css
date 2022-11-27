@@ -8,32 +8,28 @@
 }
 
 .calc{
-    border: 2px solid yellow;
+    background-color: #eee;
+    border: 3px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width: 230px;
+    border-radius: 5px;
     
 }
 
+/*   Título   */
 .div_nome{
-    border: 2px solid green;
     display: flex;
     justify-content: center;
     align-items: center;
-    
-}
-
-.div_display{
-    border: 2px solid blue;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
+    width: 220px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: larger;
 }
 
 .div_teclas{
-    border: 2px solid red;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,4 +64,25 @@
 .tecla_op:hover{
     background-color: rgba(255, 68, 68, 0.923) !important;
     border: 3px solid #800 !important;
+}
+
+/*  DISPLAY */
+.div_display{
+    border: 3px solid black;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 220px;
+    
+}
+
+.display{
+    background-color: rgba(128, 0, 128, 0.407);
+    border-radius: 5px;
+    width: 220px;
+    text-align: right;
+    padding: 5px;
+    font-family: monospace;
+    font-size: 25px;
 }
