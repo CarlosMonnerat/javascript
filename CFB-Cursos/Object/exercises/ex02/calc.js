@@ -4,6 +4,7 @@ const teclaRes = document.querySelector(".res")
 const display = document.querySelector(".display")
 const teclaOn = document.getElementById("tecla_on")
 const teclaLimpar = document.getElementById("teclaLimpar")
+const teclaIqual = document.getElementById("tecla_igual")
 
 let sinal = false
 let decimal = false
@@ -38,7 +39,7 @@ teclasOp.forEach((el) =>{
         decimal = false
         if(!sinal){
             sinal = true
-            if(display.innerHTML == "0"){
+            if(display.innerHTML == "0" && event.target.innerHTML == "-"){
                 display.innerHTML = ""
             }
             if(event.target.innerHTML == "x"){
@@ -57,5 +58,13 @@ teclaLimpar.addEventListener("click", (event) =>{
     decimal = false
     display.innerHTML = "0"
     
+})
+
+teclaIqual.addEventListener("click", (event)=>{
+    sinal = false
+    decimal = false
+    const res = eval(display.innerHTML) // Avalia a expressão recebida no parâmetro, e se for tudo com caracteres matemático, ele resolve os calculos
+    display.innerHTML = res
+
 })
 
