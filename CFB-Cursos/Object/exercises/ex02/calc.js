@@ -6,19 +6,22 @@ const teclaOn = document.getElementById("tecla_on")
 const teclaLimpar = document.getElementById("teclaLimpar")
 const teclaIqual = document.getElementById("tecla_igual")
 const teclaCpy = document.getElementById("tecla_cpy")
+const calc_aba = document.getElementById("calc_aba")
+const calc = document.getElementById("calc")
+const img_aba = document.getElementById("img_aba")
 
 let sinal = false
 let decimal = false
 
 teclasNum.forEach((el) =>{
     el.addEventListener("click", (event) =>{
-        if(sinal == true && event.target.innerHTML ==","){
-            display.innerHTML += "0,"
+        if(sinal == true && event.target.innerHTML =="."){
+            display.innerHTML += "0."
             sinal = false
             decimal = true
         }else{
             sinal = false
-            if(event.target.innerHTML == ","){
+            if(event.target.innerHTML == "."){
                  if(!decimal){
                     decimal = true
                     display.innerHTML += event.target.innerHTML        
@@ -77,5 +80,10 @@ teclaCpy.addEventListener("click", (event) =>{
             teste.setSelectionRange(0, 99999)           //Do zero até um número muito grande
             navigator.clipboard.writeText(teste.value)
         */
+})
+
+calc_aba.addEventListener("click", (event) =>{
+    calc.classList.toggle("calc_exibir") //Se tiver a class ele retira, se não tiver ele add   
+    calc.classList.contains("calc_exibir") ? img_aba.src = "img/double_arrow_left.svg" : img_aba.src = "img/double_arrow_right.svg"
 })
 
