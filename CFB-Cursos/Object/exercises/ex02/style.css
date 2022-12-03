@@ -11,11 +11,14 @@
     background-color: #eee;
     border: 3px solid black;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    width: 230px;
+    position: absolute;
+    left: calc(50% - 140px);
+    width: 240px;
     border-radius: 5px;
+    margin: 20px;
     
 }
 
@@ -39,9 +42,6 @@
 }
 
 .tecla{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: #aaa;
     border: 3px solid #888;
     border-radius: 10px;
