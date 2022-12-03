@@ -5,6 +5,7 @@ const display = document.querySelector(".display")
 const teclaOn = document.getElementById("tecla_on")
 const teclaLimpar = document.getElementById("teclaLimpar")
 const teclaIqual = document.getElementById("tecla_igual")
+const teclaCpy = document.getElementById("tecla_cpy")
 
 let sinal = false
 let decimal = false
@@ -66,5 +67,15 @@ teclaIqual.addEventListener("click", (event)=>{
     const res = eval(display.innerHTML) // Avalia a expressão recebida no parâmetro, e se for tudo com caracteres matemático, ele resolve os calculos
     display.innerHTML = res
 
+})
+
+teclaCpy.addEventListener("click", (event) =>{
+    navigator.clipboard.writeText(display.innerHTML) // Copia o que estiver digitado no display
+
+        /* Em dispositivos mobile, esse comando pode apresentar problemas com "input". Para evitar esses problemas podemos utilizar:
+            teste.select()                              //Seleciona o texto que será copiado
+            teste.setSelectionRange(0, 99999)           //Do zero até um número muito grande
+            navigator.clipboard.writeText(teste.value)
+        */
 })
 
