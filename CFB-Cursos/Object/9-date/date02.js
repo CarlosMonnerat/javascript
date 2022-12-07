@@ -13,6 +13,8 @@ const relogio = ()=>{
     
     console.log(`${hora}:${minuto}:${segundo}`)
 }
- const intervalo = setInterval(relogio, 1000) //Chama a funcão relogio a cada 1000 milisegundos = 1 segundo
+ // const intervalo = setInterval(relogio, 1000) //Chama a funcão relogio a cada 1000 milisegundos = 1 segundo
+
+ relogio()
 
 
