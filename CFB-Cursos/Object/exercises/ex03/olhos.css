@@ -1,2 +1,22 @@
+*{
+    border: none;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
 
+.olhos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 750px;
+    height: 400px;
+}
+
+.olho{
+    width: 200px;
+    height: 200px;
+    transform-origin: center center;
+}
 
