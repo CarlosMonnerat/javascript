@@ -45,9 +45,13 @@ input[type='number'], #num_objetos{
     min-height: 100vh;
     min-height: fill-available;
     min-height: -webkit-fill-available;
-    background-color: #eee;
+    background-color: #fff;
     border: 2px solid #000;
     border-radius: 5px;
     position: absolute;
     overflow: hidden;
+}
+.bola{
+    position: absolute;
+    border-radius: 100px;
 }
