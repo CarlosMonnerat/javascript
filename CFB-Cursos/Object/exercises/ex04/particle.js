@@ -35,15 +35,30 @@ class Bola{
         this.controle = setInterval(this.controlar,10)
     //Relaciona bolinha instanciada no DOM com o ArrayBolas
         this.eu = document.getElementById(this.id)
+    //Incremento
+        numBolas++
+        num_objetos.innerHTML = numBolas
     }
     minhaPos=()=>{
-
+        return this.arrayBolas.indexOf(this)            //Retorna a posição do obj dentro do array
     }
     remover=()=>{
-
+        clearInterval(this.controle)
+        bolas = bolas.filter((b)=>{
+            if(b.id != this.id){
+                return b
+            }
+        })
+        this.eu.remove()
+        numBolas--
+        num_objetos.innerHTML = numBolas
     }
     desenhar=()=>{
-
+        const div=document.createElement("div")
+        div.setAttribute("id", this.id)
+        div.setAttribute("class", "bola")
+        div.setAttribute("style", `left:${this.px}; top:${this.py}; width:${this.tam}; heigth:${this.tam}; background-color:rgb(${this.r},${this.g},${this.b})`)
+        this.palco.appendChild(div)
     }
     controlar=()=>{
 
