@@ -5,4 +5,9 @@
     que ficar carregando N arquivos .
 */
 
-const cursos = {"javascript"}
+        //Arquivo.js 2
+import { cursos } from "./modulo02.js"; //Recebe os Arrays do Arquivo.js 2
+import { carros } from "./modulo02.js";
+
+console.log(cursos)
+console.log(carros)
