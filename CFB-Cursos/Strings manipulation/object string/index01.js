@@ -13,3 +13,7 @@ console.log(nome.replace("B","P")) //Substitui o primeiro caractere "B" por "P" 
 console.log(nome.search("Pinho")) 	// Encontra o primeiro caractere ou palavra indicada da string
 console.log(nome.slice(6,11))       //Retorna o recorte da string (start, end)
 console.log(nome.split(" "))        // Retorna o um array recortando a string onde há um " " (espaço vazio)
+
+console.log(nome.substring(0,5)) //Parecido com o "slice", Retorna o recorte da string (start, end)
+console.log(nome.toUpperCase())  //Converte tudo para letras Maiúsculas
+console.log(canal.toLowerCase())  //Converte tudo para letras Minúsculas
