@@ -12,20 +12,22 @@ let anima = null
 
 const mover = (dir)=>{
     carro.style.left=parseInt(carro.style.left) + (10*dir) +"px"
+    anima = setTimeout(mover,20,dir)            //Função, intervalo(milisegundos), Parametro
 }
 
 btn_esquerda.addEventListener("click", ()=>{
-    clearInterval(anima)
-    anima = setInterval(mover,20,-1)            //Função, intervalo(milisegundos), Parametro
+    clearTimeout(anima)
+    mover(-1)
+             
 })
 
 btn_direita.addEventListener("click", ()=>{
-    clearInterval(anima)
-    anima = setInterval(mover,20, 1)            //Função, intervalo(milisegundos), Parametro
+    clearTimeout(anima)
+    mover(1)
 })
 
 btn_parar.addEventListener("click", ()=>{
-    clearInterval(anima)
+    clearTimeout(anima)
 })
 
 
