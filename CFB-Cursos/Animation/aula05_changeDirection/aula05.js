@@ -1,46 +1,33 @@
 const carro = document.getElementById("carro")
-const btn_esquerda = document.getElementById("btn_esquerda")
-const btn_direita = document.getElementById("btn_direita")
 const btn_parar = document.getElementById("btn_parar")
+const btn_rodar = document.getElementById("btn_rodar")
 
 const init = ()=>{
     carro.style.position="relative"
     carro.style.left="0px"
     carro.style.width="100px"
-    tamMax = window.innerWidth - parseInt(carro.style.width) //Largura da Tela - Largura do carro
+    carro.style.height="40px"
+    tamCarro = parseInt(carro.style.width)
+    tamMax = window.innerWidth - tamCarro
 }
 
 let anima = null
 let tamMax = null
+let tamCarro = null
+let dir = 0
 
-const mover = (dir)=>{
-    if(dir > 0){
-        if(parseInt(carro.style.left) <= tamMax){
-            carro.style.left=parseInt(carro.style.left) + (10*dir) +"px"
-            anima = setTimeout(mover,20,dir)            //Função, intervalo(milisegundos), Parametro
-        }else{
-            clearTimeout(anima)
-        }
-    }else if(dir < 0){
-        if(parseInt(carro.style.left) >= 0){
-            carro.style.left=parseInt(carro.style.left) + (10*dir) +"px"
-            anima = setTimeout(mover,20,dir)            //Função, intervalo(milisegundos), Parametro
-        }else{
-            clearTimeout(anima)
-        }
+const mover = ()=>{
+    if(parseInt(carro.style.left) >= tamMax){
+        dir = -1
+    }else if(parseInt(carro.style.left) <= 0){
+        dir = 1
     }
-    
+    carro.style.left=parseInt(carro.style.left) + (10*dir) +"px"
+    anima=setTimeout(mover,20)
 }
 
-btn_esquerda.addEventListener("click", ()=>{
-    clearTimeout(anima)
-    mover(-1)
-             
-})
-
-btn_direita.addEventListener("click", ()=>{
-    clearTimeout(anima)
-    mover(1)
+btn_rodar.addEventListener("click", ()=>{
+    mover()             
 })
 
 btn_parar.addEventListener("click", ()=>{
@@ -52,4 +39,17 @@ btn_parar.addEventListener("click", ()=>{
 window.addEventListener("load",init())
 window.addEventListener("resize",()=>{
     tamMax = window.innerWidth - parseInt(carro.style.width)
+})
+
+window.addEventListener("keydown", (event)=>{
+    if(event.code==="ArrowUp"){
+        carro.style.width=parseInt(carro.style.width)+10+"px"
+        carro.style.height=parseInt(carro.style.height)+10+"px"
+    }
+    if(event.code==="ArrowDown"){
+        carro.style.width=parseInt(carro.style.width)-10+"px"
+        carro.style.height=parseInt(carro.style.height)-10+"px"
+    }
+    tamCarro=parseInt(carro.style.width)
+    tamMax=window.innerWidth - tamCarro
 })
