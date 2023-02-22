@@ -5,7 +5,7 @@ const btn_texto = document.getElementById("btn_texto")
 
 //Recebendo dados da API
 const obterDados=()=>{
-    const endpoint = "https://cfbcursos.repl.co/"   //Endereço da API
+    const endpoint = "https://127.0.0.1:1880/cfbcursos"   //Endereço da API
     fetch(endpoint)             //faz o consumo da API
     .then(res => res.json())    //'then' Recebe o retorno da API e armazena na variavel 'res'
                                 //'json()' Método que converte os dados para Json
@@ -17,7 +17,7 @@ const obterDados=()=>{
     })             
 }
 
-let intervalo=setInterval(obterDados,3000)
+//let intervalo=setInterval(obterDados,3000)
 
 //Enviando dados para a API
 let dados = {
@@ -32,8 +32,8 @@ let cabecalho = {
 }
 
 const gravarDados=()=>{
-    const endpoint = "https://cfbcursos.repl.co/"
-    fetch(endpoint, cabecalho)
+    const endpoint = "https://127.0.0.1:1880/gravar"
+    fetch(endpoint,cabecalho)
     .then(res => res.json())
     .then(ret=>{
         console.log(ret)
