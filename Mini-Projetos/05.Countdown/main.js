@@ -32,7 +32,7 @@ const contagemRegressiva = (tempo) => {
 }
 
 const tempoRestante = () => {
-    const dataEvento = new Date('2022-10-30 08:00:00');
+    const dataEvento = new Date('2023-12-25 00:00:00');
     const hoje = Date.now();
     return Math.floor((dataEvento - hoje)/1000);                            //Retorna em Milisegundo, por isso devemos dividir por mil para converter para segundos
 
