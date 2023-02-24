@@ -1,6 +1,10 @@
 const timer = document.querySelector("#timer")
+const btn_iniciar = document.querySelector("#btn_iniciar")
+const btn_parar = document.querySelector("#btn_parar")
+const btn_zerar = document.querySelector("#btn_zerar")
 
-const tmpIni = Date.now()                   //Timestamp de quando começa a rodar a aplicação
+let intervalo = null
+let tmpIni = null                           //Timestamp de quando começa a rodar a aplicação
 
 const contador=()=>{
     const tmpAtual = Date.now()             //Timestamp de quando a função foi chamada
@@ -15,9 +19,26 @@ const converter=(seg)=>{
     let minuto = Math.floor(resto/60)       //Converte para minutos e arredonda
     let segundo = Math.floor(resto%60)       //Converte para seg de modo que ao chegar em 59 seg ele volta para 00 seg
 
-    let formato = `${hora <10? "0"+hora : hora}:${minuto <10? "0"+minuto : minuto}:${segundo <10? "0"+segundo : segundo}`
+    let tmpFormato = `${hora <10? "0"+hora : hora}:${minuto <10? "0"+minuto : minuto}:${segundo <10? "0"+segundo : segundo}`
 
-    return formato
+    return tmpFormato
 }
 
-setInterval(contador,1000)
+btn_iniciar.addEventListener("click",()=>{
+    clearInterval(intervalo)
+    tmpIni = Date.now()                     //Timestamp de quando o btn é clicado
+    intervalo = setInterval(contador,1000)
+    btn_iniciar.innerHTML="Reiniciar"
+})
+
+btn_parar.addEventListener("click",()=>{
+    clearInterval(intervalo)
+})
+
+btn_zerar.addEventListener("click",()=>{
+    timer.innerHTML="00:00:00"
+    clearInterval(intervalo)
+    btn_iniciar.innerHTML="Iniciar"
+})
+
+
