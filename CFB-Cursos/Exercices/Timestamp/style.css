@@ -5,6 +5,13 @@
     box-sizing: border-box;
 }
 
+.main{
+    display: flex;
+    justify-content: space-around;
+    align-self: flex-start;
+    width: 100%;
+}
+
 #divTimer{
     display: flex;
     flex-direction: column;

@@ -1,7 +1,11 @@
 const timer = document.querySelector("#timer")
 const btn_iniciar = document.querySelector("#btn_iniciar")
+const btn_registrar = document.querySelector("#btn_registrar")
 const btn_parar = document.querySelector("#btn_parar")
 const btn_zerar = document.querySelector("#btn_zerar")
+const btn_limpar = document.querySelector("#btn_limpar")
+const parciais = document.querySelector("#parciais")
+
 
 let intervalo = null
 let tmpIni = null                           //Timestamp de quando começa a rodar a aplicação
@@ -39,6 +43,15 @@ btn_zerar.addEventListener("click",()=>{
     timer.innerHTML="00:00:00"
     clearInterval(intervalo)
     btn_iniciar.innerHTML="Iniciar"
+})
+
+btn_registrar.addEventListener("click", ()=>{
+    let registro = "<div>"+ timer.innerHTML +"</div>"
+    parciais.innerHTML += registro
+})
+
+btn_limpar.addEventListener("click", ()=>{
+    parciais.innerHTML = ""
 })
 
 
