@@ -2,7 +2,7 @@ const body = document.body
 
 const estilotopo = 
     "display: flex;"+
-    "justify-content: space-between;"+
+    "justify-content: space-around;"+
     "align-items: center;"+
     "background-color: #00f;"
 const topo = document.createElement("div")
@@ -22,4 +22,4 @@ const login =
         "<p id='matricula'>Matricula:<span></span></p>"+
         "<p id='nome'>Nome:<span></span></p>"+
     "</div>"
-topo,innerHTML += login
+topo.innerHTML += login
