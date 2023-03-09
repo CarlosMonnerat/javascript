@@ -11,6 +11,7 @@ class Cxmsg{
         this.destino = document.body
     }
     mostrar=()=>{
+    //Div Fundo Transparente
         this.divmsg = document.createElement("div")
         const estilo_divmsg = 
             "display: flex;"+
@@ -26,29 +27,71 @@ class Cxmsg{
         this.divmsg.setAttribute("style", estilo_divmsg)
         this.destino.prepend(this.divmsg)
 
-        const estilo_areaCxmsg=
+    //Div Caixa de Mensagem
+        const estilo_areaCxmsg =
             "display: flex;"+
             "justify-content: flex-start;"+
             "align-items: flex-start;"+
-            "flex-direction: colum;"+
-            "width: 300px;"
+            "flex-direction: column;"+
+            "width: 400px;"
         const areaCxmsg = document.createElement("div")
         areaCxmsg.setAttribute("style", estilo_areaCxmsg)
         this.divmsg.appendChild(areaCxmsg)
 
-        const estilo_tituloCxmsg=
+    //Div Título
+        const estilo_tituloCxmsg =
             "display: flex;"+
             "justify-content: flex-start;"+
             "align-items: center;"+
             "width: 100%;"+
             "background-color:"+this.cor+";"+
             "color: #fff;"+
-            "padding: 5px;"+
+            "padding:5px;"+
             "border-radius: 5px 5px 0px 0px"
         const tituloCxmsg = document.createElement("div")
         tituloCxmsg.setAttribute("style", estilo_tituloCxmsg)
         tituloCxmsg.innerHTML=this.titulo
         areaCxmsg.appendChild(tituloCxmsg)
+
+    //Div Corpo
+        const estilo_corpoCxmsg = 
+            "display: flex;"+
+            "justify-content: flex-start;"+
+            "align-items: center;"+
+            "width: 100%;"+
+            "background-color:#eee;"+
+            "color:#000;"+
+            "padding:30px 5px;"
+        const corpoCxmsg = document.createElement("div")
+        corpoCxmsg.setAttribute("style", estilo_corpoCxmsg)
+        corpoCxmsg.innerHTML=this.texto
+        areaCxmsg.appendChild(corpoCxmsg)
+
+    //Div Rodapé
+        const estilo_rodapeCxmsg = 
+            "display: flex;"+
+            "justify-content: space-around;"+
+            "align-items: center;"+
+            "width: 100%;"+
+            "background-color:#ccc;"+
+            "color:#000;"+
+            "padding:5px;"+
+            "border-radius: 0px 0px 5px 5px"
+        const rodapeCxmsg = document.createElement("div")
+        rodapeCxmsg.setAttribute("style", estilo_rodapeCxmsg)
+        areaCxmsg.appendChild(rodapeCxmsg)
+    //Botão
+        const estilo_botaoCxmsg =
+            "background-color: "+this.cor+";"+
+            "color:#fff;"+
+            "padding: 10px 50px;"+
+            "border-radius: 5px;"+
+            "cursor: pointer;"+
+            "text-transform: uppercase;"
+        const btn_ok = document.createElement("button")
+        btn_ok.setAttribute("style", estilo_botaoCxmsg)
+        btn_ok.innerHTML="OK"
+        rodapeCxmsg.appendChild(btn_ok)
     }
     ocultar=()=>{
 
