@@ -91,9 +91,14 @@ class Cxmsg{
         const btn_ok = document.createElement("button")
         btn_ok.setAttribute("style", estilo_botaoCxmsg)
         btn_ok.innerHTML="OK"
+        btn_ok.addEventListener("click",(event)=>{
+            this.ocultar()
+        })
         rodapeCxmsg.appendChild(btn_ok)
+
+
     }
     ocultar=()=>{
-
+        this.divmsg.remove()
     }
 }
