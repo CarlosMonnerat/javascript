@@ -16,6 +16,7 @@
     top: 0px;
     left: 0px;
     background-color: rgba(0,0,0,0.75);
+    box-sizing: border-box;
 }
 
 .baseLogin{
@@ -23,6 +24,7 @@
     justify-content: center;
     align-items: stretch;
     width: 50%;
+    box-sizing: inherit;
 }
 
 .elementosLogin{
@@ -33,7 +35,8 @@
     width: 50%;
     background-color: #eee;
     padding: 10px;
-    border-radius: 10px 0px 0px 10px; 
+    border-radius: 10px 0px 0px 10px;
+    box-sizing: inherit;
 }
 
 .logoLogin{
@@ -44,10 +47,12 @@
     background-color: #bbb;
     padding: 10px;
     border-radius: 0px 10px 10px 0px;
+    box-sizing: inherit;
 }
 
 .logoLogin img{
     width: 90%;
+    box-sizing: inherit;
 }
 
 .campoLogin{
@@ -55,6 +60,19 @@
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
+    box-sizing: inherit;
+    margin-bottom: 10px;
+}
+
+.campoLogin label{
+    font-size: 18px;
+}
+
+.campoLogin input{
+    font-size: 18px;
+    padding: 5px;
+    background-color: #fff;
+    border-radius: 5px;
 }
 
 .botoesLogin{
@@ -62,6 +80,7 @@
     justify-content: space-around;
     align-items: center;
     width: 100%;
+    box-sizing: inherit;
 }
 
 .botoesLogin button{
@@ -71,6 +90,7 @@
     border-radius: 5px;
     padding: 10px;
     width: 100px;
+    box-sizing: inherit;
 }
 
 /*****************************/
