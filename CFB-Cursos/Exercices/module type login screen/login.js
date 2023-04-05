@@ -30,6 +30,14 @@ class Login{
         
         ".botoesLogin button{ cursor: pointer; background-color: #048; color: #fff; border-radius: 5px; padding: 10px; width: 100px; box-sizing: inherit; }"
 
+        const styleEstilo = document.createElement("style");
+        styleEstilo.setAttribute('id',"id_estiloLogin");
+        styleEstilo.setAttribute('rel',"stylesheet");
+        styleEstilo.setAttribute('type',"text/css");
+        styleEstilo.innerHTML = this.estilocss;
+
+        document.head.appendChild(styleEstilo)
+       
 
         // fetch(this.endpoint)
         // .then(res=>res.json())
