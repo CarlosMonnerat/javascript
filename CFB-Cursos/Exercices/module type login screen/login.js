@@ -4,10 +4,18 @@ class Login{
     static nomelogado = null;
     static acessologado = null;
     static estilocss = null;
+    static config = {
+        cor: "048";
+        img: "./logo.png"
+    };
     static endpoint = "https://loginv1.cfbcursos.repl.co/";
     //https://loginv1.cfbcursos.repl.co/?matricula=123&senha=321
+    
 
-    static login=(mat,pass)=>{
+    static login=(mat,pass,config=null)=>{
+        if(config!=null){
+            this.config = config;
+        }
         this.endpoint+=`?matricula=${mat}&senha=${pass}`;
         this.estilocss = 
         ".fundoLogin{ display: flex; justify-content: center; align-items: center; width: 100%; height: 100vh; position: absolute; top: 0px; left: 0px; background-color: rgba(0,0,0,0.75); box-sizing: border-box; }"+
@@ -28,7 +36,7 @@ class Login{
         
         ".botoesLogin{ display: flex; justify-content: space-around; align-items: center; width: 100%; box-sizing: inherit; }"+
         
-        ".botoesLogin button{ cursor: pointer; background-color: #048; color: #fff; border-radius: 5px; padding: 10px; width: 100px; box-sizing: inherit; }"
+        `.botoesLogin button{ cursor: pointer; background-color: ${this.config.cor}; color: #fff; border-radius: 5px; padding: 10px; width: 100px; box-sizing: inherit; }`
 
         const styleEstilo = document.createElement("style");
         styleEstilo.setAttribute('id',"id_estiloLogin");
