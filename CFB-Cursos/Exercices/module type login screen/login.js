@@ -5,7 +5,7 @@ class Login{
     static acessologado = null;
     static estilocss = null;
     static config = {
-        cor: "048";
+        cor: "048",
         img: "./logo.png"
     };
     static endpoint = "https://loginv1.cfbcursos.repl.co/";
@@ -43,9 +43,76 @@ class Login{
         styleEstilo.setAttribute('rel',"stylesheet");
         styleEstilo.setAttribute('type',"text/css");
         styleEstilo.innerHTML = this.estilocss;
-
         document.head.appendChild(styleEstilo)
-       
+
+        const fundoLogin = document.createElement("div");
+        fundoLogin.setAttribute("id","fundoLogin");
+        fundoLogin.setAttribute("class", "fundoLogin");
+        document.body.prepend(fundoLogin);
+
+        const baseLogin = document.createElement("div");
+        baseLogin.setAttribute("id","baseLogin");
+        baseLogin.setAttribute("class", "baseLogin");
+        fundoLogin.appendChild(baseLogin);
+
+        const elementosLogin = document.createElement("div");
+        elementosLogin.setAttribute("id","elementosLogin");
+        elementosLogin.setAttribute("class", "elementosLogin");
+        baseLogin.appendChild(elementosLogin);
+
+        const campoLoginUsername = document.createElement("div");
+        campoLoginUsername.setAttribute("id","campoLoginUsername");
+        campoLoginUsername.setAttribute("class", "campoLogin");
+        elementosLogin.appendChild(campoLoginUsername);
+
+        const labelUsername = document.createElement("label");
+        labelUsername.innerHTML = "Username"
+        campoLoginUsername.appendChild(labelUsername);
+
+        const inputUsername = document.createElement("input");
+        inputUsername.setAttribute("type", "text")
+        inputUsername.setAttribute("name", "f_username")
+        inputUsername.setAttribute("id", "f_username")
+        campoLoginUsername.appendChild(inputUsername);
+
+        const campoLoginSenha = document.createElement("div");
+        campoLoginSenha.setAttribute("id","campoLoginSenha");
+        campoLoginSenha.setAttribute("class", "campoLogin");
+        elementosLogin.appendChild(campoLoginSenha);
+
+        const labelSenha = document.createElement("label");
+        labelSenha.innerHTML = "Senha";
+        campoLoginSenha.appendChild(labelSenha);
+
+        const inputSenha = document.createElement("input");
+        inputSenha.setAttribute("type", "password");
+        inputSenha.setAttribute("name", "f_senha");
+        inputSenha.setAttribute("id", "f_senha");
+        campoLoginSenha.appendChild(inputSenha);
+
+        const botoesLogin = document.createElement("div");
+        botoesLogin.setAttribute("class", "botoesLogin");
+        elementosLogin.appendChild(botoesLogin)
+
+        const btnLogin = document.createElement("button");
+        btnLogin.setAttribute("id", "btn_login");
+        btnLogin.innerHTML = "Login";
+        botoesLogin.appendChild(btnLogin);
+
+        const btnCancelar = document.createElement("button");
+        btnCancelar.setAttribute("id", "btn_cancelar");
+        btnCancelar.innerHTML = "Cancelar";
+        botoesLogin.appendChild(btnCancelar);
+
+
+    
+    //         <div id="logoLogin" class="logoLogin">
+    //             <img src="./logo.png" title="CFBCursos">
+    //         </div>
+    //     </div>
+    // </div>
+
+
 
         // fetch(this.endpoint)
         // .then(res=>res.json())
