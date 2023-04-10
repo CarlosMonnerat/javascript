@@ -114,16 +114,7 @@ class Login{
         imgLogo.setAttribute("title", "CFBCursos");
         logoLogin.appendChild(imgLogo);
 
-
-    
-    //         <div id="logoLogin" class="logoLogin">
-    //             <img src="./logo.png" title="CFBCursos">
-    //         </div>
-    //     </div>
-    // </div>
-
-
-
+        
         // fetch(this.endpoint)
         // .then(res=>res.json())
         // .then(res=>{
