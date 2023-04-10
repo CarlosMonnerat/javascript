@@ -104,6 +104,16 @@ class Login{
         btnCancelar.innerHTML = "Cancelar";
         botoesLogin.appendChild(btnCancelar);
 
+        const logoLogin = document.createElement("div");
+        logoLogin.setAttribute("id", "logoLogin");
+        logoLogin.setAttribute("class", "logoLogin");
+        baseLogin.appendChild(logoLogin);
+
+        const imgLogo = document.createElement("img");
+        imgLogo.setAttribute("src", this.config.img);
+        imgLogo.setAttribute("title", "CFBCursos");
+        logoLogin.appendChild(imgLogo);
+
 
     
     //         <div id="logoLogin" class="logoLogin">
