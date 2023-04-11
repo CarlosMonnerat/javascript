@@ -1,6 +1,4 @@
 class Login{
-    static mat = null;
-    static pass = null;
     static logado = false;
     static matlogado = null;
     static nomelogado = null;
@@ -18,7 +16,6 @@ class Login{
         if(config!=null){
             this.config = config;
         }
-        this.endpoint+=`?matricula=${mat}&senha=${pass}`;
     //CSS config
         this.estilocss = 
         ".fundoLogin{ display: flex; justify-content: center; align-items: center; width: 100%; height: 100vh; position: absolute; top: 0px; left: 0px; background-color: rgba(0,0,0,0.75); box-sizing: border-box; }"+
@@ -100,6 +97,13 @@ class Login{
         const btnLogin = document.createElement("button");
         btnLogin.setAttribute("id", "btn_login");
         btnLogin.innerHTML = "Login";
+        btnLogin.addEventListener("click", (event)=>{
+            if(this.verificaLogin()){
+                this.fechar();
+            }else{
+
+            }
+        });
         botoesLogin.appendChild(btnLogin);
 
         const btnCancelar = document.createElement("button");
@@ -135,6 +139,16 @@ class Login{
         // })
     }
 
+    static verificaLogin=()=>{
+        const mat = document.querySelector("#f_username").value;
+        const pass = document.querySelector("#f_senha").value;
+        if(mat == "123" && pass == "321"){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
     static fechar=()=>{
         const fundoLogin = document.querySelector("#fundoLogin");
         fundoLogin.remove();
