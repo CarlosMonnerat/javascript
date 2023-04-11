@@ -17,6 +17,7 @@ class Login{
             this.config = config;
         }
         this.endpoint+=`?matricula=${mat}&senha=${pass}`;
+    //CSS config
         this.estilocss = 
         ".fundoLogin{ display: flex; justify-content: center; align-items: center; width: 100%; height: 100vh; position: absolute; top: 0px; left: 0px; background-color: rgba(0,0,0,0.75); box-sizing: border-box; }"+
         
@@ -37,7 +38,7 @@ class Login{
         ".botoesLogin{ display: flex; justify-content: space-around; align-items: center; width: 100%; box-sizing: inherit; }"+
         
         `.botoesLogin button{ cursor: pointer; background-color: ${this.config.cor}; color: #fff; border-radius: 5px; padding: 10px; width: 100px; box-sizing: inherit; }`
-
+    //HTML Config
         const styleEstilo = document.createElement("style");
         styleEstilo.setAttribute('id',"id_estiloLogin");
         styleEstilo.setAttribute('rel',"stylesheet");
