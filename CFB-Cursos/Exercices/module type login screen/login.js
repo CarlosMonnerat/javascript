@@ -1,4 +1,6 @@
 class Login{
+    static mat = null;
+    static pass = null;
     static logado = false;
     static matlogado = null;
     static nomelogado = null;
@@ -12,7 +14,7 @@ class Login{
     //https://loginv1.cfbcursos.repl.co/?matricula=123&senha=321
     
 
-    static login=(mat,pass,config=null)=>{
+    static login=(config=null)=>{
         if(config!=null){
             this.config = config;
         }
@@ -37,7 +39,7 @@ class Login{
         
         ".botoesLogin{ display: flex; justify-content: space-around; align-items: center; width: 100%; box-sizing: inherit; }"+
         
-        `.botoesLogin button{ cursor: pointer; background-color: ${this.config.cor}; color: #fff; border-radius: 5px; padding: 10px; width: 100px; box-sizing: inherit; }`
+        `.botoesLogin button{ cursor: pointer; background-color: #${this.config.cor}; color: #fff; border-radius: 5px; padding: 10px; width: 100px; box-sizing: inherit; }`
     //HTML Config
         const styleEstilo = document.createElement("style");
         styleEstilo.setAttribute('id',"id_estiloLogin");
@@ -103,6 +105,9 @@ class Login{
         const btnCancelar = document.createElement("button");
         btnCancelar.setAttribute("id", "btn_cancelar");
         btnCancelar.innerHTML = "Cancelar";
+        btnCancelar.addEventListener("click", (event)=>{
+            this.fechar();
+        });
         botoesLogin.appendChild(btnCancelar);
 
         const logoLogin = document.createElement("div");
@@ -114,7 +119,6 @@ class Login{
         imgLogo.setAttribute("src", this.config.img);
         imgLogo.setAttribute("title", "CFBCursos");
         logoLogin.appendChild(imgLogo);
-
         
         // fetch(this.endpoint)
         // .then(res=>res.json())
@@ -129,6 +133,14 @@ class Login{
         //         console.log("Usuário não encontrado!")
         //     }
         // })
+    }
+
+    static fechar=()=>{
+        const fundoLogin = document.querySelector("#fundoLogin");
+        fundoLogin.remove();
+        const id_estiloLogin = document.querySelector("#id_estiloLogin");
+        id_estiloLogin.remove();
+
     }
 }
 export{Login};
