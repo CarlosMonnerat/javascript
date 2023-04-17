@@ -141,6 +141,7 @@ class Login{
                 this.matlogado = null;
                 this.nomelogado = null;
                 this.acessologado = null;
+                alert("Login não efetuado! Username ou senha incorretos!")
                 //console.log("Usuário não encontrado!")
             }
         })
