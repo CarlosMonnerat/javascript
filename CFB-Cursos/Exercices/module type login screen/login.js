@@ -9,7 +9,7 @@ class Login{
         img: "./logo.png"
     };
     static endpoint = "https://loginv1.cfbcursos.repl.co/";
-    //https://loginv1.cfbcursos.repl.co/?matricula=123&senha=321
+    
     
 
     static login=(config=null)=>{
@@ -123,30 +123,34 @@ class Login{
         imgLogo.setAttribute("src", this.config.img);
         imgLogo.setAttribute("title", "CFBCursos");
         logoLogin.appendChild(imgLogo);
-        
-        // fetch(this.endpoint)
-        // .then(res=>res.json())
-        // .then(res=>{
-        //     if(res){
-        //         this.logado = true;
-        //         this.matlogado = mat;
-        //         this.nomelogado = res.nome;
-        //         this.acessologado = res.acesso;
-        //         console.log(res)
-        //     }else{
-        //         console.log("Usuário não encontrado!")
-        //     }
-        // })
     }
 
     static verificaLogin=()=>{
         const mat = document.querySelector("#f_username").value;
         const pass = document.querySelector("#f_senha").value;
-        if(mat == "123" && pass == "321"){
-            return true;
-        }else{
-            return false;
-        }
+
+        const endpoint = `https://loginv1.cfbcursos.repl.co/?matricula=${mat}&senha=${pass}`
+        fetch(endpoint)
+        .then(res=>res.json())
+        .then(res=>{
+            if(res){
+                this.logado = true;
+                this.matlogado = mat;
+                this.nomelogado = res.nome;
+                this.acessologado = res.acesso;
+                return true;
+                //console.log(res)
+            }else{
+                return false
+                //console.log("Usuário não encontrado!")
+            }
+        })
+
+        // if(mat == "123" && pass == "321"){
+        //     return true;
+        // }else{
+        //     return false;
+        // }
     }
     
     static fechar=()=>{
