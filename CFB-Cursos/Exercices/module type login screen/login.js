@@ -98,11 +98,7 @@ class Login{
         btnLogin.setAttribute("id", "btn_login");
         btnLogin.innerHTML = "Login";
         btnLogin.addEventListener("click", (event)=>{
-            if(this.verificaLogin()){
-                this.fechar();
-            }else{
-
-            }
+            this.verificaLogin();
         });
         botoesLogin.appendChild(btnLogin);
 
@@ -138,10 +134,13 @@ class Login{
                 this.matlogado = mat;
                 this.nomelogado = res.nome;
                 this.acessologado = res.acesso;
-                return true;
+                this.fechar();
                 //console.log(res)
             }else{
-                return false
+                this.logado = false;
+                this.matlogado = null;
+                this.nomelogado = null;
+                this.acessologado = null;
                 //console.log("Usuário não encontrado!")
             }
         })
