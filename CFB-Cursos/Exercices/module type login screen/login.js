@@ -4,6 +4,8 @@ class Login{
     static nomelogado = null;
     static acessologado = null;
     static estilocss = null;
+    static callback_ok = null;
+    static callbak_naook = null;
     static config = {
         cor: "048",
         img: "./logo.png"
@@ -12,7 +14,7 @@ class Login{
     
     
 
-    static login=(config=null)=>{
+    static login=(callback_ok, callbak_naook, config=null)=>{
         if(config!=null){
             this.config = config;
         }
@@ -145,12 +147,6 @@ class Login{
                 //console.log("Usuário não encontrado!")
             }
         })
-
-        // if(mat == "123" && pass == "321"){
-        //     return true;
-        // }else{
-        //     return false;
-        // }
     }
     
     static fechar=()=>{
