@@ -1,12 +1,21 @@
-const btn_cxmsg = document.querySelector("#btn_cxmsg")
-
+import{Cxmsg} from "./msg.js";
 const config ={
-    titulo:"CFB Cursos",
-    texto:"Curso de javascript, criando caixa de mensagem personalizada!",
-    cor: "#48f"
+     cor: "#48f"        //Se não configurar nenhuma cor, será usada a cor padrão definida em "msg.js"
 }
-const cxmsg = new Cxmsg(config)
+Cxmsg.config(config)
+
+const btn_cxmsg = document.querySelector("#btn_cxmsg")
+const btn_cxmsg2 = document.querySelector("#btn_cxmsg2")
+const btn_cxmsg3 = document.querySelector("#btn_cxmsg3")
 
 btn_cxmsg.addEventListener("click",()=>{
-    cxmsg.mostrar()
+    Cxmsg.mostrar("CFB Cursos", "Cursos de Javascript")
+})
+
+btn_cxmsg2.addEventListener("click",()=>{
+    Cxmsg.mostrar("Youtube", "Canal com cursos de programação")
+})
+
+btn_cxmsg3.addEventListener("click",()=>{
+    Cxmsg.mostrar("Javascript", "Aula 136")
 })

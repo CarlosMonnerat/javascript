@@ -1,3 +1,9 @@
+import { Cxmsg } from "../Custom message box/msg.js";
+const config ={
+    cor: "#082"                             //Se não configurar nenhuma cor, será usada a cor padrão definida em "msg.js"
+}
+Cxmsg.config(config)
+
 const timer = document.querySelector("#timer")
 const btn_iniciar = document.querySelector("#btn_iniciar")
 const btn_registrar = document.querySelector("#btn_registrar")
@@ -43,6 +49,7 @@ btn_zerar.addEventListener("click",()=>{
     timer.innerHTML="00:00:00"
     clearInterval(intervalo)
     btn_iniciar.innerHTML="Iniciar"
+    Cxmsg.mostrar("Cronômetro", "O cronômetro foi zerado.")
 })
 
 btn_registrar.addEventListener("click", ()=>{
