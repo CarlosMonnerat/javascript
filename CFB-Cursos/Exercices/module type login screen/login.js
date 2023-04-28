@@ -5,19 +5,20 @@ class Login{
     static acessologado = null;
     static estilocss = null;
     static callback_ok = null;
-    static callbak_naook = null;
+    static callback_naook = null;
     static config = {
         cor: "048",
         img: "./logo.png"
     };
     static endpoint = "https://loginv1.cfbcursos.repl.co/";
     
-    
-
-    static login=(callback_ok, callbak_naook, config=null)=>{
+    static login=(callback_ok, callback_naook, config=null)=>{
         if(config!=null){
             this.config = config;
         }
+        this.callback_ok = ()=>{callback_ok()};
+        this.callback_naook = ()=>{callback_naook()};
+
     //CSS config
         this.estilocss = 
         ".fundoLogin{ display: flex; justify-content: center; align-items: center; width: 100%; height: 100vh; position: absolute; top: 0px; left: 0px; background-color: rgba(0,0,0,0.75); box-sizing: border-box; }"+
@@ -136,6 +137,7 @@ class Login{
                 this.matlogado = mat;
                 this.nomelogado = res.nome;
                 this.acessologado = res.acesso;
+                this.callback_ok();
                 this.fechar();
                 //console.log(res)
             }else{
@@ -143,8 +145,8 @@ class Login{
                 this.matlogado = null;
                 this.nomelogado = null;
                 this.acessologado = null;
-                alert("Login não efetuado! Username ou senha incorretos!")
-                //console.log("Usuário não encontrado!")
+                this.callback_naook();
+                //alert("Login não efetuado! Username ou senha incorretos!")
             }
         })
     }
