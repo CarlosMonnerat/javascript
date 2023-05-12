@@ -47,6 +47,11 @@ dgvLinha:nth-child(even){ /* Add uma pseudo class nas linhas pares*/
     padding: 5px;
 }
 
+.coluna{
+    display: flex;
+    justify-content: flex-start;
+    align-self: center;
+}
 .c1{
     width: 50px;
 }
@@ -60,5 +65,11 @@ dgvLinha:nth-child(even){ /* Add uma pseudo class nas linhas pares*/
     width: 150px;    
 }
 .c5{
-    width: 100px;    
+    width: 100px;
+    justify-content: space-around !important;
+    align-self: center;    
+}
+
+.dgvIcone{
+    width: 20px;
 }
