@@ -31,6 +31,17 @@
     align-self: flex-start;
     flex-direction: row;
 }
+.dgvLinha:nth-child(odd){ /* Add uma pseudo class nas linhas ímpares*/
+    background-color: #ddd;
+}
+dgvLinha:nth-child(even){ /* Add uma pseudo class nas linhas pares*/
+    background-color: #eee;
+}
+.dgvLinha:hover{
+    background-color: #088 !important;
+    color: white;
+    cursor: pointer;
+}
 
 .dgvTitulos div, .dgvLinha div{
     padding: 5px;
