@@ -53,6 +53,10 @@ const dgv=(config_dgv)=>{
             const imgDelete = document.createElement("img");
             imgDelete.setAttribute("class","dgvIcone");
             imgDelete.setAttribute("src","./icon_SVG/delete.svg");
+            imgDelete.addEventListener("click",(event)=>{
+                const id = event.target.parentNode.parentNode;
+                id.remove();
+            })
             c5.appendChild(imgDelete);
             
         //Add na div do HTML    
