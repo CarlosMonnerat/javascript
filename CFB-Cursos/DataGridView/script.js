@@ -8,6 +8,7 @@ const dgv=(config_dgv)=>{
     fetch(config_dgv.endpoint)
     .then(res=>res.json())
     .then(res=>{
+        console.log(res)
         res.forEach(element => {
         //Div pai
             const dgvLinha = document.createElement("div");
@@ -57,7 +58,6 @@ const dgv=(config_dgv)=>{
         //Add na div do HTML    
             dgvDados.appendChild(dgvLinha);
         });
-        console.log(res)
     })
 }
 

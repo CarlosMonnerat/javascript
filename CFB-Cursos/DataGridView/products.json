@@ -28,5 +28,17 @@
         "produto":"Drone",
         "marca":"DJI",
         "modelo":"Mini 3 Pro"
+    },
+    {
+        "id":"06",
+        "produto":"Headphone",
+        "marca":"JBL",
+        "modelo":"Tune 510bt"
+    },
+    {
+        "id":"07",
+        "produto":"Smartphone",
+        "marca":"Xiaomi",
+        "modelo":"Mi 9 Lite"
     }
 ]
