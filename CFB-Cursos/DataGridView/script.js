@@ -8,7 +8,6 @@ const dgv=(config_dgv)=>{
     fetch(config_dgv.endpoint)
     .then(res=>res.json())
     .then(res=>{
-        console.log(res)
         res.forEach(element => {
         //Div pai
             const dgvLinha = document.createElement("div");
