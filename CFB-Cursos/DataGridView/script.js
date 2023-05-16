@@ -42,6 +42,9 @@ const dgv=(config_dgv)=>{
             const imgView = document.createElement("img");
             imgView.setAttribute("class","dgvIcone");
             imgView.setAttribute("src","./icon_SVG/visibility.svg");
+            imgView.addEventListener("click",(event)=>{
+                document.querySelector(".janelaView").classList.remove("ocultar");    
+            })
             c5.appendChild(imgView);
 
             const imgEdit = document.createElement("img");
