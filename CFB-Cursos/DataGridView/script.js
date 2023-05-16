@@ -44,7 +44,7 @@ const dgv=(config_dgv)=>{
             imgView.setAttribute("src","./icon_SVG/visibility.svg");
             imgView.addEventListener("click",(event)=>{
                 document.querySelector(".janelaView").classList.remove("ocultar");    
-            })
+            });
             c5.appendChild(imgView);
 
             const imgEdit = document.createElement("img");
@@ -69,10 +69,7 @@ const dgv=(config_dgv)=>{
 
 dgv(config_dgv);
 
-    // <div class="dgvLinha">
-    //     <div class="c1">01</div>
-    //     <div class="c2">processador</div>
-    //     <div class="c3">Intel</div>
-    //     <div class="c4">i7</div>
-    //     <div class="c5">D E V</div>
-    // </div>
+//Btn fecha a a janela de visualização ampliada
+document.querySelector("#btn_ok").addEventListener("click",(event)=>{
+    document.querySelector(".janelaView").classList.add("ocultar");
+});
