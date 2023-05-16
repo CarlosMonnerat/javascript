@@ -43,7 +43,12 @@ const dgv=(config_dgv)=>{
             imgView.setAttribute("class","dgvIcone");
             imgView.setAttribute("src","./icon_SVG/visibility.svg");
             imgView.addEventListener("click",(event)=>{
-                document.querySelector(".janelaView").classList.remove("ocultar");    
+                document.querySelector(".janelaView").classList.remove("ocultar");
+                document.querySelector("#f_id").value=element.id;
+                document.querySelector("#f_produto").value=element.produto;
+                document.querySelector("#f_marca").value=element.marca;
+                document.querySelector("#f_modelo").value=element.modelo;
+                
             });
             c5.appendChild(imgView);
 
