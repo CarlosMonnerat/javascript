@@ -47,14 +47,17 @@ const dgv=(config_dgv)=>{
                 document.querySelector("#f_id").value=element.id;
                 document.querySelector("#f_produto").value=element.produto;
                 document.querySelector("#f_marca").value=element.marca;
-                document.querySelector("#f_modelo").value=element.modelo;
-                
+                document.querySelector("#f_modelo").value=element.modelo;    
             });
             c5.appendChild(imgView);
 
+        //Estudar Banco de dados
             const imgEdit = document.createElement("img");
             imgEdit.setAttribute("class","dgvIcone");
             imgEdit.setAttribute("src","./icon_SVG/edit.svg");
+            imgEdit.addEventListener("click",(event)=>{
+                document.querySelector("#janelaEditar").classList.remove("ocultar");
+            });
             c5.appendChild(imgEdit);
 
             const imgDelete = document.createElement("img");
@@ -74,7 +77,28 @@ const dgv=(config_dgv)=>{
 
 dgv(config_dgv);
 
-//Btn fecha a a janela de visualização ampliada
+//Botões das janela de visualização ampliada
+//Btn Ok
 document.querySelector("#btn_ok").addEventListener("click",(event)=>{
     document.querySelector(".janelaView").classList.add("ocultar");
+});
+
+//Btn cancelar edição
+document.querySelector("#btn_cancelar").addEventListener("click",(event)=>{
+    document.querySelector("#janelaEditar").classList.add("ocultar");
+    document.querySelector("#f_idEditar").value="";
+    document.querySelector("#f_produtoEditar").value="";
+    document.querySelector("#f_marcaEditar").value="";
+    document.querySelector("#f_modeloEditar").value="";
+});
+
+//Btn salvar edição
+document.querySelector("#btn_gravar").addEventListener("click",(event)=>{
+    const id = document.querySelector("#f_idEditar").value;
+    const produto = document.querySelector("#f_produtoEditar").value;
+    const marca = document.querySelector("#f_marcaEditar").value;
+    const modelo = document.querySelector("#f_modeloEditar").value;
+
+    dgvDados.innerHTML+=`Estudar Manipular Banco de Dados: <br> ${id}, ${produto}, ${marca}, ${modelo} <br>`;
+    
 });

@@ -111,6 +111,8 @@ dgvLinha:nth-child(even){ /* Add uma pseudo class nas linhas pares*/
 
 .rodape{
     align-items: center !important;
+    justify-content: center !important;
+    flex-direction: row !important;
 }
 .btn{
     background-color: #480;
@@ -118,6 +120,7 @@ dgvLinha:nth-child(even){ /* Add uma pseudo class nas linhas pares*/
     cursor: pointer;
     padding: 10px 30px;
     border-radius: 5px;
+    margin: 5px;
 }
 .ocultar{
     display: none;
