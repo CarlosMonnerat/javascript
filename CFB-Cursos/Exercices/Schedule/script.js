@@ -7,22 +7,33 @@ const btn_gestao = document.querySelector("#btn_gestao");
 const btn_sobre = document.querySelector("#btn_sobre");
 const principal = document.querySelector("#principal");
 
-btn_home.addEventListener("click",()=>{
-    window.open("./pages/home.html","if_principal");
+const abrirPagina=(element,url)=>{
+    const abas = [...document.querySelectorAll(".aba")];
+    abas.forEach(e=>{
+        e.classList.remove("abaSelecionada")
+    })
+    element.classList.add("abaSelecionada");
+    window.open(url,"if_principal");
+}
+
+btn_home.addEventListener("click",(event)=>{
+    abrirPagina(event.target,"./pages/home.html");
 });
 
-btn_novo.addEventListener("click",()=>{
-    window.open("./pages/novo.html","if_principal");
+btn_novo.addEventListener("click",(event)=>{
+    abrirPagina(event.target,"./pages/novo.html");
 });
 
-btn_pesquisar.addEventListener("click",()=>{
-    window.open("./pages/pesquisar.html","if_principal");
+btn_pesquisar.addEventListener("click",(event)=>{
+    abrirPagina(event.target,"./pages/pesquisar.html");
 });
 
-btn_gestao.addEventListener("click",()=>{
-    window.open("./pages/gestao.html","if_principal");
+btn_gestao.addEventListener("click",(event)=>{
+    abrirPagina(event.target,"./pages/gestao.html");
 });
 
-btn_sobre.addEventListener("click",()=>{
-    window.open("./pages/sobre.html","if_principal");
+btn_sobre.addEventListener("click",(event)=>{
+    abrirPagina(event.target,"./pages/sobre.html");
+    
 });
+
