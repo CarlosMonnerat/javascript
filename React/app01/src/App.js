@@ -1,25 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edite <code>src/App.js</code> e salve para recarregar.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Aprender React
-        </a>
-      </header>
-    </div>
-  );
+export default function App(){
+  return(
+    <>
+      <p>CFB Cursos</p>
+      <p>Curso de react</p>
+    </>
+  )
 }
 
-export default App;
