@@ -1,6 +1,5 @@
 import React from 'react'
 import Logo from './componentes/imgs/logo.png'
-import menina from './componentes/imgs/menina.jpeg'
 
 export default function App(){
   const canal=()=>{
@@ -12,10 +11,14 @@ export default function App(){
 
   return(
     <section>
-      <p>Canal: {canal()}</p>
-      <p>{'Curso: ' + curso()}</p>
-      <img src={Logo}></img>
-      <img src={menina}></img>
+      <header>
+        <p>Canal: {canal()}</p>
+        <p>{'Curso: ' + curso()}</p>
+      </header>
+      <section>
+        <img src={Logo}></img>
+        <img src='img/menina.jpeg'></img>
+      </section>  
     </section>
   )
 }
