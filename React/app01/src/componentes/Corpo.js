@@ -2,9 +2,16 @@ import React from "react"
 import Dados from './Dados'
 
 export default function Corpo(){
-    const cnl = 'CFB Cursos'
-    const yt = 'youtube.com/cfbcursos'
+    const cnl=()=>{
+        return 'CFB Cursos'
+    }
+
+    function yt(){
+        return 'youtube.com/cfbcursos'
+    }
+
     const crs = 'React.js'
+    
     return(
         <section>
             <h2>Curso de React</h2>
