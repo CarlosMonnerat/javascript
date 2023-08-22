@@ -1,14 +1,17 @@
-import React, {useState} from 'react'
-import Numero from './componentes/Numero'
-import './App.css'
+import React from 'react'
+import logo from './componentes/imgs/logo.png'
 
 export default function App(){
-
-  const [num, setNum]=useState(10)
+  
   return(
     <>
-      <p>Valor do state num em App: {num}</p>
-      <Numero num={num} setNum={setNum}/>
+      <div>
+        <h1>Olá Mundo!</h1>
+        <p>Meu primeiro App</p>
+        <img src='/img/menina.jpeg' alt="Imagem na msm pasta do Index.html"/>
+        <img src={logo} alt="imagem fora da pasta do Index.html"/> 
+         
+      </div>
     </>
   )
 }
