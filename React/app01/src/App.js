@@ -1,11 +1,16 @@
 import React from 'react'
-import HelloWord from './componentes/HelloWord' //Importa o componente
+import Pessoa from './componentes/Pessoa'
 
 export default function App(){
   
   return(
-    <>
-      <HelloWord/>
-    </>
+    <div>
+      <Pessoa 
+        nome="Carlos"
+        idade="28" 
+        profissao="Programador" 
+        foto="https://via.placeholder.com/150"
+      />
+    </div>
   )
 }
