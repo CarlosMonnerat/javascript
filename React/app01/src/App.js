@@ -1,6 +1,7 @@
 import React from 'react'
 import Pessoa from './componentes/Pessoa'
 import Frase from './componentes/Frase'
+import List from './componentes/List'
 
 export default function App(){
   
@@ -14,6 +15,7 @@ export default function App(){
         profissao="Programador" 
         foto="https://via.placeholder.com/150"
       />
+      <List/>
     </div>
   )
 }
