@@ -9,9 +9,14 @@ function Item({marca, ano_lancamento}){
     )
 }
 
-Item.propTypes = { // Vai garantir que as propriedades passadas sejam do tipo 'string' e 'number' respectivamente.
-    marca: PropTypes.string,
+Item.propTypes = { 
+    marca: PropTypes.string.isRequired, //'isRequired' exige que alguma informação seja passada
     ano_lancamento: PropTypes.number,
+}
+
+Item.defaultProps = {
+    marca: 'Faltou a marca',
+    ano_lancamento: 0,
 }
 
 export default Item
