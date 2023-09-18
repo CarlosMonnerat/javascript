@@ -1,8 +1,8 @@
-function Evento(){
+function Evento({ numero }){    //Recebe a propriedade "numero"
     function meuEvento(){
-        console.log("Foi ativado!!!")
+        console.log(`Foi ativado! ${numero}`)
     }
-    
+
     return(
         <div>
             <p>Clique para disparar um evento</p>
