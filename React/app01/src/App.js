@@ -1,12 +1,12 @@
 import React from 'react'
-import Evento from './componentes/Evento'
+import Condicional from './componentes/Condicional'
 
 export default function App(){
   
   return(
     <div>
-      <h1>Testando Eventos</h1>
-      <Evento/>       
+      <h1>Renderização Condicional</h1>
+      <Condicional/>    
     </div>
   )
 }
