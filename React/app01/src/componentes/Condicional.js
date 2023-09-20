@@ -11,6 +11,13 @@ function Condicional(){
         setUserEmail(email) //Segunda etapa do useState
     }
 
+    function limparEmail(e){
+        e.preventDefault()
+        setUserEmail('')
+        console.log("Funcionou")
+    }
+
+
     return(
         <div>
             <h2>Cadastre o seu e-mail:</h2>
@@ -23,7 +30,8 @@ function Condicional(){
                 <button type="submit" onClick={enviarEmail}>Enviar</button>
                 {userEmail && (         //Condicional: Se userEmail estiver preenchido (True), faça...
                     <div>
-                       <p>O email do usuário é: {userEmail}</p> 
+                       <p>O email do usuário é: {userEmail}</p>
+                       <button onClick={limparEmail}>Limpar</button>
                     </div>
                 )}
             </form>
