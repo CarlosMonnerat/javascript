@@ -1,10 +1,10 @@
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 function Users(){
-    const history = useHistory()
+    const navigate = useNavigate()
 
     function handleClick(){
-        history.push('/')
+        navigate.push('/')
     }
 
     return(
