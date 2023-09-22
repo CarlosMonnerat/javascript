@@ -1,27 +1,23 @@
 import React from "react"
-import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Empresa from './pages/Empresa'
 import Contato from './pages/Contato'
-import Navbar from './componentes/Navbar'
+import Navbar from './componentes/layout/Navbar'
+import Footer from './componentes/layout/Footer'
 
 function App(){
   return(
     <Router>
       <Navbar />
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
 
-        <Route path="/empresa">
-          <Empresa />
-        </Route>
+      <Routes>
+        <Route exact path="/" element={<Home />}/>
+        <Route path="/empresa" element={<Empresa />}/>
+        <Route path="/contato" element={<Contato />}/>
+      </Routes>
 
-        <Route path="/contato">
-          <Contato />
-        </Route>
-      </Switch>
+      <Footer/>
     </Router>
   )
 }
