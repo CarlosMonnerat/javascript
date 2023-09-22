@@ -1,11 +1,28 @@
 import React from "react"
-
+import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
+import Home from './pages/Home'
+import Empresa from './pages/Empresa'
+import Contato from './pages/Contato'
+import Navbar from './componentes/Navbar'
 
 function App(){
   return(
-    <div>
-      <h1>Olá mundo!</h1>
-    </div>
+    <Router>
+      <Navbar />
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+
+        <Route path="/empresa">
+          <Empresa />
+        </Route>
+
+        <Route path="/contato">
+          <Contato />
+        </Route>
+      </Switch>
+    </Router>
   )
 }
 
