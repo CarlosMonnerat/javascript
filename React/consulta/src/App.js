@@ -26,7 +26,6 @@ const linhas = (cat) =>{
   return li
 }
 
-
 const tabelaCarros = (cat) =>{
   return(
     <div>
@@ -45,12 +44,21 @@ const tabelaCarros = (cat) =>{
   )
 }
 
+const pesquisa = (cat, scat) =>{
+  return(
+    <div>
+      <label>Digite uma categoria</label>
+      <input type='text' value={cat} onChange={(e)=>scat(e.target.value)}/>
+    </div>
+  )
+}
 function App() {
   const [categoria, setCategoria] = useState('')
 
   return (
     <>
-    <h1>Olá Mundo</h1>
+    {pesquisa(categoria, setCategoria)}
+    <br/>
     {tabelaCarros(categoria)}
     </>
   )
