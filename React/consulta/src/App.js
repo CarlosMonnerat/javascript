@@ -52,6 +52,8 @@ const pesquisa = (cat, scat) =>{
     </div>
   )
 }
+
+
 function App() {
   const [categoria, setCategoria] = useState('')
 
