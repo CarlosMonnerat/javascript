@@ -39,18 +39,53 @@ const tabelaIMC=()=>{
   )
 }
 
-const fpeso=(p, sp)=>{
+const fpeso=(peso, setPeso)=>{
   return(
     <div>
       <label>
         Peso
-        <input type='text' value={p} onChange={(e)=>{sp(e.target.value)}}/>
+        <input type='text' value={peso} onChange={(e)=>{setPeso(e.target.value)}}/>
       </label>
     </div>
   )
 }
 
+const faltura=(altura, setAltura)=>{
+  return(
+    <div>
+      <label>
+        Altura
+        <input type='text' value={altura} onChange={(e)=>{setAltura(e.target.value)}}/>
+      </label>
+    </div>
+  )
+}
+
+const fcalcular=(peso, altura, setResultado)=>{
+  const calc=()=>{
+    setResultado(peso/(altura*altura))
+  }
+  return(
+    <div>
+      <button onClick={calc}>Calcular</button>
+    </div>
+  )
+}
+
+const fresultado=(resultado)=>{
+  return(
+    <div>
+      <p>Resultado: {resultado.toFixed(1)}</p>
+    </div>
+  )
+}
+
+
 function App() {
+  const [peso, setpeso] = useState(0)
+  const [altura, setAltura] = useState(0)
+  const [resultado, setResultado] = useState(0)
+
   return(
     <div>
       <h1>Calculadora IMC</h1>
