@@ -82,13 +82,19 @@ const fresultado=(resultado)=>{
 
 
 function App() {
-  const [peso, setpeso] = useState(0)
+  const [peso, setPeso] = useState(0)
   const [altura, setAltura] = useState(0)
   const [resultado, setResultado] = useState(0)
 
   return(
     <div>
       <h1>Calculadora IMC</h1>
+      {fpeso(peso, setPeso)}
+      {faltura(altura, setAltura)}
+      {fcalcular(peso, altura, setResultado)}
+      {fresultado(resultado)}
+      {tabelaIMC()}
+
     </div>
   )
 }
