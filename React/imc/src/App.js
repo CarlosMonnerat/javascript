@@ -1,17 +1,8 @@
 import React,{useState} from 'react'
 import TabelaIMC from './components/TabelaIMC'
 import Peso from './components/Peso'
+import Altura from './components/Altura'
 
-const faltura=(altura, setAltura)=>{
-  return(
-    <div>
-      <label>
-        Altura
-        <input type='text' value={altura} onChange={(e)=>{setAltura(e.target.value)}}/>
-      </label>
-    </div>
-  )
-}
 
 const fcalcular=(peso, altura, setResultado)=>{
   const calc=()=>{
@@ -42,7 +33,7 @@ function App() {
     <div>
       <h1>Calculadora IMC</h1>
       <Peso p={peso} setP={setPeso}/>
-      {faltura(altura, setAltura)}
+      <Altura a={altura} setA={setAltura}/>
       {fcalcular(peso, altura, setResultado)}
       {fresultado(resultado)}
       <TabelaIMC/>
