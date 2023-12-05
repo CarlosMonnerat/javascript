@@ -3,15 +3,7 @@ import TabelaIMC from './components/TabelaIMC'
 import Peso from './components/Peso'
 import Altura from './components/Altura'
 import Calcular from './components/Calcular'
-
-
-const fresultado=(resultado)=>{
-  return(
-    <div>
-      <p>Resultado: {resultado.toFixed(1)}</p>
-    </div>
-  )
-}
+import Resultado from './components/Resultado'
 
 
 function App() {
@@ -25,9 +17,8 @@ function App() {
       <Peso p={peso} setP={setPeso}/>
       <Altura a={altura} setA={setAltura}/>
       <Calcular p={peso} a={altura} setR={setResultado}/>
-      {fresultado(resultado)}
+      <Resultado r={resultado}/>
       <TabelaIMC/>
-
     </div>
   )
 }
