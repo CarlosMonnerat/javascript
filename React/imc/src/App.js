@@ -2,18 +2,8 @@ import React,{useState} from 'react'
 import TabelaIMC from './components/TabelaIMC'
 import Peso from './components/Peso'
 import Altura from './components/Altura'
+import Calcular from './components/Calcular'
 
-
-const fcalcular=(peso, altura, setResultado)=>{
-  const calc=()=>{
-    setResultado(peso/(altura*altura))
-  }
-  return(
-    <div>
-      <button onClick={calc}>Calcular</button>
-    </div>
-  )
-}
 
 const fresultado=(resultado)=>{
   return(
@@ -34,7 +24,7 @@ function App() {
       <h1>Calculadora IMC</h1>
       <Peso p={peso} setP={setPeso}/>
       <Altura a={altura} setA={setAltura}/>
-      {fcalcular(peso, altura, setResultado)}
+      <Calcular p={peso} a={altura} setR={setResultado}/>
       {fresultado(resultado)}
       <TabelaIMC/>
 
