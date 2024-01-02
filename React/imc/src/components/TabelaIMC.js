@@ -1,6 +1,7 @@
 import React from 'react'
 
-export default function TabelaIMC(){
+export default class TabelaIMC extends React.Component{
+  render(){
     return(
         <table border='1' style={{borderCollapse:'collapse'}}>
           <thead>
@@ -36,5 +37,6 @@ export default function TabelaIMC(){
             </tr>
           </tbody>
         </table>
-      )
+    )
+  }    
 }
