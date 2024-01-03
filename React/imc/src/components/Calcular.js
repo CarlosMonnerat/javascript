@@ -1,12 +1,20 @@
 import React from 'react'
 
-export default function Calcular(props){
-    const calc=()=>{
-        props.setR(props.p/(props.a*props.a))
+export default class Calcular extends React.Component{
+    constructor(){
+      super()
+      this.calc = this.fcalc.bind(this)
     }
-    return(
-        <div>
-            <button onClick={calc}>Calcular</button>
-        </div>
-    )
+    fcalc=()=>{
+        const r = this.props.p/(this.props.a*this.props.a)
+        this.props.setR(r)
+        //console.log(r)
+    }
+    render(){
+        return(
+            <div>
+                <button onClick={this.calc}>Calcular</button>
+            </div>
+        )
+    }
 }
