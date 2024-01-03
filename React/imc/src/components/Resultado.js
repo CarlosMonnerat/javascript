@@ -1,9 +1,15 @@
 import React from 'react'
 
-export default function Resultado(props){
+export default class Resultado extends React.Component{
+  constructor(){
+    super()
+  }
+  render(){
     return(
-        <div>
-          <p>Resultado: {props.r.toFixed(1)}</p>
-        </div>
+      <div>
+        <p>Resultado: {this.props.r.toFixed(2)}</p>
+      </div>
     )
+  }
+    
 }
