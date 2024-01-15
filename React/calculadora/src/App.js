@@ -8,14 +8,37 @@ export default function App() {
 
   const Tela=(valor,res)=>{
     return(
-      <div style="">
-        <span style={}>{valor}</span>
-        <span style={}>{res}</span>
+      <div style={csstela}>
+        <span style={csstelaOper}>{valor}</span>
+        <span style={csstelaRes}>{res}</span>
       </div>
     )
   }
 
+  //ESTILOS
+  const csstela={
+    display: 'flex',
+    paddingLeft:20,
+    paddingRight:20,
+    justifyContent:'center',
+    alignItems:'flex-start',
+    backgroundColor:'#444',
+    flaxDirection: 'column',
+    window:260
+  }
+
+  const csstelaOper={
+    fontSize:25,
+    color:'#fff',
+    height:20,
+  }
+
+  const csstelaRes={
+    fontSize:50,
+    color:'#fff',
+  }
   
+
   return (
     <div>
       <h1>Olá mundo</h1>
