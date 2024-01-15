@@ -32,7 +32,7 @@ export default function App() {
       return
     }
     if(operado){
-      setValorTela(d),
+      setValorTela(d)
       setOperado(false)
       return
     }
