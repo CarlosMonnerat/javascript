@@ -36,9 +36,17 @@ export default function App() {
       setOperado(false)
       return
     }
-    
+
     const valorDigitadoTela = valorTela + d
     setValorTela(valorDigitadoTela)
+  }
+
+  const limparMemoria=()=>{
+    setOperado(false)
+    setValorTela('')
+    setResultado(0)
+    setAcumulador(0)
+    return
   }
 
 //ESTILOS
