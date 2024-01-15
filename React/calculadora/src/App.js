@@ -4,8 +4,9 @@ export default function App() {
   const [valorTela, setValorTela]=useState('')
   const [resultado, setResultado]=useState(0)
   const [acumulador, setAcumulador]=useState(0)
-  const [operado, setoperado]=useState(false)
+  const [operado, setOperado]=useState(false)
 
+//COMPONENTES
   const Tela=(valor,res)=>{
     return(
       <div style={csstela}>
@@ -22,7 +23,25 @@ export default function App() {
 
   }
 
-  //ESTILOS
+//FUNÇÕES
+  const addDigitoTela=(d)=>{
+    if((d=='+' || d=='-' || d=='*' || d=='/') && operado){
+      console.log("okay")
+      setOperado(false)
+      setValorTela(resultado + d)
+      return
+    }
+    if(operado){
+      setValorTela(d),
+      setOperado(false)
+      return
+    }
+    
+    const valorDigitadoTela = valorTela + d
+    setValorTela(valorDigitadoTela)
+  }
+
+//ESTILOS
   const csstela={
     display: 'flex',
     paddingLeft:20,
