@@ -6,7 +6,7 @@ export default function App() {
   const [acumulador, setAcumulador]=useState(0)
   const [operado, setOperado]=useState(false)
 
-//COMPONENTES
+  //COMPONENTES
   const Tela=(valor,res)=>{
     return(
       <div style={csstela}>
@@ -23,7 +23,7 @@ export default function App() {
 
   }
 
-//FUNÇÕES
+  //FUNÇÕES
   const addDigitoTela=(d)=>{
     if((d=='+' || d=='-' || d=='*' || d=='/') && operado){
       console.log("okay")
@@ -58,7 +58,7 @@ export default function App() {
       return
     }
     try{
-      const r = eval(valorTela)
+      const r = eval(valorTela) //Calculo
       setAcumulador(r)
       setResultado(r)
       setOperado(true)
@@ -67,7 +67,21 @@ export default function App() {
     }
   }
 
-//ESTILOS
+  //ESTILOS
+  const cssContainer={
+    display:'flex',
+    justifyContent:'start',
+    alignItems:'center',
+    flexDirection:'column',
+    width:300,
+    border: '1px solid #000'
+  }
+
+  const cssBotoes={
+    flaxDirection:'row',
+    flexWrap:'wrap'
+  }
+
   const csstela={
     display: 'flex',
     paddingLeft:20,
@@ -89,7 +103,7 @@ export default function App() {
     fontSize:50,
     color:'#fff',
   }
-  
+
   const cssBtn={
     fontSize:30,
     height:75,
@@ -102,6 +116,7 @@ export default function App() {
     outline:'none'
   }
 
+  //Retorno do App
   return (
     <div>
       <h1>Olá mundo</h1>
