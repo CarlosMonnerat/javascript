@@ -70,7 +70,7 @@ export default function App() {
   //ESTILOS
   const cssContainer={
     display:'flex',
-    justifyContent:'start',
+    justifyContent:'flex-start',
     alignItems:'center',
     flexDirection:'column',
     width:300,
@@ -78,7 +78,7 @@ export default function App() {
   }
 
   const cssBotoes={
-    flaxDirection:'row',
+    flexDirection:'row',
     flexWrap:'wrap'
   }
 
@@ -87,10 +87,10 @@ export default function App() {
     paddingLeft:20,
     paddingRight:20,
     justifyContent:'center',
-    alignItems:'flex-start',
+    alignItems:'flex-end',
     backgroundColor:'#444',
-    flaxDirection: 'column',
-    window:260
+    flexDirection: 'column',
+    width:260
   }
 
   const csstelaOper={
@@ -142,7 +142,6 @@ export default function App() {
         {Btn('.', ()=>addDigitoTela('.'))}
         {Btn('<', ()=>operacao('bs'))}
         {Btn('=', ()=>operacao('='))}
-
       </div>
 
     </div>
