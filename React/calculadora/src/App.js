@@ -49,6 +49,16 @@ export default function App() {
     return
   }
 
+  const operacao=(oper)=>{
+    if(oper == 'bs'){
+      let vtela = valorTela
+      vtela = vtela.substring(0,vtela.length-1)
+      setValorTela(vtela)
+      setOperado(false)
+      return
+    }
+  }
+
 //ESTILOS
   const csstela={
     display: 'flex',
