@@ -6,6 +6,10 @@ export default function App() {
     display: 'flex',
     flexDirection: 'column'
   }
+  const tabuLinha={
+    display: 'flex',
+    flexDirection: 'row'
+  }
   
   return (
     <div>
