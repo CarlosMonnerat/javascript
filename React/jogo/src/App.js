@@ -40,6 +40,11 @@ export default function App() {
           <div style={casa} data-pos='11' onClick="">{j[1][1]}</div>
           <div style={casa} data-pos='12' onClick="">{j[1][2]}</div>  
         </div>
+        <div style={tabuLinha}>
+          <div style={casa} data-pos='20' onClick="">{j[2][0]}</div>
+          <div style={casa} data-pos='21' onClick="">{j[2][1]}</div>
+          <div style={casa} data-pos='22' onClick="">{j[2][2]}</div>  
+        </div>
       </div>
     )
   }
