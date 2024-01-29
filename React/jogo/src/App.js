@@ -22,6 +22,14 @@ export default function App() {
     border:'1px solid #000'
   }
 
+  const jogoInicial=[['','',''],['','',''],['','','']]
+  const [jogo,setJogo]=useState([['','',''],['','',''],['','','']])
+  const [simboloAtual, setSimboloAtual]=useState('X')
+  const [jogando, setJogando]=useState(true)
+
+  
+
+
   return (
     <div>
       <h1>Olá mundo</h1>
