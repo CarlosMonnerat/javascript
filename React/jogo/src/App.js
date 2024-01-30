@@ -116,9 +116,15 @@ export default function App() {
     return pos  
   }
 
+  const verificaEspacoVazio=(e)=>{
+    if(jogo[retPos(e)[0]][retPos(e)[1]] == ''){
+      return true
+    }else{
+      return false
+    }
+  }
 
 
-  
   return (
     <div>
       <h1>Olá mundo</h1>
