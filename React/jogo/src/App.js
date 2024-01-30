@@ -63,7 +63,6 @@ export default function App() {
       if(pontos >= 3){
         vitoria = true
         break
-        return
       }
     }
 
@@ -78,7 +77,6 @@ export default function App() {
       if(pontos >= 3){
         vitoria = true
         break
-        return
       }
     }
 
@@ -93,7 +91,6 @@ export default function App() {
     }
     if(pontos >= 3){
       vitoria = true
-      return
     }
     pontos = 0
     let l = 0
@@ -105,8 +102,8 @@ export default function App() {
     }
     if(pontos >= 3){
       vitoria = true
-      return
     }
+    return vitoria
   }
 
 
