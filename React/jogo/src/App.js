@@ -49,6 +49,39 @@ export default function App() {
     )
   }
 
+  const verificaVitoria=()=>{
+    //Linhas
+    let pontos = 0
+    let vitoria = false
+    for(let l = 0; l < 3; l++){
+      pontos = 0
+      for(let c = 0; c < 3; c++){
+        if(jogo[l][c] == simboloAtual){
+          pontos++
+        }
+      }
+      if(pontos >= 3){
+        vitoria = true
+        break
+        return
+      }
+    }
+    //Colunas
+    for(let c = 0; c < 3; c++){
+      pontos = 0
+      for(let l = 0; l < 3; l++){
+        if(jogo[l][c] == simboloAtual){
+          pontos++
+        }
+      }
+      if(pontos >= 3){
+        vitoria = true
+        break
+        return
+      }
+    }
+  }
+
 
   return (
     <div>
