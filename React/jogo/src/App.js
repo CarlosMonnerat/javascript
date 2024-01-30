@@ -92,6 +92,7 @@ export default function App() {
     if(pontos >= 3){
       vitoria = true
     }
+
     pontos = 0
     let l = 0
     for(let c = 2; c >= 0; c--){
