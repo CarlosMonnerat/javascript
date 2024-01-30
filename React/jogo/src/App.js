@@ -66,6 +66,7 @@ export default function App() {
         return
       }
     }
+
     //Colunas
     for(let c = 0; c < 3; c++){
       pontos = 0
@@ -79,6 +80,32 @@ export default function App() {
         break
         return
       }
+    }
+
+    //Diagonais
+    pontos = 0
+    for(let d = 0; d < 3; d++){
+      if(jogo[d][d]){
+        if(jogo[l][c] == simboloAtual){
+          pontos++
+        }
+      }
+    }
+    if(pontos >= 3){
+      vitoria = true
+      return
+    }
+    pontos = 0
+    let l = 0
+    for(let c = 2; c >= 0; c--){
+      if(jogo[l][c] == simboloAtual){
+        pontos++
+      }
+      l++
+    }
+    if(pontos >= 3){
+      vitoria = true
+      return
     }
   }
 
