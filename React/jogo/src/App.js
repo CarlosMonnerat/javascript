@@ -106,7 +106,19 @@ export default function App() {
     return vitoria
   }
 
+  const trocaJogador=()=>{
+    simboloAtual == 'X' ? setSimboloAtual('O') : setSimboloAtual('X')
+  }
 
+  const retPos=(e)=>{
+    const p = e.target.getAttribute('data-pos')
+    const pos = [parseInt(p.substring(0,1)), parseInt(p.substring(1,2))]
+    return pos  
+  }
+
+
+
+  
   return (
     <div>
       <h1>Olá mundo</h1>
