@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detran</title>
+    <style>
+        input{
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Verificação de Multas.</h1>
+
+    Velocidade do carro: <input type="number" name="txt1" id="txt1"> km/h  
+    <input type="button" value="Verificar" onclick ="calcular()">
+
+    <div id = "res"> 
+        <p>Digite sua velocidade e clique em 'verificar'</p>
+    </div> 
+
+    <script>
+        function calcular(){
+
+            var txtv = window.document.querySelector('input#txt1')                                 //seleciona o texto diditado em "txt1"
+            var vel = Number(txtv.value)                                                           //converte string para Number
+            var res = window.document.querySelector('div#res')
+            res.innerHTML = `<p>Sua velocidade atual é de: <strong>${vel} km/h</strong></p>`
+
+                if(vel > 60)
+                    {
+                         res.innerHTML +=`<p> Você foi <strong>Multado</strong> por exceso de velocidade!</p>`
+                        //É necessário o '+' para concatenar, caso contrário iria apagar a msg anterior
+                    }
+            res.innerHTML += `<p>Dirija sempre usando cinto de segurança!</p>`
+
+
+        }
+
+    </script>
+</body>
+</html>
