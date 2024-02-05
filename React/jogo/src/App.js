@@ -125,6 +125,22 @@ export default function App() {
     }
   }
 
+  const joga=(e)=>{
+    if(jogando){
+      if(verificaEspacoVazio(e)){
+        jogo[retPos(e)[0],retPos(e)[1]]=simboloAtual
+        trocaJogador()
+        if(verificaVitoria()){
+          trocaJogador()
+          alert('Jogador ' + simboloAtual+ ' venceu!')
+          setJogando(false)
+        }
+      }else{
+        alert('Este espaço já foi preenchido. escolha outro!')
+      }
+    }
+  }
+
 
   return (
     <div>
