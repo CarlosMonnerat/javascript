@@ -12,7 +12,7 @@ export default function App() {
   }
   const casa={
     width:100,
-    heigth:100,
+    height:100,
     display:'flex',
     justifyContent:'center',
     alignItems:'center',
@@ -31,19 +31,19 @@ export default function App() {
     return(
       <div style={tabu}>
         <div style={tabuLinha}>
-          <div style={casa} data-pos='00' onClick="">{j[0][0]}</div>
-          <div style={casa} data-pos='01' onClick="">{j[0][1]}</div>
-          <div style={casa} data-pos='02' onClick="">{j[0][2]}</div>  
+          <div style={casa} data-pos='00' onClick={(e)=>jogar(e)}>{j[0][0]}</div>
+          <div style={casa} data-pos='01' onClick={(e)=>jogar(e)}>{j[0][1]}</div>
+          <div style={casa} data-pos='02' onClick={(e)=>jogar(e)}>{j[0][2]}</div>  
         </div>
         <div style={tabuLinha}>
-          <div style={casa} data-pos='10' onClick="">{j[1][0]}</div>
-          <div style={casa} data-pos='11' onClick="">{j[1][1]}</div>
-          <div style={casa} data-pos='12' onClick="">{j[1][2]}</div>  
+          <div style={casa} data-pos='10' onClick={(e)=>jogar(e)}>{j[1][0]}</div>
+          <div style={casa} data-pos='11' onClick={(e)=>jogar(e)}>{j[1][1]}</div>
+          <div style={casa} data-pos='12' onClick={(e)=>jogar(e)}>{j[1][2]}</div>  
         </div>
         <div style={tabuLinha}>
-          <div style={casa} data-pos='20' onClick="">{j[2][0]}</div>
-          <div style={casa} data-pos='21' onClick="">{j[2][1]}</div>
-          <div style={casa} data-pos='22' onClick="">{j[2][2]}</div>  
+          <div style={casa} data-pos='20' onClick={(e)=>jogar(e)}>{j[2][0]}</div>
+          <div style={casa} data-pos='21' onClick={(e)=>jogar(e)}>{j[2][1]}</div>
+          <div style={casa} data-pos='22' onClick={(e)=>jogar(e)}>{j[2][2]}</div>  
         </div>
       </div>
     )
@@ -129,15 +129,16 @@ export default function App() {
     }
   }
 
-  const joga=(e)=>{
+  const jogar=(e)=>{
     if(jogando){
       if(verificaEspacoVazio(e)){
-        jogo[retPos(e)[0],retPos(e)[1]]=simboloAtual
+        jogo[retPos(e)[0]][retPos(e)[1]]=simboloAtual
         trocaJogador()
         if(verificaVitoria()){
           trocaJogador()
-          alert('Jogador ' + simboloAtual+ ' venceu!')
           setJogando(false)
+          alert('Jogador ' + simboloAtual+ ' venceu!')
+          
         }
       }else{
         alert('Este espaço já foi preenchido. escolha outro!')
@@ -152,10 +153,17 @@ export default function App() {
   }
 
   return (
-    <div>
-      <h1>Olá mundo</h1>
-      
-    </div>
+    <>
+      <div>
+        <p>Quem joga: {simboloAtual}</p>  
+      </div>
+      <div>
+        {tabuleiro(jogo)}
+      </div>
+      <div>
+        {BtnJogarNovamente()}  
+      </div>
+    </>
   );
 }
 
