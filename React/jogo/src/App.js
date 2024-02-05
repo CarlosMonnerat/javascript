@@ -49,6 +49,12 @@ export default function App() {
     )
   }
 
+  const BtnJogarNovamente=()=>{
+    if(!jogando){
+      return<button onClick={()=>reiniciar()}>Jogar Novamente</button>
+    }
+  }
+
   const verificaVitoria=()=>{
     //Linhas
     let pontos = 0
@@ -141,6 +147,11 @@ export default function App() {
     }
   }
 
+  const reiniciar=()=>{
+    setJogando(true)
+    setJogo(jogoInicial)
+    setSimboloAtual('X')
+  }
 
   return (
     <div>
