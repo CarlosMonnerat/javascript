@@ -89,10 +89,8 @@ export default function App() {
     //Diagonais
     pontos = 0
     for(let d = 0; d < 3; d++){
-      if(jogo[d][d]){
-        if(jogo[l][c] == simboloAtual){
-          pontos++
-        }
+      if(jogo[d][d] == simboloAtual){
+        pontos++
       }
     }
     if(pontos >= 3){
