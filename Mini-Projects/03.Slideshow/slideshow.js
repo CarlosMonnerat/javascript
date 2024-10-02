@@ -20,7 +20,7 @@ const images = [
 const containerItems = document.getElementById('container-itens')
 
 const loadImages = (images, containerItems) =>{       
-    images.forEach (image => {                              //Varre todas as imagens
+    images.forEach (image => {                              //Varre todas os itens do objeto
         containerItems.innerHTML += 
             `<div class='item'>
                 <img src='${image.url}'
