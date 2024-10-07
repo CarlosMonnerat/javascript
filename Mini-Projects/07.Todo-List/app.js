@@ -1,7 +1,7 @@
 'use strict';
 
 /*
-    let banco = [                                         Array que funciona como um banco de dados armazenazenando as tarefas digitadas pelo usuário
+    let banco = [                               (Array que funciona como um banco de dados armazenazenando as tarefas digitadas pelo usuário)
         {'tarefa':'Estudar JS', 'status': ''},
         {'tarefa':'Ler um Livro', 'status': 'checked'},         (O Banco de dados está sendo o localStorage)
         {'tarefa':'Trabalhar', 'status': ''}
