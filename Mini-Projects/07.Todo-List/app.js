@@ -46,8 +46,7 @@ const addTarefa = (evento) => {                                                 
         setBanco(banco);
         render();
         evento.target.value = ''
-    }
-    
+    }    
 }
 document.getElementById('newItem').addEventListener('keypress', addTarefa);
 
