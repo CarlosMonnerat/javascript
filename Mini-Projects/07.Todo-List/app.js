@@ -11,17 +11,17 @@
 const getBanco = () => JSON.parse(localStorage.getItem('lista')) ?? [];                         //Ao pegar os itens do localStorage, ele retorna como string, por isso precisamos transforma-lo em OBJ(Json) 
 const setBanco = (banco) => localStorage.setItem('lista', JSON.stringify(banco));               //Ao enviar itens ao localStorage precisamos transformas o OBJ(JSON) em string
 
-// const criarItem = (tarefa, status, indice) => {                                                 //Cria as tarefas dentro do DOM*/
-//     const item = document.createElement('label');
-//     item.classList.add('todo__item');   
-//     item.innerHTML = `
-//         <input type="checkbox" ${status} data-indice = ${indice}>
-//         <div> ${tarefa} </div>
-//         <input type="button" value="x" data-indice = ${indice}>
-//     `
-//                                                                                                 // "data-(nome do indice)" - É uma propriedade/atribulo como o Id, mas que aceita números no nome)
-//     document.getElementById('todoList').appendChild(item);
-// }
+const criarItem = (tarefa, status, indice) => {                                                 //Cria as tarefas dentro do DOM*/
+    const item = document.createElement('label');
+    item.classList.add('todo__item');   
+    item.innerHTML = `
+        <input type="checkbox" ${status} data-indice = ${indice}>
+        <div> ${tarefa} </div>
+        <input type="button" value="x" data-indice = ${indice}>
+    `
+                                                                                                // "data-(nome do indice)" - É uma propriedade/atribulo como o Id, mas que aceita números no nome)
+    document.getElementById('todoList').appendChild(item);
+}
 
 const clear = () => {                                                                           //Limpa as tarefas da tela
     const todoList = document.getElementById('todoList');   
