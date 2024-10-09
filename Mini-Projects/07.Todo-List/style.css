@@ -17,14 +17,14 @@ body {
     font: bold 2rem 'Open Sans', sans-serif;
 }
 
-.todo {
+/* .todo {
     display: flex;
     width: 50vw;
     flex-direction: column;
     align-items: center;
     margin: 0 auto;
     gap: 15px;
-}
+} */
 
 .todo__title {
     display: flex;
