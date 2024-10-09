@@ -31,11 +31,11 @@ const clear = () => {                                                           
 
 }
 
-const render = () => {                                                                          //Lê o banco de dados e Atualiza a tela
-    clear();                                                                                    //Limpa a tela cada vez que o Render é chamado para não haver duplicações
-    const banco = getBanco();
-    banco.forEach((item, indice) => criarItem(item.tarefa, item.status, indice));               //Para cada item do banco, pega um item e o indice do array, e joga para a função 'criarItem()' informando seus parametro
-}
+// const render = () => {                                                                          //Lê o banco de dados e Atualiza a tela
+//     clear();                                                                                    //Limpa a tela cada vez que o Render é chamado para não haver duplicações
+//     const banco = getBanco();
+//     banco.forEach((item, indice) => criarItem(item.tarefa, item.status, indice));               //Para cada item do banco, pega um item e o indice do array, e joga para a função 'criarItem()' informando seus parametro
+// }
 
 const addTarefa = (evento) => {                                                                 //Recebe a tarefa digitada pelo usuário e add no Array (banco de dados)
     const tecla = evento.key;
