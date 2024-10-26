@@ -40,7 +40,7 @@ const render = () => {                                           //Lê o banco d
 
 const addTarefa = (evento) => {                                 //Recebe a tarefa digitada pelo usuário e add no Array (banco de dados)
     const tecla = evento.key;
-    const texto = evento.target.value
+    const texto = evento.target.value;
     if(tecla == 'Enter' && texto != ''){
         const banco = getBanco();
         banco.push({'tarefa': texto, 'status': ''});
