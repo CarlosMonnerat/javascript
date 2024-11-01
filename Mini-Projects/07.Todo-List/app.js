@@ -46,7 +46,7 @@ const addTarefa = (evento) => {                                 //Recebe a taref
         banco.push({'tarefa': texto, 'status': ''});
         setBanco(banco);
         render();
-        evento.target.value = ''
+        evento.target.value = '';
     }    
 }
 document.getElementById('newItem').addEventListener('keypress', addTarefa);
@@ -69,7 +69,7 @@ const marcarItem = (indice) => {                               //Marca ou desmar
 const clickItem = (evento) => {                               //Verifica onde o usuário clicou e encaminha para a função determinada
     const elemento = evento.target;
     if(elemento.type == 'button'){
-        const indice = elemento.dataset.indice;              //dataset captura o npumero do indice de mesmo nome usado na função criarItem() 
+        const indice = elemento.dataset.indice;              //dataset captura o numero do indice de mesmo nome usado na função criarItem() 
         removerItem(indice);
     }else if(elemento.type == 'checkbox'){
         const indice = elemento.dataset.indice;
