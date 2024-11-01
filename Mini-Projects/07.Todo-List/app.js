@@ -38,18 +38,18 @@ const render = () => {                                           //Lê o banco d
 //Para cada item do banco, pega um item e o indice do array, e joga para a função 'criarItem()' informando seus parametro
 }
 
-// const addTarefa = (evento) => {                                 //Recebe a tarefa digitada pelo usuário e add no Array (banco de dados)
-//     const tecla = evento.key;
-//     const texto = evento.target.value;
-//     if(tecla == 'Enter' && texto != ''){
-//         const banco = getBanco();
-//         banco.push({'tarefa': texto, 'status': ''});
-//         setBanco(banco);
-//         render();
-//         evento.target.value = ''
-//     }    
-// }
-// document.getElementById('newItem').addEventListener('keypress', addTarefa);
+const addTarefa = (evento) => {                                 //Recebe a tarefa digitada pelo usuário e add no Array (banco de dados)
+    const tecla = evento.key;
+    const texto = evento.target.value;
+    if(tecla == 'Enter' && texto != ''){
+        const banco = getBanco();
+        banco.push({'tarefa': texto, 'status': ''});
+        setBanco(banco);
+        render();
+        evento.target.value = ''
+    }    
+}
+document.getElementById('newItem').addEventListener('keypress', addTarefa);
 
 
 const removerItem = (indice) => {                               //Remove os Itens do banco de dados
