@@ -4,8 +4,8 @@ const openModal = () => document.getElementById('modal').classList.add('active')
 const closeModal = () => document.getElementById('modal').classList.remove('active');
 
 const tempClient = {
-    nome: "Helena",
-    email: "helenam@gmail.com",
+    nome: "Nikolas",
+    email: "nikolasm@gmail.com",
     celular: "21987643210",
     cidade: "Teresópolis"
 }
@@ -23,6 +23,11 @@ const createClient = (client) =>{
 
 const readClient = () => getLocalStorage();
 
+const updateClient = (index, client) =>{
+    const dbClient = readClient();
+    dbClient[index] = client;
+    setLocalStorage(dbClient);
+}
 
 //Eventos
 document.getElementById('cadastrarCliente').addEventListener('click', openModal);
