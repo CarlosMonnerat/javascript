@@ -15,13 +15,14 @@ const setLocalStorage = (dbClient) => localStorage.setItem("db_Client", JSON.str
 
 // CRUD - create, read, update, delete
 
-// CRUD - CREATE
 const createClient = (client) =>{
     const dbClient = getLocalStorage();
     dbClient.push(client);
-    setLocalStorage(dbClient);
-    
+    setLocalStorage(dbClient);    
 }
+
+const readClient = () => getLocalStorage();
+
 
 //Eventos
 document.getElementById('cadastrarCliente').addEventListener('click', openModal);
