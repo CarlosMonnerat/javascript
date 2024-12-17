@@ -34,6 +34,17 @@ const deleteClient = (index) => {
     setLocalStorage(dbClient);
 }
 
-//Eventos
+// INTERAÇÃO COM O DOM
+const isValidFields = () => {
+    return document.getElementById('form').reportValidity();
+}
+const saveClient = () => {
+    if(isValidFields()){
+        alert('cadastrando cliente');
+    }
+}
+
+// EVENTOS
 document.getElementById('cadastrarCliente').addEventListener('click', openModal);
 document.getElementById('modalClose').addEventListener('click', closeModal);
+document.getElementById('salvar').addEventListener('click', saveClient);
