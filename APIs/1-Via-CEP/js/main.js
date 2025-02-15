@@ -1,9 +1,11 @@
 'use strict';
 
-const pesquisarCep = () =>{
+const pesquisarCep = async () =>{
     const cep = document.getElementById('cep').value;
     const url = `http://viacep.com.br/ws/${cep}/json/`;
-    fetch(url).then(response => response.json()).then(console.log);
+    const response = await fetch(url);
+    const dados = await response.json();
+    console.log(dados);
 };
 
 document.getElementById('cep').addEventListener('focusout', pesquisarCep);
