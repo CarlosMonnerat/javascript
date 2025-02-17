@@ -12,8 +12,11 @@ const pesquisarCep = async () =>{
     const url = `http://viacep.com.br/ws/${cep}/json/`;
     const response = await fetch(url);
     const dados = await response.json();
-    preencheFormulario(dados);
-    console.log(dados);
+    if(dados.hasOwnProperty('erro')){
+        console.log(dados);
+    }else{
+        preencheFormulario(dados);
+    }
 };
 
 document.getElementById('cep').addEventListener('focusout', pesquisarCep);
