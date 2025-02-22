@@ -1,7 +1,8 @@
 'use strict'
 
 const loadGallery = (textSearch) => {
-    console.log(textSearch);
+    const imagesinfo = searchImages (textSearch);
+    console.log(imagesinfo);
 }
 
 const handleKeypress = ({key, target}) => {     //caracteristica do js chamada 'destructuring'. => (event.key, event.target)
