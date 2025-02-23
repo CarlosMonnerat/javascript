@@ -7,10 +7,20 @@ const searchImages = async (text) => {
     return response.json();
 }
 
+const createCard = ({webformatURL}) =>{
+    const card = document.createElement('div');
+    card.innerHTML = `<img src=${webformatURL} >`;
+    return card;
+}
+
 //Como 'searchImages' é uma func asincrona, ela tbm retorna uma promise. Por isso 'loadGallery' tbm precisa trabalhar de forma sincrona
-const loadGallery = async (textSearch) => { 
-    const imagesinfo = await searchImages (textSearch);
-    console.log(imagesinfo);
+const loadGallery = async (textSearch) => {
+    const container = document.querySelector('.container-gallery');
+    const {hits} = await searchImages (textSearch);  //Desestruturação
+    const cards = hits.map(createCard);
+    //'replaceChildren' tem q receber objs, mas 'cards' é um array. Então usa-se '...' para espalhar o array 
+    container.replaceChildren(...cards); 
+    console.log(cards);
 }
 
 const handleKeypress = ({key, target}) => {     //caracteristica do js chamada 'destructuring'. => (event.key, event.target)
