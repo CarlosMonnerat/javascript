@@ -7,7 +7,7 @@ const searchImages = async (text) => {
     return response.json();
 }
 
-const createCard = ({webformatURL, pageURL}) =>{
+const createCard = ({webformatURL, pageURL, tags, likes,comments}) =>{
     const card = document.createElement('div');
     card.classList.add('card-container');
     card.innerHTML = `
@@ -23,11 +23,11 @@ const createCard = ({webformatURL, pageURL}) =>{
         <div class="card-action">
             <div class="card-like">
                 <i class="fa-regular fa-thumbs-up"></i>
-                <span>1234</span>
+                <span>${likes}</span>
             </div>
             <div class="card-comments">
                 <i class="fa-regular fa-comment"></i>
-                <span>34</span>
+                <span>${comments}</span>
             </div>
             <div class="card-save">
                 <i class="fa-regular fa-bookmark"></i>
