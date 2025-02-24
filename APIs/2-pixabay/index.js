@@ -7,7 +7,11 @@ const searchImages = async (text) => {
     return response.json();
 }
 
-const createCard = ({webformatURL, pageURL, tags, likes,comments}) =>{
+const createLink = (tag) => `
+    <a href="#"> ${tag} </a> 
+`
+
+const createCard = ({webformatURL, pageURL, tags, likes, comments}) => {
     const card = document.createElement('div');
     card.classList.add('card-container');
     card.innerHTML = `
@@ -16,9 +20,7 @@ const createCard = ({webformatURL, pageURL, tags, likes,comments}) =>{
     </a>
     <div class="card-info">
         <div class="card-tags">
-            <a href="#"> tag_1 </a>
-            <a href="#"> tag_2 </a>
-            <a href="#"> tag_3 </a>
+            ${tags.split(',').map(createLink).join('')}
         </div>
         <div class="card-action">
             <div class="card-like">
