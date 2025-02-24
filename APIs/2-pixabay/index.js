@@ -18,7 +18,7 @@ const loadGallery = async (textSearch) => {
     const container = document.querySelector('.container-gallery');
     const {hits} = await searchImages (textSearch);  //Desestruturação
     const cards = hits.map(createCard);
-    //'replaceChildren' tem q receber objs, mas 'cards' é um array. Então usa-se '...' para espalhar o array 
+    //'replaceChildren' tem q receber objs, mas 'cards' é um array. Então usa-se '...'(spread) para espalhar o array 
     container.replaceChildren(...cards); 
     console.log(cards);
 }
