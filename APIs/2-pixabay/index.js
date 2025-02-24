@@ -7,10 +7,10 @@ const searchImages = async (text) => {
     return response.json();
 }
 
-const createLink = (tag) => `
+const createTagLink = (tag) => `
     <a href="#" onClick = "loadGallery('${tag}')">
         ${tag}
-    </a> 
+    </a>    
 `;
 
 const createCard = ({webformatURL, pageURL, tags, likes, comments}) => {
@@ -22,7 +22,7 @@ const createCard = ({webformatURL, pageURL, tags, likes, comments}) => {
     </a>
     <div class="card-info">
         <div class="card-tags">
-            ${tags.split(',').map(createLink).join('')}
+            ${tags.split(',').map(createTagLink).join('')}
         </div>
         <div class="card-action">
             <div class="card-like">
