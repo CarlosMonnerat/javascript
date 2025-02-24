@@ -22,13 +22,15 @@ const createCard = ({webformatURL, pageURL}) =>{
         </div>
         <div class="card-action">
             <div class="card-like">
-                like
+                <i class="fa-regular fa-thumbs-up"></i>
+                <span>1234</span>
             </div>
             <div class="card-comments">
-                comments
+                <i class="fa-regular fa-comment"></i>
+                <span>34</span>
             </div>
             <div class="card-save">
-                save
+                <i class="fa-regular fa-bookmark"></i>
             </div>
         </div>
     </div>
