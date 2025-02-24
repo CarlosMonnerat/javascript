@@ -14,6 +14,24 @@ const createCard = ({webformatURL, pageURL}) =>{
     <a href="${pageURL}" class="card-image">
         <img src=${webformatURL} >
     </a>
+    <div class="card-info">
+        <div class="card-tags">
+            <a href="#"> tag_1 </a>
+            <a href="#"> tag_2 </a>
+            <a href="#"> tag_3 </a>
+        </div>
+        <div class="card-action">
+            <div class="card-like">
+                like
+            </div>
+            <div class="card-comments">
+                comments
+            </div>
+            <div class="card-save">
+                save
+            </div>
+        </div>
+    </div>
     `;
     return card;
 }
