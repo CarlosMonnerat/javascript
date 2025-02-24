@@ -32,6 +32,9 @@
 
 .card-tags {
     display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    height: 60%;
     gap: 2px;
 }
 .card-tags a {

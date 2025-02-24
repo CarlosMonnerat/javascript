@@ -8,8 +8,10 @@ const searchImages = async (text) => {
 }
 
 const createLink = (tag) => `
-    <a href="#"> ${tag} </a> 
-`
+    <a href="#" onClick = "loadGallery('${tag}')">
+        ${tag}
+    </a> 
+`;
 
 const createCard = ({webformatURL, pageURL, tags, likes, comments}) => {
     const card = document.createElement('div');
@@ -46,8 +48,8 @@ const loadGallery = async (textSearch) => {
     const {hits} = await searchImages (textSearch);  //Desestruturação
     const cards = hits.map(createCard);
     //'replaceChildren' tem q receber objs, mas 'cards' é um array. Então usa-se '...'(spread) para espalhar o array 
-    container.replaceChildren(...cards); 
-    console.log(cards);
+    container.replaceChildren(...cards);
+    document.querySelector('#search-input').value = textSearch;
 }
 
 const handleKeypress = ({key, target}) => {     //caracteristica do js chamada 'destructuring'. => (event.key, event.target)
