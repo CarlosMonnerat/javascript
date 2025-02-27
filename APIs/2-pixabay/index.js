@@ -45,12 +45,13 @@ const createCard = ({webformatURL, pageURL, tags, likes, comments}) => {
 //Como 'searchImages' é uma func asincrona, ela tbm retorna uma promise. Por isso 'loadGallery' tbm precisa trabalhar de forma sincrona
 const loadGallery = async (textSearch, page = 1) => {
     const container = document.querySelector('.container-gallery');
-    const {hits} = await searchImages (`${textSearch}&page=${page}`);  //Desestruturação
+    const {hits, totalHits} = await searchImages (`${textSearch}&page=${page}`);  //Desestruturação
     const cards = hits.map(createCard);
     //'replaceChildren' tem q receber objs, mas 'cards' é um array. Então usa-se '...'(spread) para espalhar o array 
     container.replaceChildren(...cards);
 
-    document.querySelector('#page-total').textContent = "/100" //Como 'page-total' é um 'span', não possui 'value', apenas 'content'
+    const totalPages = Math.ceil(totalHits / 20);
+    document.querySelector('#page-total').textContent = `/ ${totalPages}` //Como 'page-total' é um 'span', não possui 'value', apenas 'content'
     document.querySelector('#search-input').value = textSearch;
     document.querySelector('#page').value = page;
 }
