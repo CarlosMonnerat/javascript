@@ -60,8 +60,11 @@ const handleKeypress = ({key, target}) => {     //caracteristica do js chamada '
     }   
 }
 
-const handlePage = ({key}) => {
-
+const handlePage = ({key, target}) => {
+    const text = document.getElementById('search-input').value;
+    if(key === 'Enter'){
+        loadGallery(text, target.value);
+   }   
 }
 
 document.getElementById('search-input').addEventListener('keypress', handleKeypress);
