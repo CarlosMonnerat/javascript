@@ -5,7 +5,7 @@ const searchImages = async (text) => {
     const url = `https://pixabay.com/api/?key=${key}&q=${text}`;
     const response = await fetch(url);
     return response.json();
-}
+};
 
 const createTagLink = (tag) => `
     <a href="#" onClick = "loadGallery('${tag}')">
@@ -40,7 +40,7 @@ const createCard = ({webformatURL, pageURL, tags, likes, comments}) => {
     </div>
     `;
     return card;
-}
+};
 
 //Como 'searchImages' é uma func asincrona, ela tbm retorna uma promise. Por isso 'loadGallery' tbm precisa trabalhar de forma sincrona
 const loadGallery = async (textSearch, page = 1) => {
@@ -50,24 +50,35 @@ const loadGallery = async (textSearch, page = 1) => {
     //'replaceChildren' tem q receber objs, mas 'cards' é um array. Então usa-se '...'(spread) para espalhar o array 
     container.replaceChildren(...cards);
 
-    const totalPages = Math.ceil(totalHits / 20);
-    document.querySelector('#page-total').textContent = `/ ${totalPages}` //Como 'page-total' é um 'span', não possui 'value', apenas 'content'
     document.querySelector('#search-input').value = textSearch;
     document.querySelector('#page').value = page;
-}
+    const totalPages = Math.ceil(totalHits / 20);
+    document.querySelector('#page-total').textContent = `/ ${totalPages}` //Como 'page-total' é um 'span', não possui 'value', apenas 'content'
+};
 
 const handleKeypress = ({key, target}) => {     //caracteristica do js chamada 'destructuring'. => (event.key, event.target)
     if(key === 'Enter'){
          loadGallery(target.value);
     }   
-}
+};
 
 const handlePage = ({key, target}) => {
     const text = document.getElementById('search-input').value;
     if(key === 'Enter'){
         loadGallery(text, target.value);
    }   
+};
+
+const handleNext = () => {
+    let page = Number(document.querySelector('#page').value);
+    const totalPages = Number(document.querySelector('#page-total').textContent.replace('/', ''));
+    const text = document.getElementById('search-input').value;
+    if(page < totalPages){
+        page++;
+        loadGallery(text, page);
+    }
 }
 
-document.getElementById('search-input').addEventListener('keypress', handleKeypress);
 document.querySelector('#page').addEventListener('keypress', handlePage);
+document.getElementById('search-input').addEventListener('keypress', handleKeypress);
+document.querySelector("#page-next").addEventListener('click', handleNext);
