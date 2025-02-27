@@ -77,8 +77,18 @@ const handleNext = () => {
         page++;
         loadGallery(text, page);
     }
-}
+};
+
+const handlePrevious = () => {
+    let page = Number(document.querySelector('#page').value);
+    const text = document.getElementById('search-input').value;
+    if(page > 1){
+        page--;
+        loadGallery(text, page);
+    }
+};
 
 document.querySelector('#page').addEventListener('keypress', handlePage);
 document.getElementById('search-input').addEventListener('keypress', handleKeypress);
 document.querySelector("#page-next").addEventListener('click', handleNext);
+document.querySelector("#page-previous").addEventListener('click', handlePrevious);
