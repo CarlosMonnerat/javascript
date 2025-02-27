@@ -50,6 +50,7 @@ const loadGallery = async (textSearch, page = 1) => {
     //'replaceChildren' tem q receber objs, mas 'cards' é um array. Então usa-se '...'(spread) para espalhar o array 
     container.replaceChildren(...cards);
 
+    document.querySelector('#page-total').textContent = "/100" //Como 'page-total' é um 'span', não possui 'value', apenas 'content'
     document.querySelector('#search-input').value = textSearch;
     document.querySelector('#page').value = page;
 }
