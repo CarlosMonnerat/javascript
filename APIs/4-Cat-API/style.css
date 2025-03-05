@@ -13,5 +13,10 @@ body{
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+}
+
+.cat-img{
+    border: 5px solid #fff;
+    max-width: 500px;
+    margin: 10px;
 }

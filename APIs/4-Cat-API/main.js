@@ -8,7 +8,10 @@ async function loadGallery (){
 
     data.map(cat =>{
         const img = document.createElement('img');
+        img.classList.add('cat-img');
         img.src = cat.url;
         gallery.appendChild(img);
     });
 };
+
+loadGallery();
