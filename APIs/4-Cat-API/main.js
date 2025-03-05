@@ -6,5 +6,9 @@ async function loadGallery (){
     const response = await fetch(url);
     const data = await response.json();
 
-    console.log(data);
-}
+    data.map(cat =>{
+        const img = document.createElement('img');
+        img.src = cat.url;
+        gallery.appendChild(img);
+    });
+};
