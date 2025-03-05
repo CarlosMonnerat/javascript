@@ -1,7 +1,7 @@
-# Estudos de JavaScript Puro
- Este repositório foi criado com objetivo de compilar os conteúdos de estudos de Javascript, desde os conceitos básicos até técnicas mias avançadas.
+# Estudos de JavaScript e seu Ecossistema
+ Bem-vindo ao repositório Estudos de JavaScript e seu Ecossistema! Aqui você encontrará uma compilação de estudos sobre JavaScript, abrangendo desde os conceitos básicos até técnicas mais avançadas, incluindo o uso de bibliotecas e frameworks como React, React Native, Next.js, Node.js e TypeScript.
 
-![](./img/javascript.png)
+![](./img/javascript-ecosystem.png)
 
 ## Conteúdo
 O respositório está organizado em diferentes seções, cobrindo uma ampla gama de tópicos:
@@ -45,6 +45,34 @@ O respositório está organizado em diferentes seções, cobrindo uma ampla gama
     * ES Modules
 
     * Web Storage (LocalStorage e SessionStorage)
+
+6. Bibliotecas e Frameworks
+
+    * Introdução ao React
+
+    * Componentes e Props no React
+
+    * Estado e Efeitos no React
+
+    * React Router e navegação
+
+    * Introdução ao Next.js
+
+    * Páginas e Rotas no Next.js
+
+    * Introdução ao React Native
+
+    * Criação de aplicativos móveis com React Native
+
+    * Introdução ao Node.js
+
+    * Criando APIs com Express
+
+    * Trabalhando com Banco de Dados no Node.js
+
+    * Introdução ao TypeScript
+
+    * Tipagem e Interfaces no TypeScript
 
 ## Como Utilizar
 
