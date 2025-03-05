@@ -77,7 +77,7 @@ O respositório está organizado em diferentes seções, cobrindo uma ampla gama
 ## Como Utilizar
 
 1. Clone este repositório: 
-    git clone https://github.com/CarlosMonnerat/javascript
+https://github.com/CarlosMonnerat/javascript
 
 2. Navegue pelos diretórios e explore os arquivos.
 
@@ -106,4 +106,9 @@ Fique à vontade para contribuir! Caso queira adicionar um novo tópico ou melho
 ## Autor
 
 Criado por https://github.com/CarlosMonnerat. Entre em contato caso tenha dúvidas ou sugestões!
+
+
+<p align="center">
+    🚧 Repositório ainda em construção... 🚧
+</p>
 
