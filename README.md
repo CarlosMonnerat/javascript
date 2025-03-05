@@ -105,7 +105,7 @@ Fique à vontade para contribuir! Caso queira adicionar um novo tópico ou melho
 
 ## Autor
 
-Criado por https://github.com/CarlosMonnerat. Entre em contato caso tenha dúvidas ou sugestões!
+Criado por [Carlos Monnerat](https://github.com/CarlosMonnerat). Entre em contato caso tenha dúvidas ou sugestões!
 
 
 <p align="center">
