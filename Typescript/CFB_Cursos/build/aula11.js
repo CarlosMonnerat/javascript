@@ -1,0 +1,13 @@
+"use strict";
+let num;
+let stri;
+let unk;
+unk = 10;
+num = unk;
+stri = unk;
+console.log(typeof (unk));
+console.log(unk);
+console.log(typeof (num));
+console.log(num);
+console.log(typeof (stri));
+console.log(stri);
