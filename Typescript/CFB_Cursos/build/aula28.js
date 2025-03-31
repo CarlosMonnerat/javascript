@@ -1,0 +1,13 @@
+"use strict";
+;
+;
+;
+let curso_4;
+let curso_5;
+let curso_6;
+curso_4 = { titulo: "TypeScript", des: "Curso de Typescript para iniciantes", numAula: 100, maxAlunos: 50, inicarCurso(t) { } };
+curso_5 = { titulo: "JavaScript", des: "Curso de Javascript puro", numAula: 200, maxAlunos: 80 };
+curso_6 = { titulo: "C++", des: "Curso de C++ Avançado", numAula: 70 };
+console.log(curso_4);
+console.log(curso_5);
+console.log(curso_6);
