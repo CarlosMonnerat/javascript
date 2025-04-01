@@ -15,5 +15,40 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    color: #666;
+}
+
+.user-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    padding-inline: 12vw;
+    user-select: none;
+}
+
+.user-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    aspect-ratio: 1;
+    width: 100%;
+    box-shadow: 0 0 1px #666;
+    cursor: pointer;
+    transition: all .8s;
+}
+
+.user-card:hover{
+    box-shadow: 0 0 32px #666;
+    background-color: rgba(127, 255, 212, 0.434);
+}
+.user-image{
+    border-radius: 50%;
+    border: 5px solid #666;
+    padding: 2px;
+}
+
+p{
     color: #666;
 }
