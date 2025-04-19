@@ -13,8 +13,8 @@ function loadTela(dados){
    let capital = dados.capital[0];
 
    document.getElementById('country-flag').src=`${bandeira}`;
-   document.getElementById('country-name').innerHTML=`${nome}`;
-   document.getElementById('country-capital').innerHTML=`${capital}`;
+   document.getElementById('country-name').textContent=`${nome}`;
+   document.getElementById('country-capital').textContent=`${capital}`;
 }
 
 
