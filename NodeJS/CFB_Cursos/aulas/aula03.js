@@ -10,6 +10,8 @@ const servidor = http.createServer((req, res) => {
    }else if(req.url == '/canal'){
       res.write('<h1>CFB Cursos</h1>');
    }else if(req.url == '/curso'){
+      res.write('<h1>Conheça os cursos do nosso canal</h1>');
+   }else if(req.url == '/curso/node'){
       res.write('<h1>Curso de Node.JS</h1>');
    }
    res.end();
