@@ -8,5 +8,10 @@ const conectar = async () => {
    return con;
 };
 
-conectar();
-module.exports = {};
+const todosClientes = async() => {
+   const con = await conectar();
+   const [linhas] = await con.query('SELECT * FROM cliente_node');
+   return await linhas;
+};
+
+module.exports = {todosClientes};
