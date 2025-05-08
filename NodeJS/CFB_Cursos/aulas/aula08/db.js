@@ -31,8 +31,13 @@ const atualizaCliente = async(id, cliente) => {
    await con.query(sql, valores);
 };
 
+//DELETE
+const deletaCliente = async(id) => {
+   const con = await conectar();
+   const sql = 'DELETE FROM cliente_node WHERE id = ?';
+   const valores = [id];
+   await con.query(sql, valores);
+};
 
 
-
-
-module.exports = {todosClientes, insereCliente, atualizaCliente};
+module.exports = {todosClientes, insereCliente, atualizaCliente, deletaCliente};
