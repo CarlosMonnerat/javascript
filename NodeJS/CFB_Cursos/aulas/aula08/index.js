@@ -1,9 +1,16 @@
 (async () => {
    const db = require('./db');
-   console.log('Inserir Novo cliente:');
-   const nom = "Brastorgilson";
-   const ida= "20";
-   await db.insereCliente({nome: nom, idade: ida});
+   // console.log('Novo cliente inserido');
+   // const nom = "Brastorgilson";
+   // const ida= "20";
+   // await db.insereCliente({nome: nom, idade: ida});
+
+   
+   const id = 4;
+   const nom = "Praguilino";
+   const ida= 35;
+   await db.atualizaCliente(id, {nome: nom, idade: ida});
+   console.log('Cliente' +id+ 'Atualizado');
 
    console.log('Obter todos os clientes');
    const clientes = await db.todosClientes();

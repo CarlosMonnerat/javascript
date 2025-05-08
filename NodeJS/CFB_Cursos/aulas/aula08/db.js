@@ -8,12 +8,7 @@ const conectar = async () => {
    return con;
 };
 
-const todosClientes = async() => {
-   const con = await conectar();
-   const [linhas] = await con.query('SELECT * FROM cliente_node');
-   return await linhas;
-};
-
+//CREATE
 const insereCliente = async(cliente) => {
    const con = await conectar();
    const sql = 'INSERT INTO cliente_node (nome, idade) VALUES (?, ?)';
@@ -21,4 +16,23 @@ const insereCliente = async(cliente) => {
    await con.query(sql, valores);
 };
 
-module.exports = {todosClientes, insereCliente};
+//READ
+const todosClientes = async() => {
+   const con = await conectar();
+   const [linhas] = await con.query('SELECT * FROM cliente_node');
+   return await linhas;
+};
+
+//UPDATE
+const atualizaCliente = async(id, cliente) => {
+   const con = await conectar();
+   const sql = 'UPDATE cliente_node SET nome = ?, idade = ? WHERE id = ?';
+   const valores = [cliente.nome, cliente.idade, id];
+   await con.query(sql, valores);
+};
+
+
+
+
+
+module.exports = {todosClientes, insereCliente, atualizaCliente};
