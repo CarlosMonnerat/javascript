@@ -2,6 +2,7 @@
   "dependencies": {
     "express": "^5.1.0",
     "react-icons": "^4.11.0",
-    "react-router-dom": "^6.16.0"
+    "react-router-dom": "^6.16.0",
+    "router": "^2.2.0"
   }
 }
