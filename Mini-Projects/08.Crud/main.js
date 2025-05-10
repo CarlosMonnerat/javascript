@@ -42,7 +42,7 @@ const isValidFields = () => {
     return document.getElementById('form').reportValidity();
 };
 
-const createRow = (client) => {
+const createRow = (client, index) => {
     const newRow = document.createElement('tr');
     newRow.innerHTML = `
         <td>${client.nome}</td>
@@ -50,8 +50,8 @@ const createRow = (client) => {
         <td>${client.celular}</td>
         <td>${client.cidade}</td>
         <td>
-            <button type="button" class="button green">editar</button>
-            <button type="button" class="button red">excluir</button>
+            <button type="button" id="edit-${index}" class="button green">Editar</button>
+            <button type="button" id="delete-${index}" class="button red">Excluir</button>
         </td>
     `
     document.querySelector('#tableClient > tbody').appendChild(newRow);
@@ -88,6 +88,31 @@ const saveClient = () => {
     };
 };
 
+const fillFields = (client) => {
+    document.getElementById('nome').value = client.nome;
+    document.getElementById('email').value = client.email;
+    document.getElementById('celular').value = client.celular;
+    document.getElementById('cidade').value = client.cidade;
+
+};
+
+const editClient = (index) => {
+    const client = readClient()[index];
+    fillFields(client);
+    openModal();
+};
+
+const editDelete = (event) => {
+    if(event.target.type == 'button'){
+        const [action, index] = event.target.id.split('-');
+        if(action == 'edit'){
+            editClient(index);
+        }else{
+            console.log("Deletando o Cliente");
+        };
+    };   
+};
+
 updateTable();
 
 // EVENTOS
@@ -95,3 +120,4 @@ document.getElementById('cadastrarCliente').addEventListener('click', openModal)
 document.getElementById('modalClose').addEventListener('click', closeModal);
 document.getElementById('salvar').addEventListener('click', saveClient);
 document.getElementById('cancelar').addEventListener('click', closeModal);
+document.querySelector('#tableClient > tbody').addEventListener('click', editDelete);
