@@ -1,7 +1,10 @@
 'use strict';
 
 const openModal = () => document.getElementById('modal').classList.add('active');
-const closeModal = () => document.getElementById('modal').classList.remove('active');
+const closeModal = () => {
+    clearFields();
+    document.getElementById('modal').classList.remove('active');
+}
 
 const tempClient = {
     nome: "Carlos",
@@ -39,6 +42,11 @@ const isValidFields = () => {
     return document.getElementById('form').reportValidity();
 };
 
+const clearFields = () => {
+    const fields = document.querySelectorAll('.modal-field');
+    fields.forEach(element => element.value = "");
+};
+
 const saveClient = () => {
     if(isValidFields()){
         const client = {
@@ -48,8 +56,9 @@ const saveClient = () => {
             cidade: document.getElementById('cidade').value
         };
         createClient(client);
-        alert('cadastrando cliente');
-    }
+        clearFields();
+        alert('Cliente cadastrado com sucesso!!!');
+    };
 };
 
 // EVENTOS
