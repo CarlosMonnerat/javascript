@@ -41,6 +41,13 @@ const isValidFields = () => {
 
 const saveClient = () => {
     if(isValidFields()){
+        const client = {
+            nome: document.getElementById('nome').value,
+            email: document.getElementById('email').value,
+            celular: document.getElementById('celular').value,
+            cidade: document.getElementById('cidade').value
+        };
+        createClient(client);
         alert('cadastrando cliente');
     }
 };
@@ -49,3 +56,4 @@ const saveClient = () => {
 document.getElementById('cadastrarCliente').addEventListener('click', openModal);
 document.getElementById('modalClose').addEventListener('click', closeModal);
 document.getElementById('salvar').addEventListener('click', saveClient);
+document.getElementById('cancelar').addEventListener('click', closeModal);
