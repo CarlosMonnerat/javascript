@@ -6,12 +6,12 @@ const closeModal = () => {
     document.getElementById('modal').classList.remove('active');
 }
 
-const tempClient = {
-    nome: "Carlos",
-    email: "carlosh@gmail.com",
-    celular: "21987643210",
-    cidade: "Teresópolis"
-};
+// const tempClient = {
+//     nome: "Carlos",
+//     email: "carlosh@gmail.com",
+//     celular: "21987643210",
+//     cidade: "Teresópolis"
+// };
 
 const getLocalStorage = () => JSON.parse(localStorage.getItem('db_Client')) ?? [];
 const setLocalStorage = (dbClient) => localStorage.setItem("db_Client", JSON.stringify(dbClient));
@@ -42,6 +42,27 @@ const isValidFields = () => {
     return document.getElementById('form').reportValidity();
 };
 
+const createRow = (client) => {
+    const newRow = document.createElement('tr');
+    newRow.innerHTML = `
+        <td>${client.nome}</td>
+        <td>${client.email}</td>
+        <td>${client.celular}</td>
+        <td>${client.cidade}</td>
+        <td>
+            <button type="button" class="button green">editar</button>
+            <button type="button" class="button red">excluir</button>
+        </td>
+    `
+    document.querySelector('#tableClient > tbody').appendChild(newRow);
+};
+
+const updateTable = () => {
+    clearTable();
+    const dbClient = readClient();
+    dbClient.forEach(createRow);
+};
+
 const clearFields = () => {
     const fields = document.querySelectorAll('.modal-field');
     fields.forEach(element => element.value = "");
@@ -60,6 +81,8 @@ const saveClient = () => {
         alert('Cliente cadastrado com sucesso!!!');
     };
 };
+
+updateTable();
 
 // EVENTOS
 document.getElementById('cadastrarCliente').addEventListener('click', openModal);
