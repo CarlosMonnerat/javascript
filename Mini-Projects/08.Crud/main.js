@@ -57,6 +57,11 @@ const createRow = (client) => {
     document.querySelector('#tableClient > tbody').appendChild(newRow);
 };
 
+const clearTable = () => {
+    const rows = document.querySelectorAll('#tableClient > tbody tr');
+    rows.forEach(element => element.parentNode.removeChild(element));
+};
+
 const updateTable = () => {
     clearTable();
     const dbClient = readClient();
@@ -78,6 +83,7 @@ const saveClient = () => {
         };
         createClient(client);
         clearFields();
+        updateTable();
         alert('Cliente cadastrado com sucesso!!!');
     };
 };
