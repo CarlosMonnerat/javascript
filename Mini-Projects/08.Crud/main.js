@@ -22,9 +22,9 @@ const createClient = (client) => {
 
 const readClient = () => getLocalStorage();
 
-const updateClient = (index, client) => {
+const updateClient = (index, upClient) => {
     const dbClient = readClient();
-    dbClient[index] = client;
+    dbClient[index] = upClient;
     setLocalStorage(dbClient);
 };
 
