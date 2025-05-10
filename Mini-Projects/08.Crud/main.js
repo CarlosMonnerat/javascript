@@ -38,6 +38,7 @@ const deleteClient = (index) => {
 const isValidFields = () => {
     return document.getElementById('form').reportValidity();
 };
+
 const saveClient = () => {
     if(isValidFields()){
         alert('cadastrando cliente');
