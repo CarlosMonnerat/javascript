@@ -1,14 +1,14 @@
 const http = require('http');
 const porta = process.env.PORT || 3000;
-const formidable = require('formidable');
+const formidavel = require('formidable');
 const fs = require('fs');
 
 const servidor = http.createServer((req, res) => {
    if(req.url == '/envioDeArquivo'){
-      const form = new formidable.IncomingForm();
+      const form = new formidavel.IncomingForm();
       form.parse(req, (erro, campos, arquivos) => {
          const urlantiga = arquivos.filetoupload.path;
-         const urlnova = 'C:/Repository/javascript/NodeJS/CFB_Cursos/aulas' + arquivos.filetoupload.name;
+         const urlnova = 'C:/Repository/javascript/NodeJS/CFB_Cursos/aulas/aula10' + arquivos.filetoupload.name;
          fs.rename(urlantiga, urlnova, (erro) => {
             if(erro) throw erro;
             res.write('Arquivo Movido!');
