@@ -7,8 +7,11 @@ const servidor = http.createServer((req, res) => {
    if(req.url == '/envioDeArquivo'){
       const form = new formidavel.IncomingForm();
       form.parse(req, (erro, campos, arquivos) => {
-         const urlantiga = arquivos.filetoupload[0].filepath;
-         const urlnova = 'C:/Repository/javascript/NodeJS/CFB_Cursos/aulas/aula10/>' + arquivos.filetoupload[0].originalFilename;
+         // const urlantiga = arquivos.filetoupload.filepath;
+         // const urlnova = 'C:/Repository/javascript/NodeJS/CFB_Cursos/' + arquivos.filetoupload.originalFilename;
+         const urlantiga = arquivos.filetoupload[0]?.filepath || arquivos.filetoupload.filepath;
+         const urlnova = 'C:/Repository/javascript/NodeJS/CFB_Cursos/aulas/aula10/' + (arquivos.filetoupload[0]?.originalFilename || arquivos.filetoupload.originalFilename);
+
          fs.rename(urlantiga, urlnova, (erro) => {
             if(erro) throw erro;
             res.write('Arquivo Movido!');
