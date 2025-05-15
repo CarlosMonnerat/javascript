@@ -57,7 +57,7 @@ form{
 
 .button-container{
    display: flex;
-   justify-content: space-evenly;
+   justify-content: space-around;
 }
 
 .button{
@@ -67,6 +67,12 @@ form{
    border: none;
    outline: none;
    cursor: pointer;
+   transition: all .6s;
+}
+
+.button:hover{
+   min-width: 103px;
+   height: 35px;
 }
 
 footer{
