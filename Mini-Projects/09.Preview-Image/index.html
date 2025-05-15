@@ -4,9 +4,29 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
+   <link rel="stylesheet" href="style.css">
    <title>Preview Image</title>
 </head>
 <body>
-   
+   <header>
+      <h1>PREVIEW IMAGE</h1>
+   </header>
+   <main>
+      <form>
+         <div class="preview-container">
+            <input id="preview-input" class="preview-input" type="file" accept="image/*">
+            <label for="preview-input"></label>
+            <img id="preview-image" class="preview-image" src="./img/upload-icon.png">
+         </div>
+         <div class="button-container">
+            <button class="button" type="button">Salvar</button>
+            <button class="button" type="button">Cancelar</button>
+         </div>
+      </form>
+   </main>
+   <footer>
+      <p>&copy; 2025 |</p>
+      <a href="https://github.com/CarlosMonnerat">Carlos Monnerat</a>
+   </footer>
 </body>
 </html>
