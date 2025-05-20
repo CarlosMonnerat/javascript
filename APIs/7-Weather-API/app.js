@@ -5,13 +5,14 @@ const searchWeather = async (town) => {
    const url = `https://api.weatherapi.com/v1/current.json?key=${key}&q=${town}&aqi=no`;
    const response = await fetch(url);
    const data = await response.json();
-   console.log(data);
+   return data;
 };
 
-const preencherForm = (event) => {
+const preencherForm = async (event) => {
    if(event.key === "Enter"){
       const place = event.target.value;
-      const info = searchWeather(place);
+      const info = await searchWeather(place);
+      console.log(info);
    }   
 };
 
