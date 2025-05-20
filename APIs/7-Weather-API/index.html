@@ -12,23 +12,23 @@
         <div class="weather-card">
             <label >
                 <i class="fas fa-map-marker-alt"></i>
-                <input id="weather-search" class="weather-search" placeholder="Nome da Cidade" value="São Paulo">
+                <input id="weather-search" class="weather-search" placeholder="Nome da Cidade">
             </label>
-            <img class="weather-image" src="https://openweathermap.org/img/wn/11d@4x.png" alt="Imagem do clima">
-            <div class="weather-temperature">29° C</div>
-            <div class="weather-city">São Paulo</div>
+            <img id="weather-image" class="weather-image" src="https://openweathermap.org/img/wn/11d@4x.png" alt="Imagem do clima">
+            <div id="weather-temperature" class="weather-temperature">29° C</div>
+            <div id="weather-city" class="weather-city"></div>
             <div class="weather-details">
                 <div class="detail">
                     <i class="fas fa-water"></i>
                     <span>
-                        <p class="detail-text">88%</p>
+                        <p id="detail-humidity" class="detail-text">88%</p>
                         <p>Humidade</p>
                     </span>
                 </div>
                 <div class="detail">
                     <i class="fas fa-wind"></i>
                     <span>
-                        <p class="detail-text">20 KM</p>
+                        <p id="detail-speed" class="detail-text">20 KM</p>
                         <p>Vento</p>
                     </span>
                 </div>
