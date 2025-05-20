@@ -1,7 +1,8 @@
 'use strict';
 
-const preencherForm = () => {
-   console.log('Teste teclado');
+const preencherForm = (event) => {
+   if(event.key === "Enter")  console.log(event.key);
+   
 };
 
 document.getElementById("weather-search").addEventListener('keydown', preencherForm);
