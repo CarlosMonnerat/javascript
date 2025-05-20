@@ -22,7 +22,7 @@ const changeBgcolor = (temp) => {
 };
 
 const searchWeather = async (town) => {
-   const key = 'f9488a76525c43ceafa210358252005';
+   const key = 'f9488a76525c43ceafa210358252005'; //pass: weatherapi%2442
    const url = `https://api.weatherapi.com/v1/current.json?key=${key}&q=${town}&aqi=no`;
    const response = await fetch(url);
    const data = await response.json();
