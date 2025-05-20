@@ -8,6 +8,9 @@ const changeBgcolor = (temp) => {
       bgcolor = '#4a90e2'; //Azul
    }
    else if (temp > 10 && temp <= 20){
+      bgcolor = '#00FF7F'; //Verde
+   }
+   else if (temp > 20 && temp <= 30){
       bgcolor = '#ffd166'; //Amarelo
    }else {
       bgcolor = '#ff6b6b'; //Rosa
@@ -15,6 +18,7 @@ const changeBgcolor = (temp) => {
 
    document.documentElement.style.setProperty('--bg-color', bgcolor);
    document.documentElement.style.setProperty('--text-color', '#000');
+   document.documentElement.style.setProperty('--body-color', `${bgcolor}55`);
 };
 
 const searchWeather = async (town) => {
