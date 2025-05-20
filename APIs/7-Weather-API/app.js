@@ -19,7 +19,7 @@ const preencherForm = async (event) => {
       document.getElementById('weather-image').src = info.current.condition.icon.replaceAll(64,128);
       document.getElementById('weather-city').textContent = info.location.name;
       document.getElementById('weather-temperature').textContent = `${info.current.temp_c}º C`;
-      document.getElementById('detail-windSpeed').textContent = `${info.current.wind_kph} KM`;
+      document.getElementById('detail-windSpeed').textContent = `${info.current.wind_kph} km/h`;
       document.getElementById('detail-humidity').textContent = `${info.current.humidity}%`;
 
 
