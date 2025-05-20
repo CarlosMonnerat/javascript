@@ -10,6 +10,7 @@
 }
 body{
     background-color: var(--body-color);
+    transition: 1s;
 }
 
 main{
@@ -30,6 +31,7 @@ main{
     padding:  48px 24px;
     box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.692);
     border-radius: 5px;
+    transition: 1s;
 }
 .weather-card label{
     display: flex;
