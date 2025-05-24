@@ -20,9 +20,14 @@ async function carregarEstilos () {
       option.value = e.toLowerCase().replace(' ', '-');
       option.textContent = e;
       select.appendChild(option);
-      console.log(option.value);
-   });
-   
+   });  
 };
+
+function gerarAvatar () {
+   console.log("Gerando Avatar");
+};
+
+document.getElementById('nome-input').addEventListener('input', gerarAvatar);
+document.getElementById('estilo-select').addEventListener('change', gerarAvatar);
 
 carregarEstilos();
