@@ -7,11 +7,22 @@ async function extrairEstilosDiceBear () {
    const html = await response.text();
    const parser = new DOMParser();
    const doc = parser.parseFromString(html, 'text/html');
-   console.log(doc);
+   const elementos = doc.querySelectorAll('p[data-v-10acf738]');
+   const estilos = [...elementos].map(e => e.textContent);
+   return estilos;
 };
 
 async function carregarEstilos () {
    const estilos = await extrairEstilosDiceBear();
+   const select = document.getElementById('estilo-select');
+   estilos.forEach(e => {
+      const option = document.createElement('option');
+      option.value = e.toLowerCase().replace(' ', '-');
+      option.textContent = e;
+      select.appendChild(option);
+      console.log(option.value);
+   });
+   
 };
 
 carregarEstilos();
