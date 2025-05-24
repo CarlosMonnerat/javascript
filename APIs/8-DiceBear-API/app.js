@@ -35,7 +35,7 @@ function gerarAvatar () {
       const img = document.createElement('img');
       img.src = url;
       avatarContainer.replaceChildren(img);
-      console.log("Gerando Avatar:", url);
+      //console.log("Gerando Avatar:", url);
    }   
 };
 
