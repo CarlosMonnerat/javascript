@@ -24,10 +24,22 @@ async function carregarEstilos () {
 };
 
 function gerarAvatar () {
-   console.log("Gerando Avatar");
+   const nome = document.getElementById('nome-input').value.trim();
+   const estilo = document.getElementById('estilo-select').value;
+   const avatarContainer = document.getElementById('avatar-container');
+
+   if(!nome || estilo == 'Selecione um estilo'){
+      avatarContainer.textContent = 'Preencha o nome e escolha um estilo.'
+   }else{
+      const url = `https://api.dicebear.com/9.x/${estilo}/svg?seed=${nome}`;
+      const img = document.createElement('img');
+      img.src = url;
+      avatarContainer.replaceChildren(img);
+      console.log("Gerando Avatar:", url);
+   }   
 };
 
-document.getElementById('nome-input').addEventListener('input', gerarAvatar);
-document.getElementById('estilo-select').addEventListener('change', gerarAvatar);
 
 carregarEstilos();
+document.getElementById('nome-input').addEventListener('input', gerarAvatar);
+document.getElementById('estilo-select').addEventListener('change', gerarAvatar);
