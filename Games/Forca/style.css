@@ -135,10 +135,25 @@ p{
    background-color: green;
    width: 50%;
 }
-.forcaimg{
-    
+.forcaimg{ 
     width: 50%;
     height: 60%;
+}
+
+#cabeçaimg{
+    position: absolute;
+    top: 140px;
+    left: 175px;
+    width: 13%;
+}
+
+#corpoimg{
+    position: absolute;
+    top: 260px;
+    left: 215px;
+    
+    width: 12%;
+    height: 20%;
 }
 
 /*
@@ -147,16 +162,7 @@ p{
     position: absolute;
     left: 640px;
     top: 438px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.37);
-    
-}
-
-
-#cabeçaimg{
-    position: absolute;
-    left: 470px;
-    top: 210px;
-    width: 100px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.37);    
 }
 #cabeçaMimg{
     position: absolute;
@@ -164,13 +170,7 @@ p{
     top: 210px;
     width: 100px;
 }
-#corpoimg{
-    position: absolute;
-    left: 488px;
-    top: 272px;
-    width: 100px;
-    height: 100px;
-}
+
 #braçoEimg{
     position: absolute;
     left: 432px;
