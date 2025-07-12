@@ -15,16 +15,34 @@
         <p>Digite uma letra e clique em "jogar"</p>
     </header>
    
-    <section>
-       
-        <input type="text" id="caixa" class="caixa" maxlength="1">
-        <button class="btjogar" onclick="jogar()">Jogar</button>
-        <button class="btnova" onclick="NovaPalavra()">Nova Palavra</button>
+    <section class="container">
+        <div id="dvForca">
+            <img src="image/forca.png" alt="forca" class="forcaimg">
+            <img src="image/cabeça.png" alt="cabeça" id="cabeçaimg">
+            <img src="image/cabeçaM.png" alt="cabeçaM" id="cabeçaMimg">
+            <img src="image/corpo.png" alt="corpo" id="corpoimg">
+            <img src="image/braçoE.png" alt="braçoE" id="braçoEimg">
+            <img src="image/braçoD.png" alt="braçoD" id="braçoDimg">
+            <img src="image/pernaE.png" alt="pernaE" id="pernaEimg">
+            <img src="image/pernaD.png" alt="pernaD" id="pernaDimg">
+        </div>
 
-        <div id="textoinicial"></div>
-        <div id="letrasdig"></div>
+        <div class="display">
+            <div class="control">
+                <div>
+                    <input type="text" id="caixa" class="caixa" maxlength="1">
+                    <button class="btnjogar" onclick="jogar()">Jogar</button>
+                </div>
+                <div>
+                    <button class="btnnova" onclick="NovaPalavra()">Nova Palavra</button>
+                </div>    
+            </div>
+            
 
-        <div id="dvpalavra" class="dvdisplay">
+            <div id="textoinicial"></div>
+            <div id="letrasdig"></div>
+
+            <div id="dvpalavra" class="dvdisplay">
             <input type="text" id="letra0" class="letra" maxlength="1">
             <input type="text" id="letra1" class="letra" maxlength="1">
             <input type="text" id="letra2" class="letra" maxlength="1">
@@ -46,17 +64,9 @@
             <input type="text" id="letra18" class="letra" maxlength="1">
             <input type="text" id="letra19" class="letra" maxlength="1">
         </div>
-
-        <div id="dvForca">
-            <img src="image/forca.png" alt="forca" class="forcaimg">
-            <img src="image/cabeça.png" alt="cabeça" id="cabeçaimg">
-            <img src="image/cabeçaM.png" alt="cabeçaM" id="cabeçaMimg">
-            <img src="image/corpo.png" alt="corpo" id="corpoimg">
-            <img src="image/braçoE.png" alt="braçoE" id="braçoEimg">
-            <img src="image/braçoD.png" alt="braçoD" id="braçoDimg">
-            <img src="image/pernaE.png" alt="pernaE" id="pernaEimg">
-            <img src="image/pernaD.png" alt="pernaD" id="pernaDimg">
         </div>
+
+        
     </section>
     
 </body>
