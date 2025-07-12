@@ -26,11 +26,12 @@ p{
 }
  
 .container{
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: flex-start;
-    background-color: brown;
+    border: 5px solid brown;
 }
 
 .display{
@@ -41,7 +42,7 @@ p{
     align-items: center;
     width: 60vw;
     height: 70vh;
-    background-color: blue;
+    /* background-color: blue; */
 }
 
 .control{
@@ -54,7 +55,6 @@ p{
     align-items: center;
     width: 100%;
     height: 30%;
-    background-color: yellow;
 }
 
 .caixa{
@@ -113,7 +113,6 @@ p{
 }
 
 .quadro{
-    background-color: blueviolet;
     position: relative;
     top: 30px;
     width: 100%;
@@ -132,6 +131,15 @@ p{
     font-size: large;
     background-color: springgreen;    
 }
+.dvforca{
+   background-color: green;
+   width: 50%;
+}
+.forcaimg{
+    
+    width: 50%;
+    height: 60%;
+}
 
 /*
 .dvdisplay{
@@ -143,12 +151,7 @@ p{
     
 }
 
-.forcaimg{
-    position: absolute;
-    left: 300px;
-    top: 100px;
-    height: 500px;
-}
+
 #cabeçaimg{
     position: absolute;
     left: 470px;
