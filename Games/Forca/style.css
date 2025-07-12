@@ -131,6 +131,11 @@ p{
     font-size: large;
     background-color: springgreen;    
 }
+
+.dvdisplay{
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.37);    
+}
+
 .dvforca{
    background-color: green;
    width: 50%;
@@ -151,51 +156,47 @@ p{
     position: absolute;
     top: 260px;
     left: 215px;
-    
+    width: 12%;
+    height: 20%;
+}
+
+#braçoEimg{
+    position: absolute;
+    top: 260px;
+    left: 115px;
+    width: 12%;
+    height: 20%;
+}
+
+#braçoDimg{
+    position: absolute;
+    top: 258px;
+    left: 300px;
+    width: 12%;
+    height: 20%;
+}
+
+#pernaEimg{
+    position: absolute;
+    top: 380px;
+    left: 130px;
+    width: 12%;
+    height: 20%;
+}
+
+#pernaDimg{
+    position: absolute;
+    top: 380px;
+    left: 293px;
     width: 12%;
     height: 20%;
 }
 
 /*
-.dvdisplay{
-    display: flex;
-    position: absolute;
-    left: 640px;
-    top: 438px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.37);    
-}
 #cabeçaMimg{
     position: absolute;
     left: 470px;
     top: 210px;
     width: 100px;
 }
-
-#braçoEimg{
-    position: absolute;
-    left: 432px;
-    top: 278px;
-    width: 100px;
-    height: 100px;
-}
-#braçoDimg{
-    position: absolute;
-    left: 535px;
-    top: 277px;
-    width: 100px;
-    height: 100px;
-}
-#pernaEimg{
-    position: absolute;
-    left: 438px;
-    top: 365px;
-    width: 100px;
-    height: 100px;
-}
-#pernaDimg{
-    position: absolute;
-    left: 533px;
-    top: 360px;
-    width: 100px;
-    height: 110px;
-} */
+*/
