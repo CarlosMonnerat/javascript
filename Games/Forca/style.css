@@ -141,8 +141,34 @@ p{
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.37);
 }
 
+.dvforca {
+  position: relative;
+  width: 50%;
+  height: 60vh;
+  background-color: green;
+}
 
-.dvforca{
+.dvforca img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 60vh;
+}
+
+.forcaimg {
+  position: relative; /* imagem base, visível sempre */
+  z-index: 1;
+}
+
+.forcaparte {
+  z-index: 2;
+  display: none; /* só mostraremos uma por vez no JS */
+}
+
+
+
+/* .dvforca{
    width: 50%;
    height: 80vh;
 }
@@ -200,7 +226,7 @@ p{
     left: 293px;
     width: 12%;
     height: 20%;
-}
+} */
 
 /*
 #cabeçaMimg{

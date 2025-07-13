@@ -12,14 +12,22 @@ document.addEventListener("DOMContentLoaded", function () {
     let erros = 0;
     let jogando = false;
 
-    const desenhos = [];
-    desenhos[1] = document.getElementById("cabeçaimg");
-    desenhos[2] = document.getElementById("corpoimg");
-    desenhos[3] = document.getElementById("braçoEimg");
-    desenhos[4] = document.getElementById("braçoDimg");
-    desenhos[5] = document.getElementById("pernaEimg");
-    desenhos[6] = document.getElementById("pernaDimg");
-    desenhos[7] = document.getElementById("cabeçaMimg");
+    const desenhos = [
+        null, // índice 0 vazio só para manter o índice começando em 1
+        document.getElementById("cabeçaimg"),
+        document.getElementById("corpoimg"),
+        document.getElementById("braçoDimg"),
+        document.getElementById("braçoEimg"),
+        document.getElementById("pernaDimg"),
+        document.getElementById("pernaEimg"),
+    ];
+
+// Mostra apenas a imagem atual e esconde todas as anteriores
+    function mostrarDesenho(numero) {
+        for (let i = 1; i < desenhos.length; i++) {
+            desenhos[i].style.display = i === numero ? "block" : "none";
+        }
+    }
 
 
     function criarInputs() {
@@ -55,9 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
         cxJog.focus();
         letrasDig.innerHTML = "";
         defLetras(tam);
-        for (let i = 1; i <= 7; i++) {
-            desenhos[i].style.display = "none";
-        }
+        mostrarDesenho(0); // esconde todos
     }
 
     function jogar() {
@@ -89,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
             letrasDig.innerHTML += letra.toUpperCase() + ",";
             erros++;
             if (desenhos[erros]) {
-                desenhos[erros].style.display = "block";
+                mostrarDesenho(erros);
             }
 
             if (erros === 7) {
