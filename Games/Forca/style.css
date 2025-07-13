@@ -72,7 +72,7 @@ p{
     width: 30%;
     height: 20%;
     text-align: center;
-    font-size: larger;
+    font-size: medium;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
     border-radius: 10px;
@@ -151,7 +151,6 @@ p{
 
 .dvforca img {
   position: absolute;
-  
   width: 50%;
   height: 60vh;
 }
@@ -167,72 +166,22 @@ p{
 }
 
 
-
-/* .dvforca{
-   width: 50%;
-   height: 80vh;
-}
-
-.forcaimg{ 
-    position: absolute;
-    top: 10px;
-    left: 30px;
-    width: 20%;
+@media (max-width: 768px) {
     
+
+    .dvforca img {
+        width: 50%;
+        height: 40vh;
+    }
+
+    .display{
+        width: 40vw;
+        height: 30vh;
+    }
+
+    .btnjogar{
+        font-size: small;
+    }
+
 }
 
-#cabeçaimg{
-    position: absolute;
-    top: 140px;
-    left: 175px;
-    width: 13%;
-}
-
-#corpoimg{
-    position: absolute;
-    top: 260px;
-    left: 215px;
-    width: 12%;
-    height: 20%;
-}
-
-#braçoEimg{
-    position: absolute;
-    top: 260px;
-    left: 115px;
-    width: 12%;
-    height: 20%;
-}
-
-#braçoDimg{
-    position: absolute;
-    top: 258px;
-    left: 300px;
-    width: 12%;
-    height: 20%;
-}
-
-#pernaEimg{
-    position: absolute;
-    top: 370px;
-    left: 130px;
-    width: 12%;
-    height: 20%;
-}
-
-#pernaDimg{
-    position: absolute;
-    top: 370px;
-    left: 293px;
-    width: 12%;
-    height: 20%;
-} */
-
-/*
-#cabeçaMimg{
-    position: absolute;
-    left: 470px;
-    top: 210px;
-    width: 100px;
-}
-*/
