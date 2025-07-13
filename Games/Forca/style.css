@@ -133,10 +133,14 @@ p{
     background-color: springgreen;    
 }
 
-.dvdisplay{
+.dvdisplay {
     user-select: none;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.37);    
 }
+
+.dvdisplay .letra {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.37);
+}
+
 
 .dvforca{
    width: 50%;
