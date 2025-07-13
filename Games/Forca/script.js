@@ -33,17 +33,36 @@ var jogando=false;
 
 
 
-function defLetras(d){
-    var obj;
-    for(var i=0;i<20;i++){ // '20' é o número máximo de letras
-        obj=document.getElementById("letra"+i).value=""; 
-        obj=document.getElementById("letra"+i).style.display="none"; //A princípio definimos todas as letras com o display 'None' para que não apareça nenhuma
+// Função para criar os inputs dinamicamente (somente uma vez)
+function criarInputs() {
+    const container = document.getElementById("dvpalavra");
+    for (let i = 0; i < 20; i++) {
+        const input = document.createElement("input");
+        input.type = "text";
+        input.id = "letra" + i;
+        input.className = "letra";
+        input.maxLength = 1;
+        input.readOnly = true;
+        input.style.display = "none"; // inicialmente escondido
+        container.appendChild(input);
     }
-    for(var i=0; i<d; i++){ //Então usamos o parametro 'd' para mostrar apenas as letras necessárias
-        obj=document.getElementById("letra"+i).style.display="inline-block";
-    }
-
 }
+
+// Função para configurar quais inputs ficam visíveis
+function defLetras(d) {
+    for (let i = 0; i < 20; i++) {
+        const input = document.getElementById("letra" + i);
+        input.value = "";
+        input.style.display = i < d ? "inline-block" : "none";
+    }
+}
+
+// Chamada inicial para criar os elementos no DOM
+criarInputs();
+
+// Exemplo: mostra 5 letras
+defLetras(5);
+
 
 function jogar(){
     if(cxJog.value==""){
