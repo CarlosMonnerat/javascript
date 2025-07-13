@@ -143,6 +143,8 @@ p{
 
 .dvforca {
   position: relative;
+  display: flex;
+  justify-content: center;
   width: 50%;
   height: 60vh;
   background-color: green;
@@ -150,8 +152,7 @@ p{
 
 .dvforca img {
   position: absolute;
-  top: 0;
-  left: 0;
+  
   width: 50%;
   height: 60vh;
 }
