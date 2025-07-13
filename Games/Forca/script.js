@@ -76,15 +76,15 @@ function jogar(){
                 NovaPalavra();
             }
            
-        }
+        };
         
         if(acertos==tam){
             jogando=false;
             alert("PARABÉNS, VOCÊ GANHOU!!! \n Palavra: "+salvapalavra);
             NovaPalavra();
-        }
+        };
 
-    }
+    };
     
 
 
@@ -104,4 +104,4 @@ function NovaPalavra(){
     desenhos[i].style.display="none";
     }
     
-}
+};
