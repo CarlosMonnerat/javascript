@@ -1,0 +1,192 @@
+@media (min-width: 1024px) {
+   .container{
+      width: 800px;
+      height: 300px;
+   }
+
+   .quadro{
+      top: 10px;
+      left: 0;
+      width: 100%;
+      height: 10%;
+   }
+
+   .dvdisplay{
+      top: -30px;
+      left: 0;
+      justify-content: center;
+      align-items: center;
+      height: 30%;
+   }
+
+   .dvforca img {
+      width: 60%;
+      height: 90%;
+   }
+
+   .dvdisplay .letra {
+      width: 30px;
+      height: 30px;  
+   }
+
+   .btnnova{
+      width: 100%;
+      height: 20%;
+      font-size: medium;
+      margin-right: 40px;
+   }
+}
+
+@media (min-width: 900px) and (max-width: 1024px) {
+   .container{
+      width: 700px;
+      height: 300px;
+   }
+
+   .quadro{
+      top: 10px;
+      left: 0;
+      width: 100%;
+      height: 10%;
+   }
+
+   .dvdisplay{
+      top: -30px;
+      left: 0;
+      justify-content: center;
+      align-items: center;
+      height: 30%;
+   }
+
+   .dvforca img {
+      width: 60%;
+      height: 90%;
+   }
+
+   .dvdisplay .letra {
+      width: 30px;
+      height: 30px;  
+   }
+
+   .btnnova{
+      width: 100%;
+      height: 20%;
+      font-size: small;
+      margin-right: 40px;
+   }
+}
+
+@media (min-width: 500px) and (max-width: 900px) {
+   h1{
+      font-size: 3rem;   
+   }
+   p{
+      font-size: 1.5rem;
+   }
+   .container{
+      width: 500px;
+      height: 300px;
+   }
+
+   .caixa{
+      width: 20%;
+      height: 20%;
+   }
+
+   .btnjogar{
+    width: 35%;
+    height: 20%;
+    font-size: small;
+    padding-right: 45px;
+   }
+
+   .btnnova{
+    width: 100%;
+    height: 20%;
+    font-size: small;
+    margin-right: 40px;
+   }
+
+   .quadro{
+      top: 10px;
+      left: 0;
+      width: 100%;
+      height: 10%;
+   }
+
+   .dvdisplay{
+      top: -30px;
+      left: 0;
+      justify-content: center;
+      align-items: center;
+      height: 30%;
+   }
+
+   .dvforca img {
+      width: 90%;
+      height: 80%;
+   }
+
+   .dvdisplay .letra {
+      width: 25px;
+      height: 25px;  
+   }
+}
+
+@media (min-width: 300px) and (max-width: 500px) {
+   h1{
+      font-size: 2rem;   
+   }
+   p{
+      font-size: 1rem;
+   }
+   .container{
+      width: 300px;
+      height: 300px;
+   }
+
+   .caixa{
+      width: 20%;
+      height: 20%;
+   }
+
+   .btnjogar{
+    width: 35%;
+    height: 20%;
+    font-size: small;
+    padding-right: 45px;
+   }
+
+   .btnnova{
+    width: 100%;
+    height: 20%;
+    font-size: small;
+    margin-right: 40px;
+   }
+
+   .quadro{
+      top: 10px;
+      left: 0;
+      width: 100%;
+      height: 10%;
+   }
+
+   .dvdisplay{
+      top: -30px;
+      left: 0;
+      justify-content: center;
+      align-items: center;
+      height: 30%;
+   }
+
+   .dvforca img {
+      width: 90%;
+      height: 80%;
+   }
+
+   .dvdisplay .letra {
+      width: 25px;
+      height: 25px;  
+   }
+}
+
