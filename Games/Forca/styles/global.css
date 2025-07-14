@@ -9,8 +9,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: white;
-    background-image: url(image/background.png);
+    background-image: url("../image/background.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -40,7 +39,6 @@ p{
     height: 50vh;
     margin-left: 10px;
     margin-right: 10px;
-    border: 5px solid red;
 }
 
 .display{
@@ -51,7 +49,6 @@ p{
     align-items: center;
     width: 50%;
     height: 100%;
-    background-color: yellow;
 }
 
 .control{
@@ -64,7 +61,6 @@ p{
     align-items: center;
     width: 100%;
     height: 20%;
-    background-color: blue;
 }
 
 .caixa{
@@ -128,7 +124,8 @@ p{
     left: 0;
     width: 100%;
     height: 10%;
-    background-color: blueviolet;
+    color: rgb(173, 28, 28);
+    font-weight: bolder;
 }
 #letrasdig{
     position: absolute;
@@ -155,7 +152,6 @@ p{
     width: 100%;
     height: 10%;
     user-select: none;
-    background-color: pink;
 }
 
 .dvdisplay .letra {
@@ -169,7 +165,6 @@ p{
   align-items: center;
   width: 50%;
   height: 100%;
-  background-color: green;
 }
 
 .dvforca img {
