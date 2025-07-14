@@ -123,22 +123,14 @@ p{
     top: -30px;
     left: 0;
     width: 100%;
-    height: 10%;
+    height: 90%;
     color: rgb(173, 28, 28);
     font-weight: bolder;
+    padding: 10px;
 }
-#letrasdig{
-    position: absolute;
-    top: 10%;
-    left: 50%;
-}
-
-#textoinicial{
-    position: absolute;
-    left: 620px;
-    top: 220px;
-    font-size: large;
-    background-color: springgreen;    
+.digitada{
+    color: black;
+    font-size: large;      
 }
 
 .dvdisplay {
