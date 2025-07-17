@@ -1,8 +1,15 @@
+require("dotenv").config();
+const dbUser = process.env.DB_User;
+const dbHost = process.env.DB_Host;
+const dbPort = process.env.DB_Port;
+const dbName = process.env.DB_Name;
+const dbPass = process.env.DB_Pass;
+
 const conectar = async () => {
    if(global.conexao && global.conexao.state != 'disconected')
       return global.conexao
    const mysql = require('mysql2/promise.js'); 
-   const con = mysql.createConnection('mysql://root:****************@localhost:3306/cfbcursos'); //'mysql://Usuário(root):senha@localhost:porta/banco'
+   const con = mysql.createConnection(`mysql://${dbUser}:${dbPass}@${dbHost}:${dbPort}/${dbName}`);
    console.log('Conectou ao Banco!!!');
    global.conexao = con;
    return con;
